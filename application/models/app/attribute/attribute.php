@@ -1,10 +1,10 @@
 <?php
 
-class Article extends DataMapper {
+class Attribute extends DataMapper {
 
     public $db_params = 'default';
-    public $table = 'articles';
-    public $has_many = array('article_languages');
+    public $table = 'attributes';
+    public $has_many = array('attribute_languages');
     public static $ci;
     public $validation = array(
         array(
@@ -13,24 +13,19 @@ class Article extends DataMapper {
             'rules' => array('trim', 'numeric', 'max_length' => 10),
         ),
         array(
-            'field' => 'name',
-            'label' => 'Name',
-            'rules' => array('required', 'trim', 'min_length' => 3, 'required', 'max_length' => 100),
+            'field' => 'influence_type',
+            'label' => 'Influence Type',
+            'rules' => array('required', 'trim', 'min_length' => 1, 'max_length' => 1),
         ),
         array(
-            'field' => 'email',
-            'label' => 'E-mail',
-            'rules' => array('required', 'trim', 'unique', 'min_length' => 6)
+            'field' => 'measurement_type',
+            'label' => 'Measurement Type',
+            'rules' => array('required', 'trim', 'min_length' => 1, 'max_length' => 1),
         ),
         array(
-            'field' => 'date',
-            'label' => 'Date',
-            'rules' => array('trim', 'max_length' => 10),
-        ),
-        array(
-            'field' => 'new',
-            'label' => 'New',
-            'rules' => array('trim', 'min_length' => 0, 'max_length' => 1),
+            'field' => 'strict',
+            'label' => 'Strict',
+            'rules' => array('required', 'trim', 'min_length' => 1, 'max_length' => 1),
         )
     );
 
@@ -41,53 +36,53 @@ class Article extends DataMapper {
         }
     }
 
-    public function set_article() {
+    public function set_attribute() {
         if (self::$ci->access->check_access(__FUNCTION__) == false)
             return 403;
 
-        $article = new Article();
+        $attribute = new Attribute();
 
         if (self::$ci->input->post('id')) {
-            $article->get_by_id(self::$ci->input->post('id'));
+            $attribute->get_by_id(self::$ci->input->post('id'));
         }
 
-        $article->name = self::$ci->input->post('name');
-        $article->name = self::$ci->input->post('influence_type');
-        $article->name = self::$ci->input->post('measurement_type');
-        $article->name = self::$ci->input->post('strict');
+        $attribute->name = self::$ci->input->post('name');
+        $attribute->name = self::$ci->input->post('influence_type');
+        $attribute->name = self::$ci->input->post('measurement_type');
+        $attribute->name = self::$ci->input->post('strict');
 
         if ($subscription_id_array = self::$ci->input->post('subscribe')) {
             foreach ($subscription_id_array as $key => $value) {
                 $subscription = new Subscription();
                 $subscription->get_by_id($value);
-                $article->save($subscription->all);
+                $attribute->save($subscription->all);
             }
         }
 
-        if ($article->save())
-            return $article->to_array();
+        if ($attribute->save())
+            return $attribute->to_array();
         else
             return false;
     }
 
-    public function get_article($article_id = false) {
+    public function get_attribute($attribute_id = false) {
         if (self::$ci->access->check_access(__FUNCTION__) == false)
             return 403;
 
-        $input_id = self::$ci->input->post('article_id');
-        $article_id = $input_id ? $input_id : $article_id;
+        $input_id = self::$ci->input->post('attribute_id');
+        $attribute_id = $input_id ? $input_id : $attribute_id;
 
-        if ($article_id) {
+        if ($attribute_id) {
 
-            $article = new Article();
+            $attribute = new Attribute();
             $subscription = new Subscription();
 
-            $article_copy = new Article();
-            $article_copy->get_by_id($article_id);
+            $attribute_copy = new Attribute();
+            $attribute_copy->get_by_id($attribute_id);
 
             return array(
-                $article->get_by_id($article_id)->to_array(),
-                $article_copy->subscription->get()->all_to_array() // паліво
+                $attribute->get_by_id($attribute_id)->to_array(),
+                $attribute_copy->subscription->get()->all_to_array() // паліво
             );
 
         } else
@@ -95,37 +90,37 @@ class Article extends DataMapper {
 
     }
 
-    public function get_all_articles() {
+    public function get_all_attributes() {
         if (self::$ci->access->check_access(__FUNCTION__) == false)
             return 403;
 
-        $article = new Article();
-        $article->order_by("name")->get();
+        $attribute = new Attribute();
+        $attribute->order_by("name")->get();
 
-        foreach ($article as $key => $value) {
+        foreach ($attribute as $key => $value) {
             $subscription = new Subscription();
             $result[$key] = $value->to_array();
-            $result[$key]['subscription'] = $subscription->where_related('article', 'id', $value->id)->get()->all_to_array();
+            $result[$key]['subscription'] = $subscription->where_related('attribute', 'id', $value->id)->get()->all_to_array();
         }
 
         return $result;
     }
 
-    public function delete_article() {
+    public function delete_attribute() {
         if (self::$ci->access->check_access(__FUNCTION__) == false)
             return 403;
 
-        $article_id = self::$ci->input->post('article_id');
+        $attribute_id = self::$ci->input->post('attribute_id');
 
-        $article = new Article();
-        $article->get_by_id($article_id);
+        $attribute = new Attribute();
+        $attribute->get_by_id($attribute_id);
 
         $subscription = new Subscription();
-        $subscription->get_by_related($article);
+        $subscription->get_by_related($attribute);
 
-        $subscription->delete($article->all);
+        $subscription->delete($attribute->all);
 
-        return $article->delete() ? array('article_id' => $article_id) : false;
+        return $attribute->delete() ? array('attribute_id' => $attribute_id) : false;
     }
 
 }
