@@ -1,0 +1,42 @@
+<table id="datatable" class="table table-striped" style="margin-top: 15px;">
+    <thead class="table-head">
+        <tr>
+            <td class="id">#</td>
+            <td class="name">Name</td>
+            <td class="email">Email</td>
+            <td class="reg_date">Reg date</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        {{each $data.users}}
+            <tr id="company_${$value.id}">
+                <td class="center">${$value.id}</td>
+                <td>{{if $value.first_name}}${$value.first_name}{{/if}}{{if $value.last_name}} ${$value.last_name}{{/if}}</td>
+                <td>{{if $value.email}}${$value.email}{{/if}}</td>
+                <td>${$.processTimestamp($value.created_on)}</td>
+
+                <!--			<td class="center"><input class="display" name="display_ru" type="checkbox"/></td>
+                                        <td class="center"><input class="display" name="display_en" type="checkbox"/></td>-->
+                <td class="center">
+
+
+                    <div class="pull-right">
+                        <span class="table_action">
+                            <span alt="Edit entry" class="edit_user  menu_icon icon-pencil" id="edit_entry_${$value.id}">
+
+                            </span>
+                        </span>
+                        <span class="table_action">
+                            <span class="delete_user menu_icon icon-trash" alt="Delete entry" id="delete_entry_${$value.id}">
+
+                            </span>
+                        </span>
+                    </div>
+                </td>
+            </tr>
+        {{/each}}
+
+    </tbody>
+</table>

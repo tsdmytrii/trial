@@ -1,0 +1,34 @@
+<div id="baner_number_wrap">
+    {{each($i, $value) our_data}}
+        {{if $value.lang && $value.lang[pref]}}
+            <div class="number_item {{if $i == 0}}active{{/if}}" data-position="${$i}" data-ban_id="${$value.id}">
+                <img class="number_item_bg" src="${site_url}images/baner_number_bg.png"/>
+                <div class="number_item_txt">${$i+1}</div>
+            </div>
+        {{/if}}
+    {{/each}}
+</div>
+
+<div id="baner_slider_box">
+
+    {{each($i, $value) our_data}}
+        {{if $value.lang && $value.lang[pref]}}
+            <a title="{{if $value.menu_item}}{{if $value.menu_item.lang && $value.menu_item.lang[pref]}}${$value.menu_item.lang['ru'].value}{{/if}}{{/if}}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $value.menu_item && $value.menu_item.link && $value.menu_item.link[pref]}}${$value.menu_item.link[pref].link}{{else}}{{if $value.menu_item && $value.menu_item.href !== ''}}${$value.menu_item.href}/${$value.menu_item.id}/${$value.menu_item.main}/${lang_id}{{else}}#{{/if}}{{/if}}/" class="baner_wrap new_component {{if $i == 0}}current{{/if}}" data-baner_id="${$value.id}">
+                {{if $value.img}}
+                    <img class="baner_bg" src="${site_url}uploads/baner_img/${$value.img.name}">
+                {{/if}}
+                <div class="baner_txt_wrap">
+                    <img class="baner_txt_bg" src="${site_url}images/baner_bg.png"/>
+                    <div class="baner_txt">
+                        {{html $value.lang[pref].description}}
+                    </div>
+                </div>
+            </a>
+        {{/if}}
+    {{/each}}
+
+</div>
+
+
+
+

@@ -1,0 +1,143 @@
+#productTable thead td {
+    vertical-align: middle;
+}
+
+#addProduct {
+    float: left;
+}
+
+#productManipulation {
+    float: left;
+}
+
+.productQuantity {
+    float: left;
+    margin: 5px 10px 0 25px;
+}
+
+#productManipulation .btn-group{
+    float: left;
+}
+
+#paginator {
+    float: right;
+    margin: 4px 0 0 30px;
+}
+
+.categoryItem {
+    cursor: pointer;
+    float: left;
+}
+
+.categoryItem.active {
+    font-weight: bold;
+}
+
+.product_tab_cont {
+    display: none;
+}
+
+.product_tab_cont.cur {
+    display: block;
+}
+
+.productCard {
+    float: left;
+    width: 180px;
+    height: 230px;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;/*Firefox*/
+    -webkit-border-radius: 5px;/*Safari, Chrome*/
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.productCardBg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #444444;
+    opacity: 0.8;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+
+.productCardContent {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.productName, .productPriceCapt  {
+    color: #fff;
+}
+
+.productPriceCapt {
+    margin-top: 5px;
+    float: left;
+    display: block;
+}
+
+.productLogo {
+    height: 160px;
+    margin: 10px 0;
+    position: relative;
+    width: 100%;
+}
+
+.productLogo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.productManipulate {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 3px;
+}
+
+#product_img {
+    width: 305px;
+}
+
+#product_img img {
+    width: 275px;
+}
+
+.product_photo_item {
+    text-align: center;
+    float: left;
+    margin-right: 10px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.product_photo_item img {
+    height: 100%;
+}
+
+#sortingWrap {
+    float: right;
+    margin-left: 20px;
+}
+
+#sortingWrap label {
+    color: #fff;
+    float: left;
+    margin: 5px 10px 0 0;
+}
+
+#sorting {
+    margin-bottom: 0;
+    float: left;
+    width: 140px;
+}

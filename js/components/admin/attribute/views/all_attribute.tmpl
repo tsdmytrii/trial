@@ -1,0 +1,52 @@
+<table style="margin-top: 15px;" class="table tableBordered table-hover">
+
+    <thead class="table-head">
+        <tr>
+            <td>ID</td>
+            <td>Название атрибута</td>
+            <td>Влияет на:</td>
+            <td>Тип показателя</td>
+            <td>Строгий</td>
+            <td>Действия</td>
+        </tr>
+    </thead>
+
+    <tbody class="attributeListTbody">
+
+        {{if our_data}}
+            {{each($i, $val) our_data}}
+                <tr>
+                    <td>${$val.id}</td>
+                    <td>${$val.name}</td>
+                    <td>
+                        {{if parseInt($val.influence_type) == 0}}
+                            Описание
+                        {{else}}
+                            Цену
+                        {{/if}}
+                    </td>
+                    <td>
+                        {{if parseInt($val.measurement_type) == 0}}
+                            Текстовый
+                        {{else}}
+                            Качественный
+                        {{/if}}
+                    </td>
+                    <td>{{if parseInt($val.strict) == 1}}Нет{{else}}Да{{/if}}</td>
+                    <td>
+                        <div data-attribute_id="${$val.id}" class="attribute_icon_wrap pull-right">
+                            <i class="icon-trash menu_icon deleteAttribute" title="Удалить атрибут"></i>
+                        </div>
+                        <div data-cattribute_id="${$val.id}" class="attribute_icon_wrap pull-right">
+                            <i class="icon-pencil menu_icon editAttribute" title="Редактировать атрибут"></i>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+        {{/if}}
+
+    </tbody>
+
+</table>
+
+

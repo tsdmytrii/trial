@@ -1,0 +1,39 @@
+<table style="margin-top: 15px;" class="table tableBordered table-hover">
+
+    <thead class="table-head">
+        <tr>
+            <td>ID</td>
+            <td>Название</td>
+            <td>Описание</td>
+            <td>Картинка</td>
+            <td>Позиция</td>
+            <td>Действия</td>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        {{each($i, $val) our_data}}
+            <tr class="bannerRow {{if parseInt($val.display) == 0}}hiddenBanner{{/if}}">
+                <td>${$val.id}</td>
+                <td>{{if $val.lang}}${$val.lang[pref].title}{{/if}}</td>
+                <td>{{if $val.lang}}{{html $val.lang[pref].description}}{{/if}}</td>
+                <td class="bannerImg">
+                    {{if $val.img}}
+                        <img src="${base_url}${directory}/${$val.img.name}"/>
+                        <i class="icon-trash menu_icon delete_banner_img" data-img_id="${$val.img.id}"/>
+                    {{/if}}
+                </td>
+                <td>${$val.position}</td>
+                <td>
+                    <div data-banner_id="${$val.id}" class="banner_icon_wrap pull-right">
+                        <i class="icon-pencil menu_icon editBanner" title="Редактировать банер"></i>
+                        <i class="icon-trash menu_icon deleteBanner" title="Удалить банер"></i>
+                    </div>
+                </td>
+            </tr>
+        {{/each}}
+
+    </tbody>
+
+</table>

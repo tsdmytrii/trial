@@ -1,0 +1,109 @@
+{{if our_data}}
+    <form id='permissionForm' class='form-horizontal'>
+
+        <h3>Компонеты которые принадлежат вкладкам</h3>
+
+        {{each($i, $val) our_data}}
+
+            {{if parseInt($val.tab_id) !== 0}}
+
+                {{if $val.functions}}
+                    <div class='componentTypePerm'>
+
+                        <table class="table table-striped table-bordered table-hover table-condensed">
+                            <thead class="table-head">
+                                <tr>
+                                    <th colspan="2">
+                                        <input type="checkbox" value="${$val.id}" name='component_type' class='allPermissions' />
+                                        ${$val.psevdo_name}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{each($j, $v) $val.functions}}
+                                    <tr>
+                                        <td style='width: 10%'>
+                                            <input class='component_function_id' type="checkbox" value='${$v.id}' name='component_function_id[]' {{if $v.related}}checked{{/if}} />
+                                        </td>
+                                        <td>
+                                            {{if $v.clear_name}}
+                                                ${$v.clear_name}
+                                            {{else}}
+                                                ${$val.library}::${$v.name}
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                {{/if}}
+
+                {{if (($i+1) % 2) === 0}}
+                    <div class='clear'></div>
+                {{/if}}
+
+            {{/if}}
+
+        {{/each}}
+
+        <h3>Самостоятельные компоненты</h3>
+
+        {{each($i, $val) our_data}}
+
+            {{if parseInt($val.tab_id) === 0}}
+
+                {{if $val.functions}}
+                    <div class='componentTypePerm'>
+
+                        <table class="table table-striped table-bordered table-hover table-condensed">
+                            <thead class="table-head">
+                                <tr>
+                                    <th colspan="2">
+                                        <input type="checkbox" value="${$val.id}" name='component_type' class='allPermissions' />
+                                        ${$val.psevdo_name}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{each($j, $v) $val.functions}}
+                                    <tr>
+                                        <td style='width: 10%'>
+                                            <input class='component_function_id' type="checkbox" value='${$v.id}' name='component_function_id[]' {{if $v.related}}checked{{/if}} />
+                                        </td>
+                                        <td>
+                                            {{if $v.clear_name}}
+                                                ${$v.clear_name}
+                                            {{else}}
+                                                ${$val.library}::${$v.name}
+                                            {{/if}}
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                {{/if}}
+
+                {{if (($i+1) % 2) === 0}}
+                    <div class='clear'></div>
+                {{/if}}
+
+            {{/if}}
+
+        {{/each}}
+
+
+        <div class="form-actions">
+            <div class="pull-right">
+                <button class="btn btn-primary" type="submit">Сохранить права</button>
+                <div class="btn cancel">Отмена</div>
+            </div>
+        </div>
+
+    </form>
+{{/if}}

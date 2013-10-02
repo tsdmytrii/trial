@@ -1,0 +1,16 @@
+{{if our_data}}
+
+    {{each($i, $val) our_data}}
+
+        <div class="complectation_wrap">
+            <div class="complectation_caption">${$val.lang[pref].name}</div>
+            <div class="complectation_icon_wrap" data-complectation_id="${$val.id}">
+                <i title="Редактировать комплектацию" class="icon-pencil menu_icon edit_complectation"></i>
+                <i title="Удалить комплектацию" class="icon-trash menu_icon delete_complectation"></i>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    {{/each}}
+
+{{/if}}

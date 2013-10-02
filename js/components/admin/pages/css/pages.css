@@ -1,0 +1,45 @@
+#content_wrapper {
+    position: relative;
+}
+
+#add_component {
+    margin: 10px 20px 10px 0;
+}
+
+.modal-header .close_window {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+}
+
+#table_wrapper {
+    padding: 20px;
+}
+
+#pages_table {
+    width: 100%;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+#pages_table td {
+    padding: 5px;
+}
+
+#pages_table_filter label {
+    color: #fff;
+    margin: 10px;
+}
+
+#pages_table_filter input {
+    display: inline;
+    margin: 0;
+}
+
+.css_right {
+    float: right;
+}
+
+.component_icon_wrap {
+    float: right;
+}

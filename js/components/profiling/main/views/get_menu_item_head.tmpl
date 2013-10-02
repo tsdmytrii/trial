@@ -1,0 +1,45 @@
+{{if our_data}}
+    {{each($i, $value) our_data}}
+        {{if $value.lang && $value.lang[pref] && $value.parent_id == 0}}
+            <li class="nav_button_wrap {{if !$value.href}}cursor_auto{{/if}}{{if $i+1 == our_data.length}} last_menu_item{{/if}}" data-menu_item_id="${$value.id}" data-lvl="{{if lvl}}${lvl}{{/if}}">
+                <div class="nav_button_title">
+                    <img class="bg_active" src="${site_url}images/menu_btn_act2.png"/>
+                    <img class="bg" src="${site_url}images/menu_btn.png"/>
+                    {{if $i+1 != our_data.length}}
+                        <img class="menu_sep" src="${site_url}images/menu_sep.png"/>
+                    {{/if}}
+                    <a class="nav_button_txt new_component" title="${$value.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $value.link && $value.link[pref]}}${$value.link[pref].link}{{else}}{{if $value.href}}${$value.href}/${$value.id}/${$value.main}/${lang_id}{{else}}#{{/if}}{{/if}}/"><div class="outher"><div class="inner">${$value.lang[pref].value}</div></div></a>
+                </div>
+
+                <ul class="sub_nav dropdown-menu " style="z-index: 6; display: none;">
+                    {{each($z, $val) our_data}}
+                        {{if $value.id == $val.parent_id}}
+                            {{if $val.lang && $val.lang[pref]}}
+                                <li class="nav_button_wrap" data-lvl="1" data-menu_item_id="${$val.id}">
+                                    <div class="nav_button_title">
+                                        <a class="nav_button_txt new_component" title="${$val.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $val.link && $val.link[pref]}}${$val.link[pref].link}{{else}}{{if $val.href}}${$val.href}/${$val.id}/${$val.main}/${lang_id}{{else}}#{{/if}}{{/if}}/"><div class="outher"><div class="inner">${$val.lang[pref].value}</div></div></a>
+                                    </div>
+                                    <ul class="sub_nav dropdown-menu " style="z-index: 6; display: none;">
+                                        {{each($k, $v) our_data}}
+                                            {{if $val.id == $v.parent_id}}
+                                                {{if $v.lang && $v.lang[pref]}}
+                                                    <li class="nav_button_wrap" data-lvl="2" data-menu_item_id="${v.id}">
+                                                        <div class="nav_button_title">
+                                                            <a class="nav_button_txt new_component" title="${$v.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $v.link && $v.link[pref]}}${$v.link[pref].link}{{else}}{{if $v.href}}${$v.href}/${$v.id}/${$v.main}/${lang_id}{{else}}#{{/if}}{{/if}}/"><div class="outher"><div class="inner">${$v.lang[pref].value}</div></div></a>
+                                                        </div>
+                                                    </li>
+                                                {{/if}}
+                                            {{/if}}
+                                        {{/each}}
+                                    </ul>
+                                </li>
+                            {{/if}}
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </li>
+        {{/if}}
+    {{/each}}
+{{/if}}
+
+<div class="clear"></div>

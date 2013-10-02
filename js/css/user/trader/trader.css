@@ -1,0 +1,88 @@
+.progress_bar_wrap {
+    position: absolute;
+    right: -30px;
+    top: 10px;
+    z-index: 5;
+}
+
+.progress_bar {
+    width: 180px;
+    height: 50px;
+    position: relative;
+}
+
+.risk_rang {
+    width: 180px;
+    font: 12px Arial;
+}
+
+.low {
+    float: left;
+}
+
+.high {
+    float: right;
+}
+
+.progress_bar img {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    top: 0;
+}
+
+.scale {
+    width: 240px;
+    margin-left: -2px;
+}
+
+.scal_item {
+    font: 12px Arial;
+    float: left;
+    color: #000;
+    margin-right: 11px;
+}
+
+.progress_item {
+    width: 17px;
+    height: 17px;
+    background-image: url('../../../../images/tr_scale_load.png');
+    float: left;
+    margin: 0 1px 0 0;
+}
+
+.progress {
+    position: absolute;
+    top: 23px;
+    z-index: 2;
+}
+
+.deposit_load {
+    color: #000000;
+    font: 12px Arial bold;
+    position: absolute;
+    right: 217px;
+    top: 58px;
+    z-index: 5;
+}
+
+.trader_chart {
+    height: 400px;
+    width: 888px;
+    min-width: 500px;
+    position: relative;
+    margin-top: 15px;
+}
+
+.highcharts-container {
+    font-family: Arial;
+    font-size: 12px;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+}

@@ -1,0 +1,94 @@
+{{if categories}}
+
+    {{each($i, $val) categories}}
+
+        {{if $val.attr}}
+
+            <table style="margin-top: 15px;" class="table table-striped table-bordered table-hover table-condensed">
+                <thead class="table-head">
+                    <tr>
+                        <th colspan="6">
+                            Атрибут[ы]. ${$val.lang[pref].name}
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {{each($j, $v) $val.attr}}
+
+                        <tr>
+                            <td colspan="6">
+                                <div class="categoryAttrValContent">
+
+                                    <form class="form-horizontal attributeValueForm">
+                                        <input type="hidden" value="${$v.id}" name='category_attribute_id'>
+
+                                        {{if parseInt($v.type) === 1}}
+
+                                            <div class="control-group">
+                                                <label class="control-label" for="value"><h4>${$v.lang[pref].name}:</h4></label>
+                                                <div class="controls">
+                                                    <input type='hidden' class="productQuantityValId" value="{{if $v.productValue}}${$v.productValue.id}{{/if}}" name='id' />
+                                                    <input class="quantityValue" type="text" name="value" value="{{if $v.productValue}}${$v.productValue.value}{{/if}}" data-min='{{if $v.range}}${$v.range.min}{{/if}}' data-max='{{if $v.range}}${$v.range.max}{{/if}}' />
+                                                    <span class="help"></span>
+                                                </div>
+                                            </div>
+
+                                        {{else}}
+
+                                            {{if $v.quality_variant}}
+                                                <div style="text-align: center;">
+                                                    <h4>${$v.lang[pref].name}</h4>
+                                                </div>
+                                                {{each($k, $variant) $v.quality_variant}}
+                                                    <div class="control-group">
+                                                        <label class="control-label" for="value">${$variant.lang[pref].value}:</label>
+                                                        <div class="controls">
+                                                            <input
+                                                                {{if parseInt($v.direct) == 1}}
+                                                                    {{if $v.productValue}}
+                                                                        {{if parseInt($v.productValue[0].id) === $variant.id}}checked{{/if}}
+                                                                    {{/if}}
+                                                                {{else}}
+                                                                    {{if $v.productValue}}
+                                                                        {{each($m, $prodVal) $v.productValue}}
+                                                                            {{if parseInt($prodVal.id) === $variant.id}}checked{{/if}}
+                                                                        {{/each}}
+                                                                    {{/if}}
+                                                                {{/if}}
+
+                                                                type="{{if parseInt($v.direct) == 1}}radio{{else}}checkbox{{/if}}" name="quality_variant_id{{if parseInt($v.direct) == 2}}[]{{/if}}" value="${$variant.id}" />
+                                                            <span class="help"></span>
+                                                        </div>
+                                                    </div>
+
+                                                {{/each}}
+
+                                            {{/if}}
+
+                                        {{/if}}
+
+
+
+                                        <div class="form-actions">
+                                            <div class="pull-right">
+                                                <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                                                <div class="btn cancel">Отмена</div>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </td>
+                        </tr>
+
+                    {{/each}}
+
+                </tbody>
+            </table>
+
+        {{/if}}
+
+    {{/each}}
+
+{{/if}}

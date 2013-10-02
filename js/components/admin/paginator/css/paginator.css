@@ -1,0 +1,53 @@
+.paginate {
+    float: right;
+    position: relative;
+}
+
+.paginate a, .paginate span {
+    margin: 0 2px;
+    padding: 1px 5px 1px 5px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    float: left;
+    border: 1px solid linear-gradient(to bottom, #4F4F52 0%, #414143 100%);
+}
+
+.paginate a.last, .paginate a:last-child {
+
+}
+
+.paginate .current {
+    background: #fff;
+    color: #000;
+    -moz-border-radius: 3px;/*Firefox*/
+    -webkit-border-radius: 3px;/*Safari, Chrome*/
+    border-radius: 3px;
+    border: 1px solid #A5A5A5;
+    -moz-box-shadow: 1px 1px 3px #202020;/*FF 3.5+*/
+    -webkit-box-shadow: 1px 1px 3px #202020;/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color=#202020)";/*IE 8*/
+    box-shadow: 1px 1px 3px #202020;
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color=#202020);/*IE 5.5-7*/
+}
+
+.page-link.prev, .page-link.next {
+    margin: 0;
+    padding: 0;
+}
+
+.current.prev, .current.next {
+    color: #fff;
+    margin-left: 0;
+    background: none;
+    cursor: default;
+    border: none;
+    -moz-box-shadow: none;/*FF 3.5+*/
+    -webkit-box-shadow: none;/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+    -ms-filter: none;/*IE 8*/
+    box-shadow: none;
+    filter: none;/*IE 5.5-7*/
+    margin: 0;
+    padding: 0;
+}
+

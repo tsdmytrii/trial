@@ -1,0 +1,339 @@
+<div style="padding: 20px;">
+
+    <div class="btn-group">
+        <a href="generalInfo" class="btn active placeholderTab">Основная информация</a>
+        <a href="attributes" class="btn placeholderTab{{if !our_data}} disabled{{/if}}">Атрибуты</a>
+        <a href="miniBlocks" class="btn placeholderTab{{if !our_data}} disabled{{/if}}">Мини-блоки</a>
+        <a href="productBlocks" class="btn placeholderTab{{if !our_data}} disabled{{/if}}">Блоки с товарами</a>
+    </div>
+
+    <div id="placeholderContentWrap">
+        <div id="generalInfo" class="placeHolderContent current">
+
+            <form class="form-horizontal" id="placeHolderForm">
+
+                <input id="placeholder_id" value="{{if our_data}}${our_data.id}{{/if}}" name="id" type="hidden" />
+
+
+                <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 15px; ">
+                    <thead class="table-head">
+                        <tr>
+                            <th colspan="6">
+                                Общая информация
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6">
+                                <div class="inside_padd">
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="name">Название:</label>
+                                            <div class="controls">
+                                                <input type="text" name="name" value="{{if our_data}}${our_data.name}{{/if}}">
+                                                <span class="help"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="identificator">Идентификатор:</label>
+                                            <div class="controls">
+                                                <input type="text" name="identificator" value="{{if our_data}}${our_data.identificator}{{/if}}">
+                                                <span class="help"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="description">Описание:</label>
+                                            <div class="controls">
+                                                <textarea name="description">{{if our_data}}${our_data.description}{{/if}}</textarea>
+                                                <span class="help"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="position">Позиция:</label>
+                                            <div class="controls">
+                                                <input type="text" name="position" value="{{if our_data}}${our_data.position}{{/if}}">
+                                                <span class="help"></span>
+                                            </div>
+                                        </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <thead class="table-head">
+                        <tr>
+                            <th colspan="6">
+                                Размеры
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6">
+                                <div class="inside_padd">
+
+                                   <div class="control-group">
+                                        <label class="control-label">Варианты ширины:</label>
+                                        <div class="controls">
+                                            <label class="checkbox inline">
+                                                <input type="radio" {{if our_data && parseInt(our_data.width_param) == 0}}checked{{/if}} name="width_param" value="0"> Процент
+                                            </label>
+                                            <label class="checkbox inline">
+                                                <input type="radio" {{if our_data && parseInt(our_data.width_param) == 1}}checked{{/if}} name="width_param" value="1"> Коефициент
+                                            </label>
+                                            <label class="checkbox inline">
+                                                <input type="radio" {{if our_data && parseInt(our_data.width_param) == 2}}checked{{/if}} name="width_param" value="2"> Остаток
+                                            </label>
+                                            <span class="help"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="width">Значение ширины</label>
+                                        <div class="controls">
+                                            <input value="{{if our_data}}${our_data.width}{{/if}}" type="text" name="width" placeholder="Ширина" />
+                                            <span class="help"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label">Варианты высоты:</label>
+                                        <div class="controls">
+                                            <label class="checkbox inline">
+                                                <input type="radio" {{if our_data && parseInt(our_data.height_param) == 0}}checked{{/if}} name="height_param" value="0"> Процент
+                                            </label>
+                                            <label class="checkbox inline">
+                                                <input type="radio" {{if our_data && parseInt(our_data.height_param) == 1}}checked{{/if}} name="height_param" value="1"> Коефициент
+                                            </label>
+                                            <label class="checkbox inline">
+                                                <input type="radio" {{if our_data && parseInt(our_data.height_param) == 2}}checked{{/if}} name="height_param" value="2"> Остаток
+                                            </label>
+                                            <span class="help"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label" for="height">Значение высоты</label>
+                                        <div class="controls">
+                                            <input value="{{if our_data}}${our_data.height}{{/if}}" type="text" name="height" value="" placeholder="Высота" />
+                                            <span class="help"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table style="margin-top: 15px;" class="table table-striped table-bordered table-hover table-condensed">
+                    <thead class="table-head">
+                        <tr>
+                            <th colspan="6">
+                                Серверное представление:
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6">
+                                <div class="inside_padd">
+
+                                    <div class="control-group">
+                                       <label class="control-label" for="view">Серверная вьюшка:</label>
+                                       <div class="controls">
+                                           <input class="miniBlockName" value="${our_data.view}" type="text" name="view" placeholder="Не обязательное поле" />
+                                           <span class="help"></span>
+                                       </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-actions">
+                    <div class="pull-right">
+                        <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                        <button type="button" class="btn cancel">Отмена</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+        <div id="attributes" class="placeHolderContent">
+
+            <div style="margin-top: 15px;" id="addPlaceHolderAttribute" class="btn btn-primary">Добавить новый атрибут</div>
+
+            <table style="margin-top: 15px;" class="table table-striped table-bordered table-hover table-condensed">
+                    <thead class="table-head">
+                        <tr>
+                            <th colspan="6">
+                                Дополниетльные СSS свойства блока
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6">
+                                <div class="inside_padd attributeContent">
+
+                                    {{if our_data.attributes}}
+
+                                        {{each($i, $val) our_data.attributes}}
+
+                                           <form class="form-inline attributeForm">
+                                               <input type="hidden" class="attrId" value="${$val.id}" name="id" />
+                                               <input type="hidden" value="${our_data.id}" name="placeholder_id" />
+
+                                               <div class="control-group">
+                                                   <label class="control-label" for="key">Ключ:</label>
+                                                   <div class="controls">
+                                                       <input class="input-small" value="${$val.key}" type="text" name="key" />
+                                                       <span class="help"></span>
+                                                   </div>
+                                               </div>
+                                               <div class="control-group">
+                                                   <label class="control-label" for="value">Значение:</label>
+                                                   <div class="controls">
+                                                       <input value="${$val.value}" type="text" name="value" />
+                                                       <span class="help"></span>
+                                                   </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <div class="btn saveAttr">
+                                                        <i class="icon-ok" title="Сохранить атрибут"></i>
+                                                    </div>
+                                                    <div class="btn deleteAttr">
+                                                        <i class="icon-trash" title="Удалить атрибут"></i>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        {{/each}}
+
+                                    {{/if}}
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+
+        </div>
+
+        <div id="miniBlocks" class="placeHolderContent">
+
+            <div style="margin-top: 15px;" id="addMiniBlock" class="btn btn-primary">Добавить связаный мини-блок</div>
+
+            <table style="margin-top: 15px;" class="table table-striped table-bordered table-hover table-condensed">
+                    <thead class="table-head">
+                        <tr>
+                            <th colspan="6">
+                                Связанные мини-блоки:
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6">
+                                <div class="inside_padd miniBlockPHContent">
+
+                                    {{if our_data.mini_blocks}}
+
+                                        {{each($i, $val) our_data.mini_blocks}}
+
+                                           <form class="form-inline miniBlockForm">
+
+                                               <input type="hidden" value="${our_data.id}" name="placeholder_id" />
+
+                                                <div class="control-group">
+                                                   <label class="control-label" for="key">Мини блок:</label>
+                                                   <div class="controls">
+                                                       <input class="miniBlockName" value="${$val.name}" type="text" name="name" placeholder="Название" />
+                                                       <input class="miniBlockId" value="${$val.mini_block_id}" type="hidden" name="mini_block_id" />
+                                                       <span class="help"></span>
+                                                   </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <div class="btn saveMiniBlock">
+                                                        <i class="icon-ok" title="Сохранить связку с мини-блоком"></i>
+                                                    </div>
+                                                    <div class="btn deleteMiniBlock">
+                                                        <i class="icon-trash" title="Удалить связку с мини-блоком"></i>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        {{/each}}
+
+                                    {{/if}}
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+
+        </div>
+
+        <div id="productBlocks" class="placeHolderContent">
+
+            <div style="margin-top: 15px;" id="addProductBlock" class="btn btn-primary">Добавить блок с товарами</div>
+
+            <table style="margin-top: 15px;" class="table table-striped table-bordered table-hover table-condensed">
+                    <thead class="table-head">
+                        <tr>
+                            <th>
+                                Связанные блоки c товарами:
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div id='productBlockPHContent' class="inside_padd">
+
+                                    {{if our_data.product_blocks}}
+
+                                        {{each($i, $val) our_data.product_blocks}}
+
+                                           <form class="form-inline productBlockForm">
+                                                <div class="control-group">
+                                                   <label class="control-label" for="key">Блок с товарами:</label>
+                                                   <div class="controls">
+                                                       <input disabled="" class="productBlockName" value="{{each($j, $v) $data.lang}}{{if $val.lang[$v.iso_code]}}${$val.lang[$v.iso_code].name}{{/if}}{{/each}}" type="text" name="name"/>
+                                                       <input class="productBlockId" value="${$val.id}" type="hidden" name="mini_block_id" />
+                                                       <span class="help"></span>
+                                                   </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <div class="btn deleteProductBlock">
+                                                        <i class="icon-trash" title="Удалить связку с мини-блоком"></i>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                        {{/each}}
+
+                                    {{/if}}
+
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+<img class="bg" src="${site_url}images/block_bg.png"/>
+<img src="${site_url}images/max_hr.png" class="max_day_sep"/>
+<img src="${site_url}images/light_3.png" class="side_3"/>
+
+<div class="info_article_content">
+    <div class="info_article_title">${lang.question_day}</div>
+    <div class="info_article_desc">
+        {{if our_data}}
+            {{if our_data.lang && our_data.lang[pref]}}
+                <p>{{html our_data.lang[pref].question}}</p>
+
+                <div class="answer_wrap">
+                    {{if our_data.variant}}
+                        {{each($i, $val) our_data.variant}}
+                            {{if $val.lang && $val.lang[pref]}}
+                                <div class="answer_item" data-i_v_id="${$val.id}">
+                                    <div class="radio_var">
+                                        <img src="${site_url}images/radio_btn.png">
+                                        <img src="${site_url}images/radio_btn_active.png" class="active">
+                                    </div>
+                                    <div class="txt">${$val.lang[pref].name}</div>
+                                </div>
+
+                                <div class="clear"></div>
+                            {{/if}}
+                        {{/each}}
+                    {{/if}}
+                </div>
+            {{/if}}
+        {{/if}}
+    </div>
+</div>
+<div class="archieve_news_btn submit_interview">
+    <img class="archieve_news_btn_bg" src="${site_url}images/details_btn_bg.png">
+    <div class="archieve_news_btn_txt">${lang.answer}</div>
+</div>

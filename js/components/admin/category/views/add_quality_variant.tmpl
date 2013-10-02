@@ -1,0 +1,48 @@
+<div class="qualityVatiantContent">
+
+    <div class="form-inline qualityVatiantForm" id="addingQualityVariant">
+
+        <div class="btn-group" style="float: left;">
+
+            {{each($i, $val) $data.lang}}
+                <a href="langQualVarContent${$val.id}" class="btn {{if $i == 0}}active{{/if}} qualityVariantTab">${$val.name}</a>
+            {{/each}}
+
+            <div class="qualityVariantLangWrap" style="float: left; margin-left: -3px;">
+                {{each($i, $val) $data.lang}}
+
+                    <div id="langQualVarContent${$val.id}" class="qualityVariant_content_lang {{if $i == 0}}currentElement{{/if}}">
+
+                        <form class="formQualityVatiant" style="float: left;">
+
+                            <input type="hidden" name="quality_variant_id" value="" class="qualityVariantId">
+
+                            <input type="hidden" value="${category_attribute_id}" name="category_attribute_id">
+
+                            <input class="lang_id" type="hidden" value="" name="quality_variant_lang_id"/>
+                            <input type="hidden" value="${$val.id}" name="language_id"/>
+                            <input type="text" class="value" name="value" value="" style="float: left;"/>
+                            <span class="help help-block" style="float: left;"></span>
+
+                            <div style="float: left; margin-left: 10px;">
+                                <div class="btn saveQualityVariant">
+                                    <i title="Сохранить атрибут" class="icon-ok"></i>
+                                </div>
+                                <div class="btn deleteQualityVariant">
+                                    <i title="Удалить атрибут" class="icon-remove"></i>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                {{/each}}
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<div class="clear"></div>

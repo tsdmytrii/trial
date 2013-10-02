@@ -1,0 +1,10 @@
+<div id="text_title">
+    {{if our_data.lang && our_data.lang[pref]}}
+        ${our_data.lang[pref].title}
+    {{/if}}
+</div>
+<div id="text_description">
+    {{if our_data.lang && our_data.lang[pref]}}
+        {{html our_data.lang[pref].description}}
+    {{/if}}
+</div>

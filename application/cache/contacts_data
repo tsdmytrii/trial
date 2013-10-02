@@ -1,0 +1,165 @@
+a:3:{s:4:"time";i:1380716702;s:3:"ttl";i:5000;s:4:"data";a:3:{s:2:"id";i:2;s:4:"date";s:10:"25-03-2013";s:4:"lang";a:3:{s:2:"ru";a:11:{s:2:"id";i:5;s:10:"contact_id";s:1:"2";s:11:"language_id";s:1:"2";s:5:"title";s:16:"Контакты";s:11:"description";s:1795:"<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="text-align: left; vertical-align: top;">
+			<p>Автоцентр на Московском<br />
+			пр. Московский, 22</p>
+
+			<p>&nbsp;</p>
+
+			<p>Автосалон Mercedes-Benz<br />
+			Chrysler, Jeep, Dodge<br />
+			(044) 206-20-02</p>
+
+			<p>&nbsp;</p>
+
+			<p>Автосалон Opel, Chevrolet<br />
+			(044) 206-32-00</p>
+
+			<p>&nbsp;</p>
+
+			<p>Автосалон ZAZ, Chery<br />
+			(044) 206-32-00, (044) 451-45-37<br />
+			(095) 26-24-702</p>
+
+			<p>&nbsp;</p>
+			</td>
+			<td style="text-align: left; vertical-align: top;">
+			<p>Режим работы:<br />
+			ПН-ПТ&nbsp; 9:00 -20:00<br />
+			СБ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 -19:00<br />
+			ВС&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 - 16:30</p>
+			</td>
+			<td style="text-align: left; vertical-align: top;">
+			<p>Ремонт, обслуживание, гарантия<br />
+			(044) 206-32-02</p>
+
+			<p>&nbsp;</p>
+
+			<p>Запчасти, материалы<br />
+			(044) 537-25-81</p>
+
+			<p>&nbsp;</p>
+
+			<p>Сервис Mercedes-Benz<br />
+			(044) 206 20 02</p>
+			</td>
+		</tr>
+		<tr>
+			<td style="text-align: left; vertical-align: top;">
+			<p>Режим работы<br />
+			ПН-СБ&nbsp;&nbsp; 8:30 - 20:30<br />
+			ВС&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 - 17:00</p>
+			</td>
+			<td style="text-align: left; vertical-align: top;">
+			<p>Центр Кузовного ремонта<br />
+			(044) 206-35-05</p>
+			</td>
+			<td style="text-align: left; vertical-align: top;">
+			<p>Режим работы:<br />
+			ПН-СБ&nbsp;&nbsp; 8:30 - 20:30<br />
+			ВС&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 - 17:00</p>
+			</td>
+		</tr>
+	</tbody>
+</table>";s:17:"description_short";s:892:"<table align="left" border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="vertical-align: top;">
+			<p>Автоцентр на Московском</p>
+
+			<p>пр. Московский, 22</p>
+
+			<p>&nbsp;</p>
+
+			<p>Автосалон Opel, Chevrolet</p>
+
+			<p>(044) 206-32-00</p>
+
+			<p>&nbsp;</p>
+
+			<p>Автосалон ZAZ, Chery</p>
+
+			<p>(044) 206-32-00</p>
+
+			<p>(044) 451-45-37</p>
+
+			<p>(095) 26-24-702</p>
+			</td>
+			<td style="vertical-align: bottom;">
+			<p><span style="color:#FFFFFF;">Режим работы</span></p>
+
+			<p><span style="color:#FFFFFF;">ПН-ПТ 9:00 - 20:00</span></p>
+
+			<p><span style="color:#FFFFFF;">СБ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 - 19:00</span></p>
+
+			<p><span style="color:#FFFFFF;">ВС&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 - 16:30</span></p>
+			</td>
+		</tr>
+	</tbody>
+</table>";s:18:"description_search";s:1127:"
+	
+		
+			
+			Автоцентр на Московском
+			пр. Московский, 22
+
+			&nbsp;
+
+			Автосалон Mercedes-Benz
+			Chrysler, Jeep, Dodge
+			(044) 206-20-02
+
+			&nbsp;
+
+			Автосалон Opel, Chevrolet
+			(044) 206-32-00
+
+			&nbsp;
+
+			Автосалон ZAZ, Chery
+			(044) 206-32-00, (044) 451-45-37
+			(095) 26-24-702
+
+			&nbsp;
+			
+			
+			Режим работы:
+			ПН-ПТ&nbsp; 9:00 -20:00
+			СБ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 -19:00
+			ВС&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 - 16:30
+			
+			
+			Ремонт, обслуживание, гарантия
+			(044) 206-32-02
+
+			&nbsp;
+
+			Запчасти, материалы
+			(044) 537-25-81
+
+			&nbsp;
+
+			Сервис Mercedes-Benz
+			(044) 206 20 02
+			
+		
+		
+			
+			Режим работы
+			ПН-СБ&nbsp;&nbsp; 8:30 - 20:30
+			ВС&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 - 17:00
+			
+			
+			Центр Кузовного ремонта
+			(044) 206-35-05
+			
+			
+			Режим работы:
+			ПН-СБ&nbsp;&nbsp; 8:30 - 20:30
+			ВС&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 9:00 - 17:00
+			
+		
+	
+
+";s:6:"author";s:12:"Андрей";s:9:"seo_title";s:64:"New description New description New description!!!!!!!!!!!!!!!!!";s:9:"key_words";s:128:"New description New description New description!!!!!!!!!!!!!!!!!New description New description New description!!!!!!!!!!!!!!!!!";s:15:"seo_description";s:192:"New description New description New description!!!!!!!!!!!!!!!!!New description New description New description!!!!!!!!!!!!!!!!!New description New description New description!!!!!!!!!!!!!!!!!";}s:2:"en";a:11:{s:2:"id";i:4;s:10:"contact_id";s:1:"2";s:11:"language_id";s:1:"1";s:5:"title";s:15:"New title title";s:11:"description";s:47:"New description New description New description";s:17:"description_short";s:32:"Short description in popUp block";s:18:"description_search";s:0:"";s:6:"author";s:6:"Author";s:9:"seo_title";s:0:"";s:9:"key_words";s:0:"";s:15:"seo_description";s:0:"";}s:2:"ua";a:11:{s:2:"id";i:6;s:10:"contact_id";s:1:"2";s:11:"language_id";s:1:"3";s:5:"title";s:15:"New title title";s:11:"description";s:47:"New description New description New description";s:17:"description_short";s:32:"Short description in popUp block";s:18:"description_search";s:0:"";s:6:"author";s:6:"Author";s:9:"seo_title";s:0:"";s:9:"key_words";s:0:"";s:15:"seo_description";s:0:"";}}}}

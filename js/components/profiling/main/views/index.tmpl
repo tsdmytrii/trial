@@ -1,0 +1,224 @@
+<div id="body_wrapper">
+    <div id="left_side">
+        <img class="bg" src="${site_url}images/side_bg_left.png">
+        <div class="header_light">
+            <img src="${site_url}images/side_menu_left.png" class="bg_light"/>
+        </div>
+    </div>
+
+    <div id="container">
+        <div id="header">
+
+            <img id="logo" src="${site_url}images/logo.jpg"/>
+            <img id="header_bg" src="${site_url}images/header_bg.jpg"/>
+
+            <div id="search_lang_wrap">
+                <img id="search_lang_wrap_bg" src="${site_url}images/search_bg.png"/>
+
+                <div id="langs">
+                    <a href="${site_url}en/" class="lang_wrap {{if lang_id == 1}}active{{/if}}" data-lang_id="1">
+                        <img class="lang" src="${site_url}images/en.png"/>
+                    </a>
+                    <a href="${site_url}ru/" class="lang_wrap {{if lang_id == 2}}active{{/if}}" data-lang_id="2">
+                        <img class="lang" src="${site_url}images/rus.png"/>
+                    </a>
+                </div>
+
+                <div id="search_form">
+                    <div id="search_input_wrap">
+                        <img id="search_input_bg" src="${site_url}images/search_form.png"/>
+                        <input type="text" name="search" id="search_str"/>
+                        <div class="new_component" href="${site_url}search/0/" title="Поиск" id="do_search">
+                            <img id="do_search_bg" src="${site_url}images/search_btn.png"/>
+                            <table id="do_search_txt"><tr><td>${lang.search}</td></tr></table>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="login">
+                    <div id="login_txt">${lang.login}</div>
+                    <img id="login_bg" src="${site_url}images/login_btn_bg.png"/>
+                </div>
+
+            </div>
+
+            <div id="navigation_panel">
+                <div id="menu">
+                    <img class="menu_bg" src="${site_url}images/menu_btn.png"/>
+                    <ul id="navigation_button_wrap"></ul>
+                </div>
+                <div id="sub_menu">
+                    <ul id="sub_menu_content">
+
+                    </ul>
+                    <img class="bg" src="${site_url}images/menu_btm_bg.png"/>
+
+                    <a id="question_wrap" class="new_component" title="${lang.question}" href="${site_url}question/0/">
+                        <img id="question_bg" src="${site_url}images/question_bg2.png"/>
+                        <div id="question_txt">${lang.question}</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="content">
+            <div id="baner_wrap">
+                <div id="baner_content">
+                    <img class="bg" src="${site_url}images/baner_bg.jpg">
+
+                    <div id="rating_wrap">
+
+                    </div>
+
+                </div>
+
+                <img class="h_separator" src="${site_url}images/chrom.png"/>
+            </div>
+
+            <div class="clear"></div>
+
+            <div id="news_wrap">
+
+                <div id="text_wrap">
+
+                    <img class="vert_sep" src="${site_url}images/vertical_separator.png">
+                </div>
+
+                <div id="company_news_wrap">
+
+                </div>
+
+                <div id="quotes">
+                    <div id="quotes_title">${lang.quote}</div>
+                    <div id="quotes_content">
+                        <table class="curr_cont quotes_wrap"></table>
+                    </div>
+
+                    <div id="indexes">
+                        <div id="index_caption">${lang.sales_index}</div>
+                        <div id="timer_wrap">
+                            <div id="timer_caption">${lang.days_to_news}:</div>
+                            <div id="timer_field">
+                                <img src="${site_url}images/last_time.png" id="timer_field_bg">
+                                <div class="timer_last"></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+
+                    </div>
+
+                    {{if go_calendar !== false}}
+                        <a  id="calendar_go_btn" title="{{if go_calendar.lang && go_calendar.lang[pref]}}${go_calendar.lang[pref].value}{{/if}}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if go_calendar.link && go_calendar.link[pref]}}${go_calendar.link[pref].link}{{else}}${go_calendar.href}${go_calendar.id}/${go_calendar.id}/${go_calendar.main}/${lang_id}{{/if}}/" class="new_component">
+                            <img src="${site_url}images/btn_bg.png" id="calendar_go_btn_bg">
+                            <div id="calendar_go_btn_txt">{{if go_calendar.lang && go_calendar.lang[pref]}}${go_calendar.lang[pref].value}{{/if}}</div>
+                        </a>
+                    {{/if}}
+
+                    <div class="clear"></div>
+
+                </div>
+
+                <img class="h_separator" src="${site_url}images/chrom.png"/>
+
+            </div>
+
+
+            <div id="info_wrap">
+
+                <div id="news_online" class="info_articles">
+
+                </div>
+
+                <div id="market_reviews" class="info_articles">
+
+                </div>
+
+                <div id="articles" class="info_articles">
+
+                </div>
+                <div id="question" class="info_articles">
+
+                </div>
+                <img class="h_separator" src="${site_url}images/h_separator.png"/>
+            </div>
+
+            <div id="width_text_wrap">
+                
+            </div>
+
+        </div>
+
+
+        <div id="wind_maximise_wrap">
+            <img id="wind_maximise_bg" src="${site_url}images/max_bg.png"/>
+            <div id="wind_maximise">
+                <div id="max_menu_wrap">
+                    <img src="${site_url}images/max_menu_bg_2.png" class="bg"/>
+                </div>
+
+                <div class="clear"></div>
+
+                <div id="max_quotes">
+
+                    <img src="${site_url}images/light_3.png" class="side_3"/>
+
+                    <div id="max_quotes_title">${lang.quote}</div>
+                    <div id="max_quotes_content">
+                        <table class="curr_cont quotes_wrap"></table>
+                    </div>
+                    <div id="max_indexes">
+                        <div id="max_index_caption">${lang.sales_index}</div>
+                        <div id="max_timer_wrap">
+                            <div id="max_timer_caption">${lang.days_to_news}:</div>
+                            <div id="max_timer_field">
+                                <img id="max_timer_field_bg" src="${site_url}images/last_time.png">
+                                <div class="timer_last"></div>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                    {{if go_calendar !== false}}
+                        <a title="{{if go_calendar.lang && go_calendar.lang[pref]}}go_calendar.lang[pref].value{{/if}}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if go_calendar.link && go_calendar.link[pref]}}${go_calendar.link[pref].link}{{else}}${go_calendar.href}${go_calendar.id}/${go_calendar.id}/${go_calendar.main}/${lang_id}{{/if}}/" id="max_calendar_go_btn" class="new_component">
+                            <img id="max_calendar_go_btn_bg" src="${site_url}images/btn_bg.png">
+                            <div id="max_calendar_go_btn_txt">${$data.lang.go_to_events}</div>
+                        </a>
+                    {{/if}}
+
+                    <div class="clear"></div>
+
+                </div>
+
+                <div class="clear"></div>
+
+                <div id="max_day_question">
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div id="footer">
+            <ul id="footer_nav"></ul>
+        </div>
+
+    </div>
+
+    <div id="right_side">
+        <img class="bg" src="${site_url}images/side_bg_right.png" />
+        <div class="header_light">
+            <img src="${site_url}images/side_menu_right2.png" class="bg_light"/>
+        </div>
+    </div>
+
+    <div id="button_panel">
+
+    </div>
+
+
+    <div class="clear"></div>
+
+
+</div>

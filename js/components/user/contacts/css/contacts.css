@@ -1,0 +1,42 @@
+#contactWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#contactTable, #bigMapWrap {
+    position: absolute !important;
+    height: 100%;
+    top: 0;
+}
+
+#contactTable {
+    font-family: FrMedium;
+    font-size: 90%;
+    left: 0;
+    width: 47%;
+    padding: 0 0 0 15px;
+}
+
+#pageWrap #contactTable {
+    padding: 0;
+}
+
+#bigMapWrap {
+    border: 1px solid #999999;
+    border-bottom: none;
+    border-top: none;
+    right: 0;
+    width: 52%;
+}
+
+#bigMapTop {
+    background-color: #999999;
+    height: 1px;
+    padding-left: 1px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 52%;
+    z-index: 100;
+}

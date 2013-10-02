@@ -1,0 +1,42 @@
+<table style="margin-top: 15px;" class="table tableBordered table-hover">
+
+    <thead class="table-head">
+        <tr>
+            <td>ID</td>
+            <td>Имя подписчика</td>
+            <td>E-mail</td>
+            <td>Тип подписки</td>
+            <td>New</td>
+            <td>Действия</td>
+        </tr>
+    </thead>
+
+    <tbody class="subscribersListTbody">
+
+        {{if our_data}}
+            {{each($i, $val) our_data}}
+                <tr>
+                    <td>${$val.data.id}</td>
+                    <td>${$val.data.name}</td>
+                    <td>${$val.data.email}</td>
+                    <td>{{each($j, $val1) $val.subscriptions}} 
+                                        {{if $j<$val.subscriptions.length-1}}${$val1.name}, {{/if}} 
+                                        {{if $j==$val.subscriptions.length-1}}${$val1.name} {{/if}} 
+                        {{/each}}</td>
+                    <td><input class="checkbox" name="new" data-id="${$val.data.id}" type="checkbox" {{if $val.data.new =='1'}} checked  {{/if}}> </td>
+                                 
+                    <td>
+                        <div data-subscriber_id="${$val.data.id}" class="subscriber_icon_wrap pull-right">
+                            <i class="icon-pencil menu_icon editSubscriber" title="Редактировать подписчика"></i>
+                            <i class="icon-trash menu_icon deleteSubscriber" title="Удалить подписчика"></i>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+        {{/if}}
+
+    </tbody>
+
+</table>
+
+

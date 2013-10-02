@@ -1,0 +1,15 @@
+{{if our_data}}
+    {{each($i, $val) our_data}}
+        <div class="question_item_wrap">
+            <div class="menu_item_caption header_menu_item">
+                ${$val.question_theme}
+            </div>
+            <div class="menu_item_icon_wrap" data-question_variant_id="${$val.id}">
+                <i class="icon-pencil menu_icon editQuestionVariant" title="Редактировать вариант вопроса"></i>
+                <i class="icon-trash menu_icon deleteQuestionVariant" title="Удалить вариант вопроса"></i>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    {{/each}}
+{{/if}}

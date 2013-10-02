@@ -1,0 +1,9 @@
+{{each($i, $value) our_data}}
+    <li class="sub_item" style="z-index: 7;">
+        <a class="sub_item_wrap new_component" title="${$value.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $value.link && $value.link[pref]}}${$value.link[pref].link}{{else}}{{if $value.href}}${$value.href}/${$value.id}/${$value.main}/${lang_id}{{else}}#{{/if}}{{/if}}/">
+            <div class="bg_active"></div>
+            <div class="txt">${$value.lang[pref].value}</div>
+        </a>
+        <img class="sub_item_sep" src="${site_url}images/menu_btm_separator.png">
+    </li>
+{{/each}}

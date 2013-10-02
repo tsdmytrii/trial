@@ -1,0 +1,136 @@
+<div style='padding: 20px;'>
+
+    <div id="subWrap">
+
+            <form class="form-horizontal" id="campaignForm">
+                <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 15px; ">
+                    <thead class="table-head">
+                        <tr>
+                            <th colspan="2">
+                                Информация о кампании
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 50%;">
+
+                                <input type="hidden" name="id" id="canpaign_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="name">Название кампании:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="name" value="{{if our_data}}${our_data.name}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="title">Заголовок кампании:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="title" value="{{if our_data}}${our_data.title}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="subscription">Тип:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <select name="subscription" >
+                                            {{each($i. $val) our_data.subscription}}
+                                            <option value="${$val.id}" {{if our_data=='1'}} selected {{/if}}> ${$val.name} </option>
+                                            {{/each}}    
+                                        </select>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="html">HTML:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="html" value="{{if our_data}}${our_data.html}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="active">Active:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="checkbox" name="active" data-id="${our_data.id}" type="checkbox" {{if our_data.active =='1'}} checked  {{/if}}>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="date">Дата:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="date" value="{{if our_data}}${our_data.date}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="type">Тип:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <select name="type" >
+                                            <option value="1" {{if our_data.type=='1'}} selected {{/if}}> Мгновенная </option>
+                                            <option value="2" {{if our_data.type=='2'}} selected {{/if}}> Регулярная </option>
+                                            <option value="3" {{if our_data.type=='3'}} selected {{/if}}> Запанированая </option>
+                                        </select>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="frequency">Частота:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <select name="frequency">
+                                            <option value="1" {{if our_data.frequency=='1'}} selected {{/if}}> Daily </option>
+                                            <option value="2" {{if our_data.frequency=='2'}} selected {{/if}}> Weekly </option>
+                                            <option value="3" {{if our_data.frequency=='3'}} selected {{/if}}> Monthly </option>
+                                            <option value="4" {{if our_data.frequency=='4'}} selected {{/if}}> Yearly </option>
+                                        </select>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="ready">Ready:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input class="checkbox" name="ready" data-id="${our_data.id}" type="checkbox" {{if our_data.ready =='1'}} checked  {{/if}}>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-actions">
+                    <div class='pull-right'>
+                        <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                        <div class="btn cancel">Отмена</div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>

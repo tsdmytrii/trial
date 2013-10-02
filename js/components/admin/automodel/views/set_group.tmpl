@@ -1,0 +1,44 @@
+<div class="groupWrap">
+    <form class="form-horizontal" id="groupForm">
+        <input type="hidden" id='group_id' name="autogroup_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+        <input type="hidden" name="automodel_id[]" value="${automodel_id}"/>
+
+        <div class="control-group">
+            <div class="control-label">
+                <label for="description">Названине:</label>
+            </div>
+            <div class="controls">
+                <input type="text" name="name" value="{{if our_data}}${our_data.name}{{/if}}" />
+                <span class="help help-block"></span>
+            </div>
+        </div>
+
+        {{if our_data}}
+        <div class="control-group">
+            <div class="addAutoModel btn btn-info">Добавить автомодель</div>
+        </div>
+            {{if our_data.automodel}}
+                <div id='autoModelsInGroup'>
+                    {{each($i, $val) our_data.automodel}}
+                        {{if $val.id !== automodel_id}}
+                            <div class="control-group autoModelWrap" data-automodel_id='${$val.id}'>
+                                <div class="control-label">
+                                    <label for="description">Автомодель:</label>
+                                </div>
+                                <div class="controls">
+                                    <input type='hidden' name='automodel_id[]' value="${$val.id}" />
+                                    <input type="text" class='autoModelName' id='autoModelName_${$i+1}' name="automodelname[]" value="${$val.lang[pref].name}" />
+                                    <i class='icon-trash menu_icon deleteAutoModel'></i>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            {{/if}}
+        {{/if}}
+        <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,15 @@
+<ul class="sub_nav dropdown-menu {{if lvl>1}}menu_right{{/if}}" style="z-index: 6; {{if ie7}}margin-top: 2.9%;{{/if}}">
+    {{each($i, $value) our_data}}
+
+        {{if $value.lang && $value.lang[pref]}}
+            <li class="nav_button_wrap" data-menu_item_id="${$value.id}" data-lvl="{{if lvl}}${lvl}{{/if}}" {{if ie7}}style="margin-top: -1.9%"{{else}}style="z-index: ${15-$i};"{{/if}}>
+
+                <div class="nav_button_title">
+                    <a class="nav_button_txt new_component" title="${$value.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $value.link && $value.link[pref]}}${$value.link[pref].link}{{else}}{{if $value.href}}${$value.href}/${$value.id}/${$value.main}/${lang_id}{{else}}#{{/if}}{{/if}}/"><div class="outher"><div class="inner">${$value.lang[pref].value}</div></div></a>
+                </div>
+
+            </li>
+        {{/if}}
+
+    {{/each}}
+</ul>

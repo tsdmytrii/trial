@@ -1,0 +1,89 @@
+<div style='padding: 20px;'>
+
+    <div id="subWrap">
+
+        <form class="form-horizontal" id="subscriberForm">
+            <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 15px; ">
+                <thead class="table-head">
+                    <tr>
+                        <th colspan="2">
+                            Информация о подписчике
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="width: 50%;">
+
+                            <input type="hidden" name="id" id="subscriber" value="{{if our_data.data}}${our_data.data.id}{{/if}}"/>
+
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label for="name">Имя подписчика:</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" name="name" value="{{if our_data.data}}${our_data.data.name}{{/if}}"/>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label for="date">Дата добавления:</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" name="date" value="{{if our_data.data}}${our_data.data.date}{{/if}}"/>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label for="email">E-mail:</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" name="email" value="{{if our_data.data}}${our_data.data.email}{{/if}}"/>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label for="subscriptions">Подписки:</label>
+                                </div>
+                                <div class="controls">
+                                    {{if our_data.subscriptions.all}}
+                                    <select name="subscriptions[]" multiple>
+                                        {{each($i, $val) our_data.subscriptions.all}}
+                                        <option value="${$val.name}"  {{each($i, $val1) our_data.subscriptions.subscribed}} {{if $val.name==$val1.name}}selected="selected"{{/if}} {{/each}}>${$val.name}</option>
+                                        {{/each}}
+                                    </select>
+                                    {{/if}}
+                                    <span class="help help-block">Для выборки несольких типов подписок зажмите Ctrl(Windows) или Command(Mac)</span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label for="new">Новый:</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="checkbox" name="new" {{if our_data.data}} {{if our_data.data.new=='1'}} ${our_data.data.new} checked {{/if}} {{/if}}/>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-actions">
+                <div class='pull-right'>
+                    <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                    <div class="btn cancel">Отмена</div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

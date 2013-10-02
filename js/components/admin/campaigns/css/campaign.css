@@ -1,0 +1,37 @@
+.campaignTabCont {
+    display: none;
+}
+
+.campaignTabCont.current {
+    display: block;
+}
+
+#campaignManipulation .paginate a, #componentTypeManipulation .paginate span {
+    color: #000;
+}
+
+#campaignManipulation .btn-group {
+    float: left;
+}
+
+#paginator {
+    float: left;
+    margin: 5px 0 0 20px;
+}
+
+#addCampaign {
+    float: left;
+}
+
+.campaignQuantity {
+    float: left;
+    margin: 5px 10px 0 20px;
+}
+
+.functionForm .control-label, .functionForm .help {
+    display: inline;
+}
+
+#campaignsList {
+    margin-top: 1.5%;
+}

@@ -1,0 +1,23 @@
+<form class="form-inline categoryForm">
+
+    <div class="control-group">
+        <label class="control-label" for="key">Категория:</label>
+        <div class="controls">
+            <select name="category_id" class="categoryId">
+                {{each($i, $val) categories}}
+                    <option value="${$val.id}">{{if parseInt($val.lvl) > 1}}${$val.lvl_sign}{{/if}}${$val.lang[pref].name}</option>
+                {{/each}}
+            </select>
+            <span class="help"></span>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="btn saveCategory">
+            <i class="icon-ok" title="Сохранить атрибут"></i>
+        </div>
+        <div class="btn deleteCategory">
+            <i class="icon-remove" title="Удалить атрибут"></i>
+        </div>
+    </div>
+</form>

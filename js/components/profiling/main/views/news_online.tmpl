@@ -1,0 +1,22 @@
+<img class="bg" src="${site_url}images/block_bg.png"/>
+<img class="vert_sep" src="${site_url}images/vertical_separator.png">
+
+<div class="info_article_content">
+    <div class="info_article_title">${lang.news_online}</div>
+    <div class="info_article_desc">
+        {{each($i, $value) our_data}}
+            <div class="info_article_day">${$value.day_name} ${$value.date}</div>
+            {{each($i, $val) $value.data}}
+                {{if $val.lang && $val.lang[pref]}}
+                    <a data-news_online_id="${$val.id}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}newsonlineitem/${$val.id}/106/0/${lang_id}/" title="${$val.lang[pref].title}" class="new_component info_article_item hover">${$val.short_time} ${$val.lang[pref].title.slice(0, 70)}...</a>
+                    <div class="clear"></div>
+                {{/if}}
+            {{/each}}
+        {{/each}}
+    </div>
+</div>
+
+<a class="new_component archieve_news_btn" title="${menu_item.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if menu_item.link && menu_item.link[pref]}}${menu_item.link[pref].link}{{else}}${menu_item.href}/${menu_item.id}/${menu_item.main}/${lang_id}{{/if}}/">
+    <img class="archieve_news_btn_bg" src="${site_url}images/archieve_bg.png">
+    <div class="archieve_news_btn_txt">${lang.news_archive}</div>
+</a>

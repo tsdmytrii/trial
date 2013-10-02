@@ -1,0 +1,92 @@
+#set_seo_wrapper {
+    padding: 20px 30px;
+}
+
+.content_lang {
+    display: none;
+}
+
+#set_seo .content_lang {
+    width: 100%;
+}
+
+.key_title, .desc_wrap {
+    width: 50%;
+    float: left;
+}
+
+.key_title input, .key_title textarea, .desc_wrap input, .desc_wrap textarea{
+    width: 90%;
+}
+
+.key_title textarea, .desc_wrap textarea{
+    height: 150px;
+}
+
+.content_lang.current {
+    display: block;
+}
+
+#seo_list_wrap {
+    width: 60%;
+    display: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BBBBBB;
+    margin-top: 10px;    
+}
+
+.seo_caption {
+    float: left;
+}
+
+.seo_icon_wrap {
+    float: right;
+}
+
+.seo_item {
+    background: none repeat scroll 0 0 #F1F1F1;
+    border: 1px solid #BBBBBB;
+    margin: 5px 10px;
+    padding: 2px 5px;
+}
+
+.date_wrapper, .time_wrapper {
+    float: left;
+    margin: 0 20px 0 0;
+}
+
+.display_wrapper label{
+    float: left;
+    margin-right: 5px;
+}
+
+.date_time {
+    float: left;
+} 
+
+#seo_img {
+    position: absolute;
+    right: 10px;
+    top: 54px;
+}
+
+#seo_img img {
+    width: 250px;
+    height: 150px;
+}
+
+#delete_seo_img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#delete_seo_img:hover {
+    opacity: 1;
+}
+
+#delete_seo_img:active {
+    top: 1px;
+}

@@ -1,0 +1,42 @@
+<div id="rating">
+    <div id="raiting_caption">${lang.trade_reiting}</div>
+    <div id="raiting_col_wrap">
+        <table id="raiting_table">
+            <thead>
+                <tr>
+                    <td class="trader_name">${lang.trader}</td>
+                    <td class="trader_month">${lang.per_cent_month}</td>
+                    <td class="trader_day">${lang.per_cent_day}</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{each($i, $val) our_data}}
+                    <tr {{if ($i+1)%2 == 0}}class="even"{{/if}}>
+                        <td class="trader_name">${$val.nickname}</td>
+                        <td class="trader_month">${$val.marg_6}</td>
+                        <td class="trader_day">${$val.marg_d}</td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="clear"></div>
+
+    <div id="statistic_wrap">
+        <div id="statistic_caption">${lang.register_accaunt}:</div>
+            {{if menu_item}}
+                <a href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if menu_item.link && menu_item.link[pref]}}${menu_item.link[pref].link}{{else}}${menu_item.href}/${menu_item.id}/${menu_item.main}/${lang_id}{{/if}}/" id="reiting_btn" title="${menu_item.lang[pref].value}" class="new_component">
+                    <img src="${site_url}images/raiting_btn_bg.jpg" id="reiting_btn_bg">
+                    <div id="reiting_btn_txt">${$data.lang.all_reiting}</div>
+                </a>
+            {{/if}}
+        <div class="clear"></div>
+        <div id="statistic_content">
+            ${lang.traders}: 32451 ${lang.invest}: 74651
+            <div class="clear"></div>
+            ${lang.pamm}: 51655 ${lang.partners}: 5411
+        </div>
+    </div>
+</div>
+
+

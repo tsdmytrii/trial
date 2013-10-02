@@ -1,0 +1,20 @@
+#fxst-calendartable {
+    font-size: 110% !important;
+}
+
+#fxst-calendartable th {
+    font-size: 80% !important;
+}
+
+#fxit-advlink {
+    float: left !important;
+    margin-top: 0px !important;
+}
+
+#fxst-calendar-filter-dateshortcuts a:link, #fxst-calendar-filter-dateshortcuts a:visited {
+    font-size: 100% !important;
+}
+
+#fxst-calendar-filter-dateshortcuts {
+    margin-bottom: 10px !important;
+}

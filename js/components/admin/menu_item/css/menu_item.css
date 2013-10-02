@@ -1,0 +1,16 @@
+.navBarMenuItem {
+  background: linear-gradient(to bottom, #4F4F52 0%, #414143 100%) repeat scroll 0 0 transparent;
+  margin-top: 15px;
+}
+
+.navBarMenuItem .nav > li > a {
+    color: #D9D9D9;
+}
+
+.menuItemTab {
+    display: none;
+}
+
+.menuItemTab.current_set {
+    display: block;
+}

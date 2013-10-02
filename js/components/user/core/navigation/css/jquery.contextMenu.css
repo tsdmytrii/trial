@@ -1,0 +1,27 @@
+ul.context-menu{
+    
+    background: #fff;
+    margin: 0px;
+    color: #000;
+    list-style: none;
+    padding: 0px;
+    
+}
+.context-menu li{
+    
+   margin: 10px;
+   
+}
+.context-menu li a{
+    
+    font-size: 80%;
+    text-decoration: none;
+    color: #000;
+       
+}
+.context-menu li a:hover{
+       
+    text-decoration: none;
+    color: blue;
+       
+}

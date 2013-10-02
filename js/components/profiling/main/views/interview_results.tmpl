@@ -1,0 +1,14 @@
+{{if our_data}}
+    {{each($i, $val) our_data}}
+        {{if $val.lang && $val.lang[pref]}}
+            <div class="answer_item voted" data-i_v_id="${$val.id}">
+                <div class="txt"><b>${Math.round($val.vote/sum*10000)/100}%</b> (${$val.vote}) - ${$val.lang[pref].name}</div>
+            </div>
+
+            <div class="clear"></div>
+        {{/if}}
+    {{/each}}
+    <div class="answer_item voted">
+        <div class="txt"><strong>${lang.votes}:</strong> ${sum}</div>
+    </div>
+{{/if}}

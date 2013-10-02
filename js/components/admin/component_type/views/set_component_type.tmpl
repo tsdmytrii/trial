@@ -1,0 +1,195 @@
+<div style='padding: 20px;'>
+
+    <div class="btn-group">
+
+        <a href="componentTypeContent" class="btn active compTypeTab">Основная информация</a>
+
+        <a href="componentFunctions" class="btn compTypeTab{{if !our_data}} disabled{{/if}}">Функции</a>
+
+    </div>
+
+    <div id="compWrap">
+
+        <div class="current compTypeTabCont" id="componentTypeContent">
+            <form class="form-horizontal" id="componentTypeForm">
+                <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 15px; ">
+                    <thead class="table-head">
+                        <tr>
+                            <th colspan="2">
+                                Информация о компоненте
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 50%;">
+
+
+                                <input type="hidden" name="id" id="component_type_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="psevdo_name">Понятное название компонента:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="psevdo_name" value="{{if our_data}}${our_data.psevdo_name}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="name">Название для navigation:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="name" value="{{if our_data}}${our_data.name}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="library">Серверная библиотека:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="library" value="{{if our_data}}${our_data.library}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="admin_client_controller">Путь к админ JMVC:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="admin_client_controller" value="{{if our_data}}${our_data.admin_client_controller}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="client_controller">Путь к пользовательскому JMVC:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="client_controller" value="{{if our_data}}${our_data.client_controller}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="server_controller">Серверный метод:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" name="server_controller" value="{{if our_data}}${our_data.server_controller}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                            </td>
+                            <td style="width: 50%;">
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="display">Системный компонент:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="checkbox" name="display" value="2" {{if our_data}}{{if parseInt(our_data.display) == 0}}checked="checked"{{/if}}{{/if}}/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="multi">Уникальный:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="checkbox" name="multi" value="2" {{if our_data}}{{if our_data.multi == 0}}checked="checked"{{/if}}{{/if}}/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="button_panel">Есть кнопка:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="checkbox" name="button_panel" value="1" {{if our_data}}{{if our_data.button_panel == 1}}checked="checked"{{/if}}{{/if}}/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="settings">Настройки:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="checkbox" name="settings" value="1" {{if our_data}}{{if our_data.settings == 1}}checked="checked"{{/if}}{{/if}}/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="minimise">Свернуть:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="checkbox" name="minimise" value="1" {{if our_data}}{{if our_data.minimise == 1}}checked="checked"{{/if}}{{/if}}/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="maximise">Развернуть:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="checkbox" name="maximise" value="1" {{if our_data}}{{if our_data.maximise == 1}}checked="checked"{{/if}}{{/if}}/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="form-actions">
+                    <div class='pull-right'>
+                        <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                        <div class="btn cancel">Отмена</div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+        <div class="compTypeTabCont" id="componentFunctions">
+
+            <div style="margin-top: 15px;" class='btn btn-primary' id='addFunction'>Добавить функцию</div>
+
+            <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 15px; ">
+                <thead class="table-head">
+                    <tr>
+                        <th>
+                            Функции компонента
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class='function_forms'>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,211 @@
+<div style="padding: 20px;">
+
+    <div class="miniBlockFormWrap">
+        <form class="form-horizontal miniBlockInfoForm">
+
+            <input type="hidden" name="mini_block_id" class="mini_block_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+            <input type="hidden" name="content_id" class="content_id" value="{{if our_data}}${our_data.component.content_id}{{/if}}"/>
+            <input type="hidden" name="component_id" class="component_id" value="{{if our_data}}${our_data.component_id}{{/if}}"/>
+
+            <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 15px; ">
+                <thead class="table-head">
+                    <tr>
+                        <th colspan="2">
+                            Позиция и связаный компонент
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style='width: 50%;'>
+
+                            <div class="control-group" style="margin-top: 10px;">
+                                <div class="control-label">
+                                    <label for="position">Расположение:</label>
+                                </div>
+                                <div class="controls">
+                                    <input id="place" type="text" name="position" value="{{if our_data}}${our_data.position}{{/if}}" />
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label for="component">Название компонента:</label>
+                                </div>
+                                <div class="controls">
+                                    <input id="component_name" type="text" name="component" value="{{if our_data}}${our_data.component.name}{{/if}}" />
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label for="view">Путь к вьюшке:</label>
+                                </div>
+                                <div class="controls">
+                                    <input id="component_name" type="text" name="view" value="{{if our_data}}${our_data.view}{{/if}}" />
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-group useBgWrap" {{if !our_data}}style='display: none;'{{/if}} >
+                                <div class="control-label">
+                                    <label for="component">Использовать фон?</label>
+                                </div>
+                                <div class="controls">
+                                    <input class="miniBlockImg" type="checkbox" name="img" value="1" {{if our_data}}{{if parseInt(our_data.img) == 1}}checked{{/if}}{{/if}} />
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td style='width: 50%;'>
+
+                            <div class="bgImg" style="{{if our_data}}{{if parseInt(our_data.img) == 0}}display: none;{{/if}}{{else}}display: none;{{/if}}">
+                                <h4>Фоновая картинка</h4>
+
+                                <div class="clear"></div>
+
+                                <input type="file" id="img_upload" name="Filedata" />
+
+                                <div class="clear"></div>
+
+                                <div id="logo_list_wrap">
+
+                                    <div class="miniBlockImgWrap">
+                                        {{if our_data }}
+                                            {{if our_data.bg}}
+                                                <img src="${site_url}uploads/images/${our_data.bg.name}">
+                                                <div class="clear"></div>
+                                                <i style="margin: 5px auto;" class="icon-trash menu_icon delete_img" data-mini_block_img_id="${our_data.bg.id}"></i>
+                                                <div class="clear"></div>
+                                            {{/if}}
+                                        {{/if}}
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                </div>
+                            </div>
+
+                            <div class="tooltipImg" style="{{if !our_data}}display: none;{{/if}}">
+                                <h4>Всплывающая картинка</h4>
+
+                                <div class="clear"></div>
+
+                                <input type="file" id="tooltip_upload" name="Filedata" />
+
+                                <div class="clear"></div>
+
+                                <div id="tooltip_list_wrap">
+
+                                    <div class="miniBlockToolTipWrap">
+                                        {{if our_data}}
+                                            {{if our_data.tooltip}}
+                                                <img src="${site_url}uploads/images/${our_data.tooltip.name}">
+                                                <div class="clear"></div>
+                                                <i style="margin: 5px auto;" class="icon-trash menu_icon deleteToolTip" data-tooltip_id="${our_data.tooltip.id}"></i>
+                                                <div class="clear"></div>
+                                            {{/if}}
+                                        {{/if}}
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-striped table-bordered table-hover table-condensed" style="display: none;">
+                <thead class="table-head">
+                    <tr>
+                        <th colspan="2">
+                            Поведение компонента
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="contentBehaviorForm"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+
+        <div class="clear"></div>
+
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead class="table-head">
+                <tr>
+                    <th colspan="2">
+                        Общая информация
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+
+                        <div class="btn-group">
+
+                            {{each($i, $val) lang}}
+                                <a href="langContent${$val.id}" class="btn {{if $i == 0}}active{{/if}} miniBlockTab">${$val.name}</a>
+                            {{/each}}
+
+                        </div>
+
+
+                        <div class="miniBlockLangWrap">
+
+                            {{each($i, $val) lang}}
+
+                                <div id="langContent${$val.id}" class="content_lang {{if $i == 0}}current{{/if}}">
+                                    <form class="miniBlockForm form-horizontal">
+                                        <input class="lang_id" type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].id}{{/if}}{{else}}0{{/if}}" name="mini_block_lang_id"/>
+                                        <input type="hidden" value="${$val.id}" name="language_id"/>
+
+                                        <div class="control-group" style="margin-top: 15px;">
+                                            <div class="control-label">
+                                                <label for="name">Название:</label>
+                                            </div>
+                                            <div class="controls">
+                                                <input type="text" class="name" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].name}{{/if}}{{/if}}"/>
+                                                <span class="help help-block"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <label for="button_name">Название кнопки:</label>
+                                            </div>
+                                            <div class="controls">
+                                                <input type="text" name="button_name" value="{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].button_name}{{/if}}{{/if}}"/>
+                                                <span class="help help-block"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-actions">
+                                            <div class="pull-right">
+                                                <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                                                <div class="btn cancel">Отмена</div>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+
+                            {{/each}}
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

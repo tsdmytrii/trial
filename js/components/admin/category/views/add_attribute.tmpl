@@ -1,0 +1,111 @@
+<table class="table table-striped table-bordered table-hover table-condensed" id="addingAttr" style="margin-top: 15px;">
+    <thead class="table-head">
+        <tr>
+            <th colspan="2">
+                Атрибут
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+
+                <form class="attributeDataForm form-horizontal">
+
+                    <input type="hidden" value="" name="category_attribute_id" class="category_attribute_id">
+
+                    <div class="control-group" style="margin-top: 15px;">
+                        <div class="control-label">
+                            <label for="name">Тип атрибута:</label>
+                        </div>
+                        <div class="controls">
+                            <input type="radio" class="typeSwitch" name="type" value="1"/><label for="name">числовой</label>
+                            <input type="radio" class="typeSwitch" name="type" value="2"/><label for="name">качественный</label>
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group typeNumbWrap" style="margin-top: 15px; display: none;">
+                        <input class="lang_id" type="hidden" value="" name="category_attribute_range_id"/>
+                        <div class="control-label">
+                            <label for="name">Мин-Макс промежуток:</label>
+                        </div>
+                        <div class="controls">
+                            <input type="text" class="input-small" placeholder="мин" name="min" value=""/>
+                            <input type="text" class="input-small" placeholder="макс" name="max" value=""/>
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group typeQualityWrap" style="margin-top: 15px; display: none;">
+                        <div class="control-label">
+                            <label for="name">Атрибут:</label>
+                        </div>
+                        <div class="controls">
+                            <input type="radio" name="direct" value="1"/><label for="name">строгий</label>
+                            <input type="radio" name="direct" value="2"/><label for="name">не строгий</label>
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group qualityVariant" style="margin-top: 15px; display: none;">
+                        <div class="control-label">
+                            <label for="name">Значение атрибута:</label>
+                        </div>
+                        <div class="controls">
+                            <div class="btn brn-primary addQualityVariant">Добавить значение</div>
+                            <div class="qualityVariantsWrap">
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+                <div class="btn-group">
+
+                    {{each($i, $val) lang}}
+                        <a href="langAttrContent${$val.id}" class="btn {{if $i == 0}}active{{/if}} attributeTab">${$val.name}</a>
+                    {{/each}}
+
+                </div>
+
+
+                <div class="attributeLangWrap">
+
+                    {{each($i, $val) lang}}
+
+                        <div id="langAttrContent${$val.id}" class="attribute_content_lang {{if $i == 0}}current{{/if}}">
+                            <form class="attributeForm form-horizontal">
+                                <input class="lang_id" type="hidden" value="" name="category_attribute_lang_id"/>
+                                <input type="hidden" value="${$val.id}" name="language_id"/>
+
+                                <div class="control-group" style="margin-top: 15px;">
+                                    <div class="control-label">
+                                        <label for="name">Название:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="text" class="name" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].name}{{/if}}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <div class="pull-right">
+                                        <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                                        <div class="btn cancel">Отмена</div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    {{/each}}
+                </div>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

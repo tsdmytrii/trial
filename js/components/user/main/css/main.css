@@ -1,0 +1,1104 @@
+@font-face {
+    font-family: "FrDemi";
+    src: url("../../../../../js/fonts/fradm/fradm.eot");
+    src: url("../../../../../js/fonts/fradm/fradm.eot?#iefix") format("embedded-opentype"),
+        url("../../../../../js/fonts/fradm/fradm.woff") format("woff"),
+        url("../../../../../js/fonts/fradm/fradm.otf"),
+        url("../../../../../js/fonts/fradm/fradm.ttf") format("truetype"),
+        url("../../../../../js/fonts/fradm/fradm.svg#JournalRegular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "FrMedium";
+    src: url("../../../../../js/fonts/framdcn/framdcn.eot");
+    src: url("../../../../../js/fonts/framdcn/framdcn.eot?#iefix") format("embedded-opentype"),
+        url("../../../../../js/fonts/framdcn/framdcn.woff") format("woff"),
+        url("../../../../../js/fonts/framdcn/framdcn.otf"),
+        url("../../../../../js/fonts/framdcn/framdcn.ttf") format("truetype"),
+        url("../../../../../js/fonts/framdcn/framdcn.svg#JournalRegular") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.main {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-size: 11px;
+    background: none repeat scroll 0 0 #202020;
+}
+
+#pageWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+
+#contentWrap {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+}
+
+/*--------------Header-------------------*/
+
+#header {
+    width: 100%;
+    height: 8%;
+    padding-bottom: 0.551%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#logoAC {
+    position: absolute;
+    top: 0;
+    left: -1%;
+    height: 100%;
+    cursor: pointer;
+}
+
+#mainMenu {
+    height: 30%;
+    left: 10%;
+    position: absolute;
+    top: 44%;
+    width: 39%;
+}
+
+.menuItem {
+    font-family: FrMedium;
+    font-size: 100%;
+    color: #000;
+    text-transform: uppercase;
+    float: left;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.menuItem.current, .menuItem:hover {
+    color: #376490;
+}
+
+
+.menuSep {
+    float: left;
+    height: 100%;
+    margin: -1% 2.6% 0;
+    width: 1px;
+}
+
+#linkUs {
+    font-family: FrMedium;
+    font-size: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0.2%;
+    width: 19%;
+    z-index: 12;
+}
+
+.linkUs {
+    float: left;
+    font-size: 105%;
+    line-height: 120%;
+    margin-right: 6.5%;
+    position: relative;
+    top: 44%;
+}
+
+.linkUs a {
+    color: #000;
+}
+
+.linkUs a:hover {
+    text-decoration: none;
+}
+
+.linkUs.phoneNumber {
+    top: 30%;
+}
+
+#headerBtmBg {
+    background: url("../../../../../js/images/menu_shad.png") repeat scroll 0 0 transparent;
+    bottom: -6px;
+    height: 6px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
+
+#otherLinks {
+    left: 56%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 25%;
+    height: 100%;
+}
+
+#otherLinks td {
+    vertical-align: middle;
+}
+
+.otherLink {
+    text-decoration: none;
+    margin: 0 2%;
+}
+
+/*-------------------Content------------------------*/
+
+#content {
+    width: 100%;
+    position: relative;
+    left: 0;
+}
+
+.defProp #content {
+    height: 89%;
+    padding-bottom: 0.449%;
+}
+
+#autoWrap {
+    width: 80%;
+    float: left;
+    position: relative;
+    z-index: 1;
+}
+
+#autoBrendPictWrap, #autoBrendPictWrap img, #autoBrendWrap, .autoBrendLogo img, .autoBrendInfo .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.autoBrendInfo .bg {
+    width: 0;
+}
+
+.autoBrendItem.active .autoBrendInfo .bg {
+    width: 100%;
+}
+
+#autoBrendPictWrap img {
+    display: none;
+}
+
+.autoBrendItemPict {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.autoBrendItemPict.active {
+    display: block;
+}
+
+#autoBrendPictWrap img.active {
+    display: block;
+}
+
+
+#autoBrendWrap {
+    z-index: 10;
+}
+
+.autoBrendItem {
+    height: 25%;
+    position: relative;
+    width: 100%;
+}
+
+.autoBrendItem.active .autoBrendLogo{
+    cursor: default;
+}
+
+.autoBrendItem.active .autoBrendLogo img, .autoBrendItem.active .autoBrendLogo .logoLeftBg{
+    display: none;
+}
+
+.autoBrendItem.active .autoBrendLogo .autoBrendLogoTipe {
+    display: block;
+}
+
+.autoBrendLogo {
+    cursor: pointer;
+    height: 100%;
+    width: 14%;
+    position: relative;
+    float: left;
+}
+
+.logoActBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    background: url('../../../../../js/images/main_logo_act_bg.png');
+    z-index: 0;
+}
+
+.autoBrendItem.active .logoActBg {
+    display: block;
+}
+
+.logoLeftBg {
+    width: 6px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../../../../../js/images/logo_l_bord.png');
+    z-index: 10;
+}
+
+.autoBrendLogoTipe {
+    z-index: 10;
+}
+
+.autoBrendInfo {
+    float: left;
+    height: 100%;
+    width: 86%;
+    position: relative;
+    display: none;
+    color: #fff;
+    font-family: FrMedium;
+}
+
+.autoBrendItem.active .autoBrendInfo {
+    display: block;
+}
+
+.autoBrendSlogan {
+    font-size: 173%;
+    left: 2.3%;
+    position: absolute;
+    text-transform: uppercase;
+    top: 4%;
+    z-index: 11;
+    display: none;
+}
+
+.autoBrendName {
+    font-size: 350%;
+    position: absolute;
+    right: 1.7%;
+    text-transform: uppercase;
+    top: 5%;
+    z-index: 11;
+    display: none;
+}
+
+.autoBrendPrice {
+    font-size: 170%;
+    position: absolute;
+    right: 2%;
+    top: 74%;
+    z-index: 11;
+    display: none;
+}
+
+/*---------------Right side--------------------*/
+
+#rightSide {
+    width: 20%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+#rightSideCont {
+    height: 97%;
+    left: 4%;
+    position: absolute;
+    top: 1.3%;
+    width: 92%;
+}
+
+.rightSideItem {
+    height: 25%;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1%;
+}
+
+.plusAC {
+    display: none;
+}
+
+#autoCentrBg:hover .plusAC {
+    display: block;
+    z-index: 10;
+}
+
+.rightSideItem img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+}
+
+.rightSideHorSep {
+    background: url("../../../../../js/images/right_panel_bg.png") repeat scroll 0 0 transparent;
+    bottom: -5%;
+    height: 8%;
+    position: absolute;
+    width: 100%;
+    z-index: 8;
+}
+
+.tooltipMiniBlock {
+    display: none;
+    height: 364px;
+    left: -614px;
+    position: absolute;
+    top: -127px;
+    width: 600px;
+    z-index: 50;
+    -moz-box-shadow: 0px 0px 3px #000101;/*FF 3.5+*/
+    -webkit-box-shadow: 0px 0px 3px #000101;/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=90, Color=#000101)";/*IE 8*/
+    box-shadow: 0px 0px 3px #000101;
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=90, Color=#000101);/*IE 5.5-7*/
+}
+
+.rightSideItem .toolTipTriangle, .tooltipMiniBlock .toolTipTriangle {
+    height: 16px;
+    left: auto;
+    position: absolute;
+    right: -10px;
+    top: 174px;
+    width: 10px;
+}
+
+.newsContent {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+    z-index: 3;
+    left: 0;
+    top: 0;
+    text-align: left;
+    color: #fff;
+    font-family: FrMedium;
+    font-size: 105%;
+}
+
+.newsCaption {
+    color: #fff;
+    text-decoration: underline;
+    margin-bottom: 5%;
+}
+
+.newsCaption:hover, .allNewsCaption:hover, .randMenuItenCapt:hover {
+    text-decoration: none;
+}
+
+.allNewsCaption {
+    color: #fff;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    z-index: 4;
+    font-family: FrMedium;
+    font-size: 110%;
+}
+
+.newsDescription {
+    line-height: 150%;
+}
+
+#randMenuItem {
+    height: 25%;
+    margin-top: -3%;
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+#randMenuItem .bg {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.randMenuItenCapt {
+    color: #FFFFFF;
+    font-family: FrMedium;
+    font-size: 140%;
+    left: 10%;
+    position: absolute;
+    text-decoration: underline;
+    top: 44%;
+}
+
+.key {
+    height: 100%;
+    position: absolute;
+    right: 26%;
+    top: 0;
+    z-index: 3;
+}
+
+
+/*-----------------Ask question-----------------------*/
+
+#askQuestCont {
+    background: #fff;
+    position: absolute;
+    -moz-box-shadow: 0px 0px 5px #000101;/*FF 3.5+*/
+    -webkit-box-shadow: 0px 0px 5px #000101;/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=90, Color=#000101)";/*IE 8*/
+    box-shadow: 0px 0px 5px #000101;
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=90, Color=#000101);/*IE 5.5-7*/
+    height: 81%;
+    position: absolute;
+    right: -107%;
+    top: 25%;
+    width: 100%;
+    z-index: 15;
+}
+
+#askButton {
+    left: -28px;
+    position: absolute;
+    top: -2px;
+    cursor: pointer;
+}
+
+#askQuestWrap {
+    position: absolute;
+    width: 92%;
+    left: 4%;
+    height: 92%;
+    top: 4%;
+}
+
+.controlGroup {
+    margin-bottom: 5%;
+    width: 100%;
+}
+
+.askLabel {
+    font-family: FrMedium;
+    font-size: 120%;
+    margin-bottom: 2%;
+}
+
+#askEmail, #askSelect, #askQuest, #askName, #askSubmit {
+    width: 100%;
+    font-family: FrMedium;
+}
+
+.controlGroup input, .controlGroup select, #askQuest {
+    border: 1px solid #cdcdcd;
+}
+
+.controlGroup.error input, .controlGroup.error select, #askQuest.error {
+    border: 1px solid red;
+}
+
+#askSubmit {
+    background: none repeat scroll 0 0 #306593;
+    border: 1px solid #053A68;
+    color: #FFFFFF;
+}
+
+#separatorLine {
+    background: url("../../../../images/questLine.png") repeat scroll 0 0 transparent;
+    height: 1px;
+    left: -4%;
+    margin-bottom: 5%;
+    position: relative;
+    width: 109%;
+}
+
+#askQuest {
+    height: 43%;
+    margin-bottom: 5%;
+}
+
+#askQuest textarea {
+    border: medium none;
+    height: 100%;
+    margin: 0;
+    width: 100%;
+}
+
+/*-----------------Automodels-----------------------*/
+
+
+#dynamicCont {
+    left: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 7;
+}
+
+.defProp #dynamicCont {
+    height: 17%;
+    top: 79.7%;
+}
+
+#autoModelWrap {
+    width: 80%;
+    height: 15%;
+    position: relative;
+    float: left;
+}
+
+#autoModelCont {
+    height: 91%;
+    left: 1%;
+    position: absolute;
+    top: 5%;
+    width: 98%;
+}
+
+#amLT, #amL, #amLB, #amMT, #amMB, #amRT, #amR, #amRB {
+    position: absolute;
+    z-index: 0;
+}
+
+#amLT {
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    background: url('../../../../images/bg_left_top.png');
+    z-index: 2;
+}
+#amL {
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: url('../../../../images/bg_left.png');
+    z-index: 1;
+}
+#amLB {
+    left: 0;
+    bottom: 0;
+    width: 8px;
+    height: 47px;
+    background: url('../../../../images/bg_btm_left.png');
+    z-index: 2;
+}
+#amMT {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: url('../../../../images/bg_top.png');
+    z-index: 1;
+}
+
+#amMB {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 47px;
+    background: url('../../../../images/bg_btm.png');
+}
+
+#amRT {
+    right: 0;
+    top: 0;
+    width: 7px;
+    height: 6px;
+    background: url('../../../../images/bg_right_top.png');
+    z-index: 2;
+}
+
+#amR {
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    z-index: 1;
+    background: url('../../../../images/bg_right.png');
+}
+
+#amRB {
+    right: 0;
+    bottom: 0;
+    width: 7px;
+    height: 47px;
+    background: url('../../../../images/bg_btm_right.png');
+    z-index: 2;
+}
+
+#allAutoModelWrap {
+    height: 22px;
+    position: absolute;
+    right: 6%;
+    text-align: center;
+    top: -20px;
+    width: 15%;
+    z-index: 10;
+}
+
+#allAutoModelWrap img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    left: 0;
+}
+
+#allAutoModelWrapCapt {
+    font: 110% FrMedium;
+    position: relative;
+    text-decoration: underline;
+    top: 23%;
+    z-index: 1;
+    color: #000;
+}
+
+#autoModelItemsWrap {
+    height: 90%;
+    left: 0.5%;
+    position: relative;
+    top: 4%;
+    width: 99%;
+    z-index: 20;
+}
+
+.autoModelBrendWrap {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+.autoModelBrendWrap.active {
+    display: block;
+}
+
+.autoModelSector {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.autoModelItem {
+    float: left;
+    font-family: FrDemi;
+    margin: 0 0.2%;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    width: 12%;
+    height: 100%;
+    position: relative;
+}
+
+.autoModelQuant {
+    position: absolute;
+    color: #828282;
+    border: 2px solid #828282;
+    -moz-border-radius: 50px;/*Firefox*/
+    -webkit-border-radius: 50px;/*Safari, Chrome*/
+    border-radius: 50px;
+    color: #828282;
+    padding: 2.3% 4.5%;
+    background: #fff;
+    font-family: FrDemi;
+    font-size: 100%;
+    z-index: 2;
+}
+
+.autoModelItem:hover .autoModelCapt, .autoModelRelItem:hover .autoModelRelCapt {
+    text-decoration: underline;
+}
+
+.autoModelItem img {
+    height: 61%;
+    width: 86%;
+}
+
+.autoModelCapt, .autoModelRelCapt {
+    color: #000000;
+    font-family: FrDemi;
+    font-size: 130%;
+}
+
+.autoModelPrice {
+    color: #414141;
+    font-family: Arial,sans-serif;
+    font-size: 109%;
+}
+
+.relatedAutoModelToolTip {
+    display: none;
+    height: 110%;
+    position: absolute;
+    top: -120%;
+    -moz-box-shadow: 0px 1px 3px #000101;/*FF 3.5+*/
+    -webkit-box-shadow: 0px 1px 3px #000101;/*Saf3-4, Chrome, iOS 4.0.2-4.2, Android 2.3+*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=180, Color=#000101)";/*IE 8*/
+    box-shadow: 0px 1px 3px #000101;
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=180, Color=#000101);/*IE 5.5-7*/
+    -moz-border-radius: 5px;/*Firefox*/
+    -webkit-border-radius: 5px;/*Safari, Chrome*/
+    border-radius: 5px;
+    background: #fff;
+}
+
+.autoModelRelItem {
+    float: left;
+    height: 91%;
+    margin-top: 2%;
+    position: relative;
+}
+
+.autoModelItem .triangle {
+    height: 10px;
+    left: 42.3%;
+    position: absolute;
+    top: -11%;
+    width: 16px;
+    display: none;
+}
+
+/*-------------Some text---------------*/
+
+#advText {
+    float: left;
+    height: 15%;
+    position: relative;
+    z-index: 7;
+    font-family: FrMedium;
+}
+
+#advTextCont {
+    font-family: FrMedium;
+    height: 91%;
+    left: 4%;
+    overflow: hidden;
+    padding: 2% 8%;
+    position: absolute;
+    text-align: left;
+    top: 0.3%;
+    width: 77%;
+    z-index: 8;
+}
+
+#topSep {
+    height: 1px;
+    width: 99%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #e1e1e1;
+}
+
+#advTextCapt {
+    color: #306593;
+    display: block;
+    font-size: 121%;
+    margin-bottom: 2%;
+    text-decoration: underline;
+}
+
+
+/*-----------------Footer--------------------*/
+
+#footer {
+    width: 100%;
+    height: 5%;
+    padding-top: 0.3%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #802a00;
+    z-index: 10;
+   
+}
+#footer a {
+color: white;
+    font-size: 20px;    
+}
+
+#copyRight {
+    color: #9BB4CA;
+    font-family: FrMedium;
+    font-size: 108%;
+    position: absolute;
+    right: 1.5%;
+    text-transform: uppercase;
+    top: 30%;
+}
+
+#copyRight img {
+    height: 180%;
+    left: -30px;
+    position: absolute;
+    top: -50%;
+}
+
+.modalBlock {
+    z-index: 22;
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    display: none;
+    background: #fff;
+    top: 0;
+    left: 0;
+}
+
+#windTopMax, #windBottomMax {
+    height: 5px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    display: none;
+    z-index: 10;
+}
+
+#windTopMax {
+    bottom: 0;
+    background: url("../../../../../js/images/win_top.png") repeat scroll 0 0 transparent;
+}
+
+#windBottomMax {
+    top: 0;
+    background: url("../../../../../js/images/win_btm.png") repeat scroll 0 0 transparent;
+}
+
+.capScroll {
+    width: 100%;
+    height: 25px;
+}
+
+
+/*
+*--------------------POPUP
+*/
+
+#popUpWrap {
+    background: none repeat scroll 0 0 #CECECE;
+    display: block;
+    height: 120%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    visibility: hidden;
+}
+
+#popUpBtmBg {
+    bottom: 0;
+    height: 5px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+#popUpBtmBg img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#searchWrap {
+    background: none repeat scroll 0 0 #376490;
+    padding: 10px;
+    display: block;
+}
+
+#searchWrap div{
+    display: block;
+    background: #fff;
+    padding-left: 5px;
+}
+
+#search {
+    border: medium none;
+    display: block;
+    font-family: FrMedium;
+    font-size: 120%;
+    padding: 2px 0;
+    width: 100%;
+}
+
+#socialNetworkWrap {
+    width: 95%;
+    margin: 5px 2.5% 0 2.5%;
+    text-align: center;
+}
+
+#socialNetworkWrap a{
+    text-decoration: none;
+    width: 16%;
+    margin: 0.3%;
+    position: relative;
+    display: block;
+    float: left;
+}
+
+#socialNetworkWrap img {
+    width: 100%;
+}
+
+#shortContact {
+    font-family: FrMedium;
+    font-size: 100%;
+    height: 23%;
+    margin: 0 2.5%;
+    position: absolute;
+    text-transform: uppercase;
+    top: 16%;
+    width: 95%;
+}
+
+#shortContact .details {
+    color: #376490;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+}
+
+#mapWrap {
+    bottom: 5px;
+    height: 60%;
+    left: 2.5%;
+    position: absolute;
+    width: 95%;
+}
+
+/*
+*------------------ Side bar visible!!!!!!!
+*/
+
+.sideBar .modalBlock {
+    width: 100%;
+}
+
+
+/*
+*--------------Additional styles
+*/
+
+.freshComponent {
+    display: block;
+    visibility: hidden;
+}
+
+html body * span.clear, html body * div.clear, html body * li.clear, html body * dd.clear, .clear {
+    background: none repeat scroll 0 center transparent;
+    border: 0 none;
+    clear: both;
+    display: block;
+    float: none;
+    font-size: 0;
+    height: 0;
+    list-style: none outside none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    visibility: hidden;
+    width: 0;
+}
+
+/*
+* ------------------------- Window Head Menu_items
+*/
+
+.windHeadItem {
+    float: left;
+    text-decoration: none;
+    color: #000;
+}
+
+.windHeadItem.parent {
+    font-weight: bold;
+}
+
+.windHeadItem.active {
+    color: #376490;
+}
+
+.windHeadItem:hover {
+    text-decoration: underline;
+}
+
+.windHeadItem.active:hover {
+    text-decoration: none;
+    cursor: default;
+}
+
+.windSep {
+    float: left;
+    width: 15px;
+    height: 100%;
+}
+
+.windTabCont {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.productsSelector {
+     width: 100%;
+    height: 100%;
+    position: relative;
+   top: 5px;
+}
+
+.bannerItemPict {
+     width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+#bannerPagination {
+     z-index: 6;
+     width: 100%;
+         height: 10%;
+         position: absolute;
+}
+.banerLink {
+    z-index: 116;
+}
+

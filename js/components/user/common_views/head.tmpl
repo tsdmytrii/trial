@@ -1,0 +1,10 @@
+<a class="windHeadItem parent{{if our_data.parent.current == true}} active{{/if}}{{if parseInt(our_data.parent.child_inner_navigation) == 1}} new_inner_component{{else}} new_component{{/if}}" title="${our_data.parent.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if our_data.parent.link && our_data.parent.link[pref]}}${our_data.parent.link[pref].link}{{else}}${our_data.parent.href}/${our_data.parent.id}/${our_data.parent.main}/${lang_id}{{/if}}/">
+    ${our_data.parent.lang[pref].value}
+</a>
+<div class="windSep"></div>
+{{each($i, $val) our_data.children}}
+    <a class="windHeadItem{{if $val.current == true}} active{{/if}}{{if parseInt($val.child_inner_navigation) == 1}} new_inner_component{{else}} new_component{{/if}}" title="${$val.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $val.link && $val.link[pref]}}${$val.link[pref].link}{{else}}${$val.href}/${$val.id}/${$val.main}/${lang_id}{{/if}}/">
+        ${$val.lang[pref].value}
+    </a>
+    <div class="windSep"></div>
+{{/each}}

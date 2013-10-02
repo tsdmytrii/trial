@@ -1,0 +1,34 @@
+<form class="well form-horizontal" id="questionForm">
+    <fieldset>
+
+        <legend>Вариант вопроса</legend>
+
+        <input type="hidden" name="id" value="{{if $data.question && $data.question.id}}${$data.question.id}{{/if}}"/>
+
+        <div class="control-group">
+            <div class="control-label">
+                <label for="question_theme">Тема вопроса:</label>
+            </div>
+            <div class="controls">
+                <textarea name="question_theme">{{if $data.question && $data.question.question_theme}}${$data.question.question_theme}{{/if}}</textarea>
+                <span class="help"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <label for="department">Отдел:</label>
+            </div>
+            <div class="controls">
+                <input name="email_id" value="{{if $data.question && $data.question.department}}${$data.question.email_id}{{/if}}" type="hidden"/>
+                <input id="emailAutocomplete" name="department" value="{{if $data.question && $data.question.email}}${$data.question.email.department}{{/if}}"/>
+                <span class="help"></span>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-primary pull-right" type="submit">Сохранить изменения</button>
+        </div>
+
+    </fieldset>
+</form>

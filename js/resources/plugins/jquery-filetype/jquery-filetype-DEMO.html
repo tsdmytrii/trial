@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery-filetype-DEMO</title>
+<link href="jquery-filetype.css" rel="stylesheet" type="text/css" />
+<style>
+	a.file-icon	{display: block}
+body {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="jquery-filetype.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.files').linktype();
+});</script>
+
+</head>
+
+<body>
+	
+	<div class="files">
+		<a href="lorem1234.pdf">lorem1234.pdf</a> 
+		<a href="lorem1234.docx">lorem1234.docx</a> 
+		<a href="lorem1234.gif">lorem1234.gif</a> 
+		<a href="lorem1234.zip">lorem1234.zip</a> 
+		<a href="lorem1234.doc">lorem1234.doc</a> 
+		<a href="lorem1234.unknown">lorem1234.unknown</a> 
+		<a href="lorem1234.pdf">lorem1234.pdf</a> 
+	</div>
+	
+	<div class="">
+		<a href="ipsum1234.pdf">ipsum1234.pdf</a> 
+		<a href="ipsum1234.docx">ipsum1234.docx</a> 
+		<a href="ipsum1234.gif">ipsum1234.gif</a> 
+		<a href="ipsum1234.zip">ipsum1234.zip</a> 
+		<a href="ipsum1234.doc">ipsum1234.doc</a> 
+		<a href="ipsum1234.unknown">ipsum1234.unknown</a> 
+	</div>
+	
+	
+</body>
+</html>

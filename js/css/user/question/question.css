@@ -1,0 +1,47 @@
+#set_question_wrapper {
+    padding: 10px 20px;
+    margin-top: 40px;
+}
+
+span.error {
+    color: red;
+}
+
+#set_question {
+    display: block;
+    overflow: hidden;
+    font: 75% Verdana;
+    margin: 2% 0 0 0;
+}
+
+#set_question table {
+    width: 100%;
+}
+
+#set_question table td {
+    border: 0 none;
+    padding: 0 0 6px;
+    vertical-align: top;
+}
+
+#set_question input {
+    width: 95%;
+}
+
+#set_question textarea {
+    margin-top: 10px;
+    width: 95%;
+    height: 130px;
+}
+
+#show_success {
+    background-color: #FFFFFF;
+    border: 4px solid #ECE369;
+    border-radius: 5px 5px 5px 5px;
+    bottom: 20px;
+    font: 90% Verdana;
+    left: 20px;
+    padding: 20px;
+    position: fixed;
+    width: 10%;
+}

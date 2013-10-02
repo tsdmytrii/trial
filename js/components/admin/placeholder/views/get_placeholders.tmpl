@@ -1,0 +1,35 @@
+<div id="addPlaceholder" class="btn btn-primary">Добавить блок</div>
+
+{{if our_data}}
+    {{if our_data != 403}}
+
+        <table style="margin-top: 15px;" class="table tableBordered table-hover">
+            <thead class="table-head">
+                <tr>
+                    <td>ID</td>
+                    <td>Название</td>
+                    <td>Описание</td>
+                    <td>Действия</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{each($i, $val) our_data}}
+                    <tr>
+                        <td>${$val.id}</td>
+                        <td>${$val.name}</td>
+                        <td>${$val.description}</td>
+                        <td>
+                            <div data-placeholder_id="${$val.id}" class="placeholder_icon_wrap pull-right">
+                                <i class="icon-pencil menu_icon editPlaceholder" title="Редактировать блок"></i>
+                                <i class="icon-trash menu_icon deletePlaceholder" title="Удалить блок"></i>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    {{else}}
+        <h3>Код ошибки: ${our_data}</h3>
+    {{/if}}
+{{/if}}

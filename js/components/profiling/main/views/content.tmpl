@@ -1,0 +1,89 @@
+<div id="content" style="display: none;">
+    <div id="baner_wrap">
+        <div id="baner_content">
+            <img class="bg" src="${site_url}images/baner_bg.jpg">
+
+            <div id="rating_wrap">
+
+            </div>
+
+        </div>
+
+        <img class="h_separator" src="${site_url}images/chrom.png"/>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="news_wrap">
+
+        <div id="text_wrap">
+
+            <img class="vert_sep" src="${site_url}images/vertical_separator.png">
+        </div>
+
+        <div id="company_news_wrap">
+
+        </div>
+
+        <div id="quotes">
+            <div id="quotes_title">${lang.quote}</div>
+            <div id="quotes_content">
+                <table class="curr_cont quotes_wrap"></table>
+            </div>
+
+            <div id="indexes">
+                <div id="index_caption">${lang.sales_index}</div>
+                <div id="timer_wrap">
+                    <div id="timer_caption">${lang.days_to_news}:</div>
+                    <div id="timer_field">
+                        <img src="${site_url}images/last_time.png" id="timer_field_bg">
+                        <div class="timer_last"></div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+
+            </div>
+
+            {{if go_calendar !== false}}
+            <a  id="calendar_go_btn" title="{{if go_calendar.lang && go_calendar.lang[pref]}}go_calendar.lang[pref].value{{/if}}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if go_calendar.link && go_calendar.link[pref]}}${go_calendar.link[pref].link}{{else}}${go_calendar.href}${go_calendar.id}/${go_calendar.id}/${go_calendar.main}/${lang_id}{{/if}}/" class="new_component">
+                <img src="${site_url}images/btn_bg.png" id="calendar_go_btn_bg">
+                <div id="calendar_go_btn_txt">${$data.lang.go_to_events}</div>
+            </a>
+            {{/if}}
+
+            <div class="clear"></div>
+
+        </div>
+
+        <img class="h_separator" src="${site_url}images/chrom.png"/>
+
+    </div>
+
+
+
+    <div id="info_wrap">
+
+        <div id="news_online" class="info_articles">
+
+        </div>
+
+        <div id="market_reviews" class="info_articles">
+
+        </div>
+
+        <div id="articles" class="info_articles">
+
+        </div>
+        <div id="question" class="info_articles">
+
+        </div>
+
+        <img class="h_separator" src="${site_url}images/h_separator.png"/>
+
+    </div>
+
+    <div id="width_text_wrap">
+
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+
+<div class="btn btn-primary add_unit">Добавить еденицу измерения</div>
+
+{{if !our_data.message}}
+
+    <table id="datatable" class="table tableBordered table-hover" style="margin-top: 15px;">
+        <thead class="table-head">
+            <tr>
+                <td style="width: 5%;" class="id">#</td>
+                <td style="width: 25%;" class="name">Название</td>
+                <td style="width: 25%;" class="name">Позиция</td>
+                <td style="width: 10%;" class="action">Действия</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            {{if our_data}}
+
+                {{each($i, $val) our_data.data}}
+                    <tr id="unit_${$val.id}">
+                        <td>${$val.id}</td>
+                        <td>${$val.lang[pref].name}</td>
+                        <td>${$val.position}</td>
+                        <td>
+                            <div class="unit_icon_wrap" data-unit_id="${$val.id}">
+                                <i class="icon-pencil menu_icon edit_unit" title="Изменить производиетля"></i>
+                                <i class="icon-trash menu_icon delete_unit" title="Удалить производителя"></i>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+
+            {{/if}}
+
+        </tbody>
+    </table>
+
+
+{{else}}
+    <h3>Код ошибки: ${our_data.message}</h3>
+{{/if}}

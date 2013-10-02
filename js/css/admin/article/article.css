@@ -1,0 +1,112 @@
+#set_article_wrapper {
+    padding: 20px 30px;
+}
+
+.content_lang {
+    display: none;
+}
+
+.content_lang.current, .content_lang.current_seo {
+    display: block;
+}
+
+#article_list_wrap {
+    width: 100%;
+    display: none;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BBBBBB;
+    margin-top: 10px;
+}
+
+.article_caption {
+    float: left;
+}
+
+.article_icon_wrap {
+    float: right;
+}
+
+.article_item {
+    background: none repeat scroll 0 0 #F1F1F1;
+    border: 1px solid #BBBBBB;
+    margin: 5px 10px;
+    padding: 2px 5px;
+}
+
+.date_wrapper, .time_wrapper {
+    float: left;
+    margin: 0 20px 0 0;
+}
+
+#ui-timepicker-div {
+    z-index: 100000;
+}
+
+.display_wrapper label{
+    float: left;
+    margin-right: 5px;
+}
+
+.date_time {
+    float: left;
+}
+
+#article_img {
+    position: absolute;
+    right: 10px;
+    top: 54px;
+}
+
+#article_img img {
+    width: 250px;
+    height: 150px;
+}
+
+#delete_article_img {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+#delete_article_img:hover {
+    opacity: 1;
+}
+
+#delete_article_img:active {
+    top: 1px;
+}
+
+
+.seo_content {
+    width: 100%;
+}
+
+.key_title, .desc_wrap {
+    width: 50%;
+    float: left;
+}
+
+.key_title input, .key_title textarea, .desc_wrap textarea {
+    width: 90%;
+}
+
+.desc_wrap textarea {
+    height: 150px;
+}
+
+.key_title textarea {
+    height: 90px;
+}
+
+.seo_caption {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}
+
+#seo_form_wrap {
+    margin-top: 20px;
+}

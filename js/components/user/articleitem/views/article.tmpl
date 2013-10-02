@@ -1,0 +1,15 @@
+<div class="seo_title" style="display: none;">${our_data.lang[pref].seo_title}</div>
+<div class="articleItemWrap">
+    <div class="articleItemContent">
+        {{if our_data.lang && our_data.lang[pref]}}
+            <h1 class="articleItemCaption">${our_data.lang[pref].title} <span class="articleItemDate">${our_data.date.split('-')[2]}.${our_data.date.split('-')[1]}.${our_data.date.split('-')[0]}</span></h1>
+            <div class="clear"></div>
+            <div class="articleItemDescription">
+                {{if our_data.lang[pref].description}}
+                    {{html our_data.lang[pref].description}}
+                {{/if}}
+            </div>
+            <div class="capScroll">&nbsp;</div>
+        {{/if}}
+    </div>
+</div>

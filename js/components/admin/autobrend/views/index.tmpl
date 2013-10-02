@@ -1,0 +1,338 @@
+
+<ul class="nav nav-tabs">
+    <li class="active tab">
+        <a href="autobrend_common">Общее</a>
+    </li>
+    <li class="tab">
+        <a href="automodels_${content_id}">Автомодели</a>
+    </li>
+</ul>
+<div id="autobrend_wrap">
+    <div id="autobrend_common" class="tab_cont act">
+        <div id="logo_wrap" class="picture_wrap">
+
+            <h3>Логотип</h3>
+
+            <div class="clear"></div>
+
+            <input type="file" id="logo_upload_${element_id}" name="Filedata"/>
+
+            <div class="clear"></div>
+
+            <div id="logo_list_wrap">
+
+                {{if our_data.logo}}
+                    {{each($i, $val) our_data.logo}}
+                        <div class="logo_item">
+                            <img src="${site_url}uploads/images/${$val.name}">
+                            <div class="clear"></div>
+                            <i style="margin: 5px auto;" class="icon-trash menu_icon delete_logo" data-logo_id="${$val.id}"></i>
+                            <div class="clear"></div>
+                        </div>
+                    {{/each}}
+                {{/if}}
+
+                <div class="clear"></div>
+
+            </div>
+
+            <div class="clear logo_end"></div>
+
+        </div>
+
+        <div id="autologo_wrap" class="picture_wrap">
+
+            <h3>Логотип в "Автомобили"</h3>
+
+            <div class="clear"></div>
+
+            <input type="file" id="autologo_upload_${element_id}" name="Filedata"/>
+
+            <div class="clear"></div>
+
+            <div id="autologo_list_wrap">
+
+                {{if our_data.autologo}}
+                    <div class="autologo_item">
+                        <img src="${site_url}uploads/images/${our_data.autologo.name}">
+                        <div class="clear"></div>
+                        <i style="margin: 5px auto;" class="icon-trash menu_icon delete_autologo" data-logo_id="${our_data.autologo.id}"></i>
+                        <div class="clear"></div>
+                    </div>
+                {{/if}}
+
+                <div class="clear"></div>
+
+            </div>
+
+            <div class="clear autologo_end"></div>
+
+        </div>
+
+        <div id="picture_wrap" class="picture_wrap">
+
+            <h3>Картинки автобренда</h3>
+
+            <input type="file" id="picture_upload_${element_id}" name="Filedata"/>
+
+            <div class="clear"></div>
+
+            <div id="picture_list_wrap">
+
+                {{if our_data.picture}}
+                    {{each($i, $val) our_data.picture}}
+                        <div class="picture_item">
+                            <img src="${site_url}uploads/images/${$val.name}">
+                            <div class="clear"></div>
+                            <i style="margin: 5px auto;" class="icon-trash menu_icon delete_picture" data-picture_id="${$val.id}"></i>
+                            <div class="clear"></div>
+                        </div>
+                    {{/each}}
+                {{/if}}
+
+                <div class="clear"></div>
+
+            </div>
+
+            <div class="clear picture_end"></div>
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="control-group">
+            <label for="price" class="control-label">Цена: </label>
+            <div class="controls">
+                <input type="text" value="{{if our_data}}${our_data.price}{{/if}}" name="price" class="price" />
+                <span class="error"></span>
+            </div>
+        </div>
+
+        <div id="component_content">
+
+            <input id="autobrend_id" type="hidden" name="autobrend_id" value="${our_data.id}" />
+
+            <ul class="nav nav-tabs">
+                <li class="active lang_content">
+                    <a href="lang_ru">Русский</a>
+                </li>
+                <li class="lang_content">
+                    <a href="lang_ua">Українська</a>
+                </li>
+                <li class="lang_content">
+                    <a href="lang_en">English</a>
+                </li>
+            </ul>
+
+            <div id="content_lang_wrap">
+
+                <div id="lang_ru" class="content_lang current">
+
+                    <form class="autobrend_form">
+
+                        <input type="hidden" value="{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.id}{{/if}}" name="id"/>
+                        <input type="hidden" value="2" name="language_id"/>
+
+                        <div class="control-group" style="float: left; margin-right: 15px;">
+                            <label for="name" class="control-label">Название: </label>
+                            <div class="controls">
+                                <input type="text" value="{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.name}{{/if}}" name="name" class="name">
+                                <span class="error"></span>
+                            </div>
+                        </div>
+                        <div class="control-group" style="float: left; margin-right: 15px;">
+                            <label for="moto" class="control-label">MOTO: </label>
+                            <div class="controls">
+                                <input type="text" value="{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.moto}{{/if}}" name="moto" class="moto">
+                                <span class="error"></span>
+                            </div>
+                        </div>
+                        <div class="control-group" style="float: left; margin-right: 15px;">
+                            <label for="baner_name" class="control-label">Название банера: </label>
+                            <div class="controls">
+                                <input type="text" value="{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.baner_name}{{/if}}" name="baner_name" class="baner_name">
+                                <span class="error"></span>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <label for="description">Описание: </label>
+                        <textarea style="width:350px;height:250px" class="description content_desc" name="description">{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.description}{{/if}}</textarea>
+                        <span class="error"></span>
+
+                        <div class="clear"></div>
+
+                        <div class="seo_content">
+
+                            <div class="seo_caption">SEO</div>
+
+                            <div class="key_title">
+                                <label for="seo_title">Заголовок:</label>
+                                <input type="text" class="seo_title" name="seo_title" value="{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.seo_title}{{/if}}{{/if}}" />
+                                <span class="error"></span>
+
+                                <label for="key_words">Ключевые слова:</label>
+                                <textarea class="keywords" name="key_words">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.key_words}{{/if}}{{/if}}</textarea>
+                                <span class="error"></span>
+                            </div>
+
+                            <div class="desc_wrap">
+                                <label for="seo_description">Описание:</label>
+                                <textarea id="description" class="seo_content_desc" name="seo_description">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.seo_description}{{/if}}{{/if}}</textarea>
+                                <span class="error"></span>
+                            </div>
+
+                            <div class="clear"></div>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary save_chng">Сохранить изменения</button>
+                    </form>
+
+                </div>
+
+                <div id="lang_ua" class="content_lang">
+
+                    <form class="autobrend_form">
+
+                        <input type="hidden" value="{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.id}{{/if}}" name="id"/>
+                        <input type="hidden" value="3" name="language_id"/>
+
+                        <div class="control-group" style="float: left; margin-right: 15px;">
+                            <label for="name" class="control-label">Назва: </label>
+                            <div class="controls">
+                                <input type="text" value="{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.name}{{/if}}" name="name" class="name">
+                                <span class="error"></span>
+                            </div>
+                        </div>
+                        <div class="control-group" style="float: left; margin-right: 15px;">
+                            <label for="moto" class="control-label">MOTO: </label>
+                            <div class="controls">
+                                <input type="text" value="{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.moto}{{/if}}" name="moto" class="moto">
+                                <span class="error"></span>
+                            </div>
+                        </div>
+                        <div class="control-group" style="float: left; margin-right: 15px;">
+                            <label for="baner_name" class="control-label">Назва банеру: </label>
+                            <div class="controls">
+                                <input type="text" value="{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.baner_name}{{/if}}" name="baner_name" class="baner_name">
+                                <span class="error"></span>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <label for="description">Опис:</label>
+                        <textarea style="width:350px;height:250px" class="description content_desc" name="description">{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.description}{{/if}}</textarea>
+                        <span class="error"></span>
+
+                        <div class="clear"></div>
+
+                        <div class="seo_content">
+
+                            <div class="seo_caption">SEO</div>
+
+                            <div class="key_title">
+                                <label for="seo_title">Заголовок:</label>
+                                <input type="text" class="seo_title" name="seo_title" value="{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.seo_title}{{/if}}{{/if}}" />
+                                <span class="error"></span>
+
+                                <label for="key_words">Ключовi слова:</label>
+                                <textarea class="keywords" name="key_words">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.key_words}{{/if}}{{/if}}</textarea>
+                                <span class="error"></span>
+                            </div>
+
+                            <div class="desc_wrap">
+                                <label for="seo_description">Опис:</label>
+                                <textarea id="description" class="seo_content_desc" name="seo_description">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.seo_description}{{/if}}{{/if}}</textarea>
+                                <span class="error"></span>
+                            </div>
+
+                            <div class="clear"></div>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary save_chng">Зберегти змiни</button>
+                    </form>
+
+                </div>
+
+                <div id="lang_en" class="content_lang">
+
+                    <form class="autobrend_form">
+
+                        <input type="hidden" value="{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.id}{{/if}}" name="id"/>
+                        <input type="hidden" value="1" name="language_id"/>
+
+                        <div class="control-group" style="float: left; margin-right: 15px;">
+                            <label for="name" class="control-label">Name: </label>
+                            <div class="controls">
+                                <input type="text" value="{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.name}{{/if}}" name="name" class="name">
+                                <span class="error"></span>
+                            </div>
+                        </div>
+                        <div class="control-group" style="float: left; margin-right: 15px;">
+                            <label for="moto" class="control-label">MOTO: </label>
+                            <div class="controls">
+                                <input type="text" value="{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.moto}{{/if}}" name="moto" class="moto">
+                                <span class="error"></span>
+                            </div>
+                        </div>
+                        <div class="control-group" style="float: left; margin-right: 15px;">
+                            <label for="baner_name" class="control-label">Baner name: </label>
+                            <div class="controls">
+                                <input type="text" value="{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.baner_name}{{/if}}" name="baner_name" class="baner_name">
+                                <span class="error"></span>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <label for="description">Description:</label>
+                        <textarea style="width:350px;height:250px" class="description content_desc" name="description">{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.description}{{/if}}</textarea>
+                        <span class="error"></span>
+
+                        <div class="clear"></div>
+
+                        <div class="seo_content">
+
+                            <div class="seo_caption">SEO</div>
+
+                            <div class="key_title">
+                                <label for="seo_title">Title:</label>
+                                <input type="text" class="seo_title" name="seo_title" value="{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.seo_title}{{/if}}{{/if}}" />
+                                <span class="error"></span>
+
+                                <label for="key_words">Key words:</label>
+                                <textarea class="keywords" name="key_words">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.key_words}{{/if}}{{/if}}</textarea>
+                                <span class="error"></span>
+                            </div>
+
+                            <div class="desc_wrap">
+                                <label for="seo_description">Description:</label>
+                                <textarea id="description" class="seo_content_desc" name="seo_description">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.seo_description}{{/if}}{{/if}}</textarea>
+                                <span class="error"></span>
+                            </div>
+
+                            <div class="clear"></div>
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary save_chng">Save changes</button>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+    <div id="automodels_${content_id}" class="tab_cont">
+
+        <button class="btn btn-primary add_automodel">Добавить автомодель</button>
+
+        <div class="automodels_list"></div>
+
+    </div>
+</div>

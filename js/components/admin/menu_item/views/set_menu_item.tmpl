@@ -1,0 +1,232 @@
+<div id="set_menu_item">
+    <i class="icon-remove menu_icon close_set_menu_block"></i>
+
+    {{if tab}}
+        <ul class="nav nav-tabs">
+            <li class="active switch_set">
+                <a href="new">Add new menu item</a>
+            </li>
+            <li class="switch_set">
+                <a href="related">Add existing menu item</a>
+            </li>
+        </ul>
+    {{/if}}
+
+    <div class="set_menu_item_wrap new current_set">
+
+        <form class="menu_item_form">
+
+            <input type="hidden" id="menu_item_id" value="{{if our_data}}${our_data.menu_item.id}{{/if}}" name="id" />
+            <input type="hidden" value="{{if menu_block_id}}${menu_block_id}{{else}}{{if our_data}}{{if our_data.menu_block}}${our_data.menu_block.id}{{/if}}{{/if}}{{/if}}" name="menu_block_id" />
+
+            {{if our_data}}
+                {{if our_data.menu_item.default_item == '0'}}
+                    <label>
+                        <strong style="float: left; margin-right: 10px;">Пункт по умолчанию:</strong>
+                        <input style="float: left;" type="checkbox" value="1" name="default_item">
+                    </label>
+                {{/if}}
+            {{else}}
+                <label>
+                    <strong style="float: left; margin-right: 10px;">Пункт по умолчанию:</strong>
+                    <input checked style="float: left;" type="checkbox" value="1" name="default_item">
+                </label>
+            {{/if}}
+
+            <div class="clear"></div>
+
+            <div style="margin-top: 10px;" class="menu_item_names">
+
+                <ul class="nav nav-tabs">
+                    <li class="active lang_content">
+                        <a href="lang_ru">Русский</a>
+                    </li>
+                    <li class="lang_content">
+                        <a href="lang_ua">Українська</a>
+                    </li>
+                    <li class="lang_content">
+                        <a href="lang_en">English</a>
+                    </li>
+                </ul>
+
+                <div id="content_lang_wrap">
+
+                    <div id="lang_ru" class="content_lang current">
+
+                        <label for="name_ru">Название пункта меню</label>
+                        <input type="text" value="{{if our_data}}{{if our_data.lang && our_data.lang.ru}}${our_data.lang.ru.value}{{/if}}{{/if}}" id="name_ru" name="name_ru" placeholder="Rus"/>
+                        <span class="error"></span>
+
+                        <div class="clear"></div>
+
+                        <label for="link_ru">Cсылка:</label>
+                        <input type="hidden" value="{{if our_data}}{{if our_data.links && our_data.links.ru}}${our_data.links.ru.id}{{/if}}{{/if}}" name="link_id_ru"/>
+                        <input type="text" value="{{if our_data}}{{if our_data.links && our_data.links.ru}}${our_data.links.ru.link}{{/if}}{{/if}}" id="link_ru" name="link_ru" placeholder="Link"/>
+                        <span class="error"></span>
+
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div id="lang_ua" class="content_lang">
+
+                        <label for="name_ua">Назва пункта меню</label>
+                        <input type="text" value="{{if our_data}}{{if our_data.lang && our_data.lang.ua}}${our_data.lang.ua.value}{{/if}}{{/if}}" id="name_ua" name="name_ua" placeholder="Ua"/>
+                        <span class="error"></span>
+
+                        <div class="clear"></div>
+
+                        <label for="link_ua">Посилання:</label>
+                        <input type="hidden" value="{{if our_data}}{{if our_data.links && our_data.links.ua}}${our_data.links.ua.id}{{/if}}{{/if}}" name="link_id_ua"/>
+                        <input type="text" value="{{if our_data}}{{if our_data.links && our_data.links.ua}}${our_data.links.ua.link}{{/if}}{{/if}}" id="link_ua" name="link_ua" placeholder="Link"/>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div id="lang_en" class="content_lang">
+
+                        <label for="name_en">Menu item name</label>
+                        <input type="text" value="{{if our_data}}{{if our_data.lang && our_data.lang.en}}${our_data.lang.en.value}{{/if}}{{/if}}" id="name_en" name="name_en" placeholder="Eng"/>
+                        <span class="error"></span>
+
+                        <div class="clear"></div>
+
+                        <label for="link_en">Link:</label>
+                        <input type="hidden" value="{{if our_data}}{{if our_data.links && our_data.links.en}}${our_data.links.en.id}{{/if}}{{/if}}" name="link_id_en"/>
+                        <input type="text" value="{{if our_data}}{{if our_data.links && our_data.links.en}}${our_data.links.en.link}{{/if}}{{/if}}" id="link_en" name="link_en" placeholder="Link"/>
+                        <span class="error"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="menu_item_selectors">
+                <label for="parent_id">Parent menu item</label>
+                <select name="parent_id">
+                    <option value="0">No parent</option>
+                    {{if our_data}}
+                        {{if edit_parent.length}}
+                            {{each($i, $value) edit_parent}}
+                                <option value="${$value.id}" {{if our_data.menu_item.parent_id == $value.id}}selected{{/if}}>{{if $value.lvl != '1'}}${$value.lvl_sign}{{/if}} ${$value.lang.ru.value}</option>
+                            {{/each}}
+                        {{/if}}
+                    {{/if}}
+
+                    {{if parent}}
+                        {{each($i, $value) parent}}
+                            <option value="${$value.id}">{{if $value.lvl != '1'}}${$value.lvl_sign}{{/if}} ${$value.lang.ru.value}</option>
+                        {{/each}}
+                    {{/if}}
+                </select>
+                <div class="clear"></div>
+
+                {{if our_data}}
+                    <input id="component_id" type="hidden" value="${our_data.component_id}" name="component_id">
+                    <input id="component_type_id" type="hidden" value="${our_data.component_type_id}" name="component_type_id">
+                {{/if}}
+
+                {{if our_data}}
+                    <strong>Component:
+                        {{if our_data.parent.component}}
+                            {{each($i, $value) our_data.parent.component}}
+                                {{if parseInt(our_data.component_type_id) == $value.id}}
+                                    <span class="component_name">${$value.psevdo_name}</span>
+                                {{/if}}
+                            {{/each}}
+                        {{/if}}
+                    </strong>
+                    <div class="clear"></div>
+                    {{if our_data.component_type_id}}
+                        <strong class="component_name">${our_data.component_name}<i title="Отвязать пункт меню" class="icon-resize-full menu_icon disconect_menu_item"></i></strong>
+                    {{/if}}
+                    <div class="component_name_search" {{if our_data.component_type_id}}style="display: none;"{{/if}}>
+                        <input type="text" id="component_name" name="component_name_search" value="">
+                    </div>
+                {{else}}
+                    <label for="component_id">Component</label>
+
+                    <select name="component_type_id" id="component_id" >
+                        <option value="0">No component</option>
+
+                        {{if component}}
+                            {{each($i, $value) component}}
+                                <option value="${$value.id}">${$value.psevdo_name}</option>
+                            {{/each}}
+                        {{/if}}
+
+                    </select>
+                {{/if}}
+
+                <div class="clear"></div>
+
+                <span class="help-inline">Position</span>
+                <input type="text" name="position" value="{{if our_data}}${our_data.menu_item.position}{{/if}}" class="menu_item_position span3"/>
+                <span class="error"></span>
+
+                <div class="control-group">
+                    <input type="radio" name="window" value="1" class="checkbox" {{if our_data}}{{if our_data.menu_item.window == "1"}}checked{{/if}}{{/if}}/>
+                           <span class="help-inline">Window?</span>
+
+                    <div class="clear"></div>
+
+                    <input type="radio" name="window" value="0" class="checkbox" {{if our_data}}{{if our_data.menu_item.window == "0"}}checked{{/if}}{{/if}}/>
+                           <span class="help-inline">Main?</span>
+                </div>
+
+                <div class="control-group">
+                    <input type="checkbox" name="inner_navigation" value="1" class="checkbox" {{if our_data}}{{if our_data.menu_item.inner_navigation == "1"}}checked{{/if}}{{/if}}/>
+                           <span class="help-inline">Показывать соседей?</span>
+
+                    <div class="clear"></div>
+
+                    <input type="checkbox" name="child_inner_navigation" value="1" class="checkbox" {{if our_data}}{{if our_data.menu_item.child_inner_navigation == "1"}}checked{{/if}}{{/if}}/>
+                           <span class="help-inline">Открывать пункт во вкладке?</span>
+                </div>
+
+            </div>
+
+            <div class="clear"></div>
+            <button type="submit" class="btn btn-success">Save</button>
+            {{if our_data}}
+                <input type="button" class="btn btn-primary" id="set_menu_item_relation" value="Set menu item relation"/>
+            {{/if}}
+
+        </form>
+        {{if our_data}}
+            <form id="relation_menu_item">
+                <input type="hidden" value="{{if our_data}}${our_data.menu_item.id}{{/if}}" name="menu_item_id" />
+                {{each($i, $value) edit_parent}}
+                    <input class="checkbox" type="checkbox" value="${$value.id}" {{if $value.related}}checked{{/if}} name="related_menu_item_id[]">
+                    <label class="help-inline" for="related_menu_item_id[]">{{if $value.lvl != '1'}}${$value.lvl_sign}{{/if}} ${$value.lang.ru.value}</label>
+                    <div class="clear"></div>
+                {{/each}}
+
+                <button type="submit" class="btn btn-success">Save</button>
+            </form>
+        {{/if}}
+    </div>
+
+
+    <div class="set_menu_item_wrap related">
+        {{if related}}
+            <form class="menu_item_related_form">
+                <div class="control-group">
+
+                    {{each($i, $value) related}}
+                        <input type="checkbox" name="related_menu_item[]" value="${$value.menu_item.id}" class="checkbox" {{if $value.relation}}checked{{/if}} />
+                        <label class="help-inline" for="related_menu_item[]">${$value.lang.ru.value}</label>
+                        <div class="clear"></div>
+                    {{/each}}
+
+                </div>
+
+                <button type="submit" class="btn btn-success">Save</button>
+
+            </form>
+        {{/if}}
+    </div>
+
+
+</div>

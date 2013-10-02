@@ -1,0 +1,22 @@
+<div id="news_caption">${lang.company_news}</div>
+
+<div id="news_content">
+    {{if our_data.length}}
+        {{each($i, $value) our_data}}
+            <div class="news_item_wrap">
+                <div class="news_title">
+                    <a class="new_component hover" title="${$value.lang[pref].title}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $value.link && $value.link[pref]}}${$value.link[pref].link}{{else}}${$value.href}${$value.id}/${menu_item.id}/${$value.main}/${lang_id}{{/if}}/">${$value.lang[pref].title}</a>
+                </div>
+                <div class="news_desc">${$value.lang[pref].description.slice(0, 100)}...</div>
+                <div class="clear"></div>
+            </div>
+        {{/each}}
+    {{/if}}
+</div>
+
+<a id="news_details_btn" class="new_component" title="${menu_item.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if menu_item.link && menu_item.link[pref]}}${menu_item.link[pref].link}{{else}}${menu_item.href}/${menu_item.id}/${menu_item.main}/${lang_id}{{/if}}/">
+    <img id="news_details_btn_bg" src="${site_url}images/details_btn_bg.png">
+    <div id="news_details_btn_txt">${lang.details}</div>
+</a>
+
+<img class="vert_sep" src="${site_url}images/vertical_separator.png">

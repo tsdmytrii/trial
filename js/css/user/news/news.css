@@ -1,0 +1,11 @@
+.news_content, .news {
+    padding: 20px;
+}
+
+.news_wrap td {
+    padding: 5px 10px;
+}
+
+.news_caption, .news_back {
+    cursor: pointer;
+}
