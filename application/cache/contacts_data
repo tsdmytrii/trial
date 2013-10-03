@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 a:3:{s:4:"time";i:1380801083;s:3:"ttl";i:5000;s:4:"data";a:3:{s:2:"id";i:2;s:4:"date";s:10:"25-03-2013";s:4:"lang";a:3:{s:2:"ru";a:11:{s:2:"id";i:5;s:10:"contact_id";s:1:"2";s:11:"language_id";s:1:"2";s:5:"title";s:16:"Контакты";s:11:"description";s:1795:"<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+=======
+a:3:{s:4:"time";i:1380716702;s:3:"ttl";i:5000;s:4:"data";a:3:{s:2:"id";i:2;s:4:"date";s:10:"25-03-2013";s:4:"lang";a:3:{s:2:"ru";a:11:{s:2:"id";i:5;s:10:"contact_id";s:1:"2";s:11:"language_id";s:1:"2";s:5:"title";s:16:"Контакты";s:11:"description";s:1795:"<table border="0" cellpadding="0" cellspacing="0" style="width: 100%;">
+>>>>>>> e71c64145c113e8c89ae404c925c2eb1f7dc0b4b
 	<tbody>
 		<tr>
 			<td style="text-align: left; vertical-align: top;">

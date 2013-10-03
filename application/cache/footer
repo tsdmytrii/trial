@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 a:3:{s:4:"time";i:1380801083;s:3:"ttl";i:5000;s:4:"data";a:1:{i:0;a:13:{s:2:"id";i:20;s:9:"parent_id";s:1:"0";s:12:"component_id";s:1:"0";s:6:"window";s:1:"0";s:4:"main";s:1:"1";s:8:"position";s:1:"1";s:12:"default_item";s:1:"0";s:16:"inner_navigation";s:1:"0";s:22:"child_inner_navigation";s:1:"0";s:14:"component_type";b:0;s:9:"component";b:0;s:4:"lang";a:1:{s:2:"ru";a:4:{s:2:"id";i:70;s:12:"menu_item_id";s:2:"20";s:11:"language_id";s:1:"2";s:5:"value";s:32:"футер - пункт меню";}}s:4:"link";b:0;}}}
+=======
+a:3:{s:4:"time";i:1380716702;s:3:"ttl";i:5000;s:4:"data";a:1:{i:0;a:13:{s:2:"id";i:20;s:9:"parent_id";s:1:"0";s:12:"component_id";s:1:"0";s:6:"window";s:1:"0";s:4:"main";s:1:"1";s:8:"position";s:1:"1";s:12:"default_item";s:1:"0";s:16:"inner_navigation";s:1:"0";s:22:"child_inner_navigation";s:1:"0";s:14:"component_type";b:0;s:9:"component";b:0;s:4:"lang";a:1:{s:2:"ru";a:4:{s:2:"id";i:70;s:12:"menu_item_id";s:2:"20";s:11:"language_id";s:1:"2";s:5:"value";s:32:"футер - пункт меню";}}s:4:"link";b:0;}}}
+>>>>>>> e71c64145c113e8c89ae404c925c2eb1f7dc0b4b
