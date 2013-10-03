@@ -68,6 +68,8 @@ $route['admin/pages/(:any)'] = 'admin/component_controller/index';
 
 $route['admin/placeholders'] = 'admin/placeholder_controller';
 
+$route['admin/attributes'] = 'admin/attribute_controller';
+
 $route['admin/mini_blocks'] = 'admin/layout_controller';
 
 $route['admin/product_blocks'] = 'admin/product_block_controller';

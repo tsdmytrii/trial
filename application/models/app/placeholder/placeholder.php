@@ -122,7 +122,7 @@ class Placeholder extends DataMapper {
 
         $result = $placeholder->get_by_id($placeholder_id)->to_array();
 
-        $placeholder_attribute = new Attribute();
+        $placeholder_attribute = new Placeholder_attribute();
         $result['attributes'] = $placeholder_attribute->get_placeholder_attribute($placeholder_id);
 
         $mini_block = new Mini_block();
@@ -146,7 +146,7 @@ class Placeholder extends DataMapper {
 
         $placeholder->get_by_id($placeholder_id);
 
-        $placeholder_attribute = new Attribute();
+        $placeholder_attribute = new Placeholder_attribute();
 
         $placeholder_attribute->delete_placeholder_attribute($placeholder->id);
 
@@ -198,7 +198,7 @@ class Placeholder extends DataMapper {
         $data = '';
 
         foreach ($placeholder as $p) {
-            $placeholder_attr = new Attribute();
+            $placeholder_attr = new Placeholder_attribute();
 
             $placeholder_attr->get_by_placeholder_id($p->id);
 

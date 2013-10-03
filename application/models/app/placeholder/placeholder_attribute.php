@@ -1,6 +1,6 @@
 <?php
 
-class Attribute extends DataMapper {
+class Placeholder_attribute extends DataMapper {
 
     public $table = 'placeholder_attributes';
     public $has_one = array('placeholder');
@@ -36,7 +36,7 @@ class Attribute extends DataMapper {
     }
 
     public function set_placeholder_attribute() {
-        $placeholder_attribute = new Attribute();
+        $placeholder_attribute = new Placeholder_attribute();
 
         if (self::$ci->input->post('id'))
             $placeholder_attribute->get_by_id (self::$ci->input->post('id'));
@@ -52,14 +52,14 @@ class Attribute extends DataMapper {
     }
 
     public function get_placeholder_attribute($placeholder_id) {
-        $placeholder_attribute = new Attribute();
+        $placeholder_attribute = new Placeholder_Attribute();
 
         return $placeholder_attribute->get_by_placeholder_id($placeholder_id)->all_to_array();
     }
 
     public function delete_placeholder_attribute($placeholder_id = false) {
 
-        $placeholder_attribute = new Attribute();
+        $placeholder_attribute = new Placeholder_attribute();
 
         if ($placeholder_id == false) {
 

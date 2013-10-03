@@ -16,28 +16,32 @@
         {{if our_data}}
             {{each($i, $val) our_data}}
                 <tr>
-                    <td>${$val.id}</td>
-                    <td>${$val.name}</td>
+                    <td>${$val.attribute.id}</td>
                     <td>
-                        {{if parseInt($val.influence_type) == 0}}
+                        {{each($sub_i, $sub_val) $val.attribute_languages}}
+                            ${$sub_val.name}
+                        {{/each}}
+                    </td>
+                    <td>
+                        {{if parseInt($val.attribute.influence_type) == 0}}
                             Описание
                         {{else}}
                             Цену
                         {{/if}}
                     </td>
                     <td>
-                        {{if parseInt($val.measurement_type) == 0}}
+                        {{if parseInt($val.attribute.measurement_type) == 0}}
                             Текстовый
                         {{else}}
                             Качественный
                         {{/if}}
                     </td>
-                    <td>{{if parseInt($val.strict) == 1}}Нет{{else}}Да{{/if}}</td>
+                    <td>{{if parseInt($val.attribute.strict) == 1}}Нет{{else}}Да{{/if}}</td>
                     <td>
-                        <div data-attribute_id="${$val.id}" class="attribute_icon_wrap pull-right">
+                        <div data-attribute_id="${$val.attribute.id}" class="attribute_icon_wrap pull-right">
                             <i class="icon-trash menu_icon deleteAttribute" title="Удалить атрибут"></i>
                         </div>
-                        <div data-cattribute_id="${$val.id}" class="attribute_icon_wrap pull-right">
+                        <div data-cattribute_id="${$val.attribute.id}" class="attribute_icon_wrap pull-right">
                             <i class="icon-pencil menu_icon editAttribute" title="Редактировать атрибут"></i>
                         </div>
                     </td>

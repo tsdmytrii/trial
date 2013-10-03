@@ -53,7 +53,7 @@ $.Controller.extend('Attributes',{
 
         if (data.success == false) {
 
-            show_error('Пожалуйста добавьте несколько типов компонентов');
+            show_error('Пожалуйста добавьте несколько атрибутов');
 
         } else {
 
@@ -72,7 +72,7 @@ $.Controller.extend('Attributes',{
                 }
 
                 var html = $.View(this.Class.defaults.viewpath+'all_attribute.tmpl', {
-                    our_data: data.data.data,
+                    our_data: data.data,
                     pref: this.Class.defaults.pref
                 });
 
@@ -108,7 +108,7 @@ $.Controller.extend('Attributes',{
         var html = $.View(this.Class.defaults.viewpath+'set_attribute.tmpl', {
                 our_data: data ? data.data : false
             }),
-            msg = data === false ? 'Добавление типа компонента' : 'Изменение типа компонента';
+            msg = data === false ? 'Добавление атрибута' : 'Изменение атрибута';
 
         loadWindow('set_attribute', this.Class.defaults.wind_opt, msg, html);
 
@@ -124,7 +124,7 @@ $.Controller.extend('Attributes',{
             attribute_id: $(el).parents(".attribute_icon_wrap").data('attribute_id')
         };
 
-        if(confirm('Вы действительно хотите удалить тип компонента?')){
+        if(confirm('Вы действительно хотите удалить атрибут?')){
 
             Attributes_model.delete_attribute(id, this.callback('attributeDeleted', el));
 

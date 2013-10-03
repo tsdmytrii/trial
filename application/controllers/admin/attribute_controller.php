@@ -37,10 +37,10 @@ class Attribute_controller extends MY_Controller {
         $this->return_result($attribute->get_attribute());
     }
 
-    public function get_all_attributes(){
-        $attribute = new Attribute();
+    public function get_all_attribute(){
 
-        $this->return_result($attribute->get_all_attributes());
+        $attribute = new Attribute();
+        $this->return_result($attribute->get_all_attribute());
     }
 
     public function delete_attribute(){

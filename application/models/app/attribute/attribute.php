@@ -4,7 +4,7 @@ class Attribute extends DataMapper {
 
     public $db_params = 'default';
     public $table = 'attributes';
-    public $has_many = array('attribute_languages');
+    public $has_many = array('attribute_language');
     public static $ci;
     public $validation = array(
         array(
@@ -75,14 +75,14 @@ class Attribute extends DataMapper {
         if ($attribute_id) {
 
             $attribute = new Attribute();
-            $subscription = new Subscription();
+            $attribute_language = new Attribute_language();
 
             $attribute_copy = new Attribute();
             $attribute_copy->get_by_id($attribute_id);
 
             return array(
                 $attribute->get_by_id($attribute_id)->to_array(),
-                $attribute_copy->subscription->get()->all_to_array() // паліво
+                $attribute_copy->$attribute_language->get()->all_to_array()
             );
 
         } else
@@ -90,17 +90,20 @@ class Attribute extends DataMapper {
 
     }
 
-    public function get_all_attributes() {
+    public function get_all_attribute() {
         if (self::$ci->access->check_access(__FUNCTION__) == false)
             return 403;
 
         $attribute = new Attribute();
-        $attribute->order_by("name")->get();
+        $result = false;
+        $attribute->get();
+        foreach ($attribute as $key => $attribute_unit) {
 
-        foreach ($attribute as $key => $value) {
-            $subscription = new Subscription();
-            $result[$key] = $value->to_array();
-            $result[$key]['subscription'] = $subscription->where_related('attribute', 'id', $value->id)->get()->all_to_array();
+            $attribute_language = new Attribute_language();
+            $test = $attribute_language->get_by_related($attribute_unit);
+
+            $result[$key]['attribute_languages'] = $attribute_language->all_to_array(array('name'));
+            $result[$key]['attribute'] = $attribute_unit->to_array();
         }
 
         return $result;
@@ -115,10 +118,9 @@ class Attribute extends DataMapper {
         $attribute = new Attribute();
         $attribute->get_by_id($attribute_id);
 
-        $subscription = new Subscription();
-        $subscription->get_by_related($attribute);
-
-        $subscription->delete($attribute->all);
+        $attribute_language = new Attribute_language();
+        $attribute_language->where('attribute_id', $attribute->id)->get();
+        $attribute_language->delete();
 
         return $attribute->delete() ? array('attribute_id' => $attribute_id) : false;
     }

@@ -2,21 +2,21 @@
 
     <div class="btn-group">
 
-        <a href="componentTypeContent" class="btn active compTypeTab">Основная информация</a>
+        <a href="attributeContent" class="btn active attributeTab">Основная информация</a>
 
-        <a href="componentFunctions" class="btn compTypeTab{{if !our_data}} disabled{{/if}}">Функции</a>
+        <a href="attributeValues" class="btn attributeTab{{if !our_data}} disabled{{/if}}">Значения атрибута</a>
 
     </div>
 
     <div id="compWrap">
 
-        <div class="current compTypeTabCont" id="componentTypeContent">
-            <form class="form-horizontal" id="componentTypeForm">
+        <div class="current attributeTabCont" id="attributeContent">
+            <form class="form-horizontal" id="attributeForm">
                 <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 15px; ">
                     <thead class="table-head">
                         <tr>
                             <th colspan="2">
-                                Информация о компоненте
+                                Информация об атрибуте
                             </th>
                         </tr>
                     </thead>
@@ -24,66 +24,51 @@
                         <tr>
                             <td style="width: 50%;">
 
-
-                                <input type="hidden" name="id" id="component_type_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
-
-                                <div class="control-group">
+                                <div class="control-group" style="margin-top: 15px;">
                                     <div class="control-label">
-                                        <label for="psevdo_name">Понятное название компонента:</label>
+                                        <label for="name">Тип атрибута:</label>
                                     </div>
                                     <div class="controls">
-                                        <input type="text" name="psevdo_name" value="{{if our_data}}${our_data.psevdo_name}{{/if}}"/>
+                                        <input type="radio" class="typeSwitch" name="type" value="1"/><label for="name">числовой</label>
+                                        <input type="radio" class="typeSwitch" name="type" value="2"/><label for="name">качественный</label>
                                         <span class="help help-block"></span>
                                     </div>
                                 </div>
 
-                                <div class="control-group">
+                                <div class="control-group typeNumbWrap" style="margin-top: 15px; display: none;">
+                                    <input class="lang_id" type="hidden" value="" name="category_attribute_range_id"/>
                                     <div class="control-label">
-                                        <label for="name">Название для navigation:</label>
+                                        <label for="name">Мин-Макс промежуток:</label>
                                     </div>
                                     <div class="controls">
-                                        <input type="text" name="name" value="{{if our_data}}${our_data.name}{{/if}}"/>
+                                        <input type="text" class="input-small" placeholder="мин" name="min" value=""/>
+                                        <input type="text" class="input-small" placeholder="макс" name="max" value=""/>
                                         <span class="help help-block"></span>
                                     </div>
                                 </div>
 
-                                <div class="control-group">
+                                <div class="control-group typeQualityWrap" style="margin-top: 15px; display: none;">
                                     <div class="control-label">
-                                        <label for="library">Серверная библиотека:</label>
+                                        <label for="name">Атрибут:</label>
                                     </div>
                                     <div class="controls">
-                                        <input type="text" name="library" value="{{if our_data}}${our_data.library}{{/if}}"/>
+                                        <input type="radio" name="direct" value="1"/><label for="name">строгий</label>
+                                        <input type="radio" name="direct" value="2"/><label for="name">не строгий</label>
                                         <span class="help help-block"></span>
                                     </div>
                                 </div>
 
-                                <div class="control-group">
+                                <div class="control-group qualityVariant" style="margin-top: 15px; display: none;">
                                     <div class="control-label">
-                                        <label for="admin_client_controller">Путь к админ JMVC:</label>
+                                        <label for="name">Значение атрибута:</label>
                                     </div>
                                     <div class="controls">
-                                        <input type="text" name="admin_client_controller" value="{{if our_data}}${our_data.admin_client_controller}{{/if}}"/>
-                                        <span class="help help-block"></span>
-                                    </div>
-                                </div>
+                                        <div class="btn brn-primary addQualityVariant">Добавить значение</div>
+                                        <div class="qualityVariantsWrap">
 
-                                <div class="control-group">
-                                    <div class="control-label">
-                                        <label for="client_controller">Путь к пользовательскому JMVC:</label>
-                                    </div>
-                                    <div class="controls">
-                                        <input type="text" name="client_controller" value="{{if our_data}}${our_data.client_controller}{{/if}}"/>
-                                        <span class="help help-block"></span>
-                                    </div>
-                                </div>
 
-                                <div class="control-group">
-                                    <div class="control-label">
-                                        <label for="server_controller">Серверный метод:</label>
-                                    </div>
-                                    <div class="controls">
-                                        <input type="text" name="server_controller" value="{{if our_data}}${our_data.server_controller}{{/if}}"/>
-                                        <span class="help help-block"></span>
+
+                                        </div>
                                     </div>
                                 </div>
 

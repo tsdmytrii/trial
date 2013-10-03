@@ -1,20 +1,25 @@
 <?php
 
-class Product_language extends DataMapper {
+class Attribute_language extends DataMapper {
 
-    public $table = 'product_languages';
-    public $has_one = array('product');
+    public $table = 'attribute_languages';
+    public $has_one = array('attribute');
     public static $ci;
     public $validation = array(
         array(
-            'field' => 'name',
-            'label' => 'Name',
-            'rules' => array('trim', 'required', 'min_length' => 3, 'max_length' => 100),
+            'field' => 'language_id',
+            'label' => 'Language ID',
+            'rules' => array('trim', 'required', 'max_length' => 1)
         ),
         array(
-            'field' => 'description',
-            'label' => 'Description',
-            'rules' => array('trim', 'required', 'min_length' => 3, 'max_length' => 3000),
+            'field' => 'name',
+            'label' => 'Name',
+            'rules' => array('trim', 'required', 'max_length' => 10)
+        ),
+        array(
+            'field' => 'attribute_id',
+            'label' => 'Attribute ID',
+            'rules' => array('trim', 'min_length' => 3, 'max_length' => 100),
         )
     );
 
@@ -25,38 +30,38 @@ class Product_language extends DataMapper {
         }
     }
 
-    public function set_product_lang($product_id) {
-        $product_lang = new Product_language();
+    public function set_attribute_lang($attribute_id) {
+        $attribute_lang = new Attribute_language();
 
-        if (self::$ci->input->post('product_lang_id'))
-            $product_lang->get_by_id(self::$ci->input->post('product_lang_id'));
+        if (self::$ci->input->post('attribute_lang_id'))
+            $attribute_lang->get_by_id(self::$ci->input->post('product_lang_id'));
 
-        $product_lang->language_id = self::$ci->input->post('language_id');
-        $product_lang->product_id = $product_id;
-        $product_lang->name = self::$ci->input->post('name');
-        $product_lang->description = self::$ci->input->post('description');
+        $attribute_lang->language_id = self::$ci->input->post('language_id');
+        $attribute_lang->attribute_id = $attribute_id;
+        $attribute_lang->name = self::$ci->input->post('name');
+        $attribute_lang->description = self::$ci->input->post('description');
 
-        if ($product_lang->save()) {
-            return $product_lang->id;
+        if ($attribute_lang->save()) {
+            return $attribute_lang->id;
         } else {
             return false;
         }
     }
 
-    public function get_product_language($product_id, $fields = '*') {
+    public function get_attribute_language($attribute_id, $fields = '*') {
 
-        $product_lang = new Product_language();
+        $attribute_lang = new Attribute_language();
 
         if ($fields)
-            $product_lang->select($fields);
+            $attribute_lang->select($fields);
 
-        $product_lang->where(array('product_id' => $product_id));
+        $attribute_lang->where(array('attribute_id' => $attribute_id));
 
-        $product_lang->get();
+        $attribute_lang->get();
 
         $lang = FALSE;
 
-        foreach ($product_lang as $c_l) {
+        foreach ($attribute_lang as $c_l) {
 
             $language = new Language();
 
@@ -68,12 +73,12 @@ class Product_language extends DataMapper {
         return $lang;
     }
 
-    public function delete_product_lang($product_id) {
-        $product_lang = new Product_language();
+    public function delete_attribute_lang($attribute_id) {
+        $attribute_lang = new Attribute_language();
 
-        $product_lang->get_by_product_id($product_id);
+        $attribute_lang->get_by_attribute_id($attribute_id);
 
-        $product_lang->delete_all();
+        $attribute_lang->delete_all();
     }
 
 }
