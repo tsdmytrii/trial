@@ -1,0 +1,15 @@
+<ul class="sub_nav dropdown-menu {{if lvl>1}}menu_right{{/if}}">
+    {{each($i, $value) our_data}}
+        {{if $value.lang && $value.lang.ru}}
+            <li class="header_menu_item" data-menu_item_id="${$value.id}" data-lvl="{{if lvl}}${lvl}{{/if}}">
+                <a title="${$value.lang.ru.value}" href="${site_url}admin/{{if $value.component_type}}${$value.component_type.id}/${$value.component_type.name}/${component.content_id}{{else}}0{{/if}}">${$value.lang.ru.value}</a>
+            </li>
+        {{else}}
+            {{if $value.lang.en}}
+                <li class="header_menu_item" data-menu_item_id="${$value.id}" data-lvl="{{if lvl}}${lvl}{{/if}}">
+                    <a title="${$value.lang.en.value}" href="${site_url}admin/{{if $value.component_type}}${$value.component_type.id}/${$value.component_type.name}/${component.content_id}{{else}}0{{/if}}">${$value.lang.en.value}</a>
+                </li>
+            {{/if}}
+        {{/if}}
+    {{/each}}
+</ul>

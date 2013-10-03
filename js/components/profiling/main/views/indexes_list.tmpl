@@ -1,0 +1,14 @@
+{{each($i, $v) our_data}}
+    {{if $v.group_id === $data.group_id}}
+        <tr class="${$v.difference}">
+            <td>${$v.name}</td>
+            <td>${$v.ask}</td>
+            <td>${$v.bid}</td>
+            <td>
+                {{if $v.difference !== 'stable'}}
+                    <img src="${site_url}images/${$v.difference}.png" class="grow"/>
+                {{/if}}
+            </td>
+        </tr>
+    {{/if}}
+{{/each}}

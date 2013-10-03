@@ -1,0 +1,367 @@
+
+<div style="padding: 20px;">
+
+    <div class="btn-group">
+        <a class="btn active categoryMaxTab" href="generalInfo">Основная информация</a>
+        <a class="btn categoryMaxTab {{if !our_data}}disabled{{/if}}" href="attributes">Атрибуты</a>
+    </div>
+
+    <div id="categoryContent">
+
+        <div class="categoryWrap curr" id="generalInfo">
+            <form class="form-horizontal categoryInfoForm">
+
+                <input type="hidden" name="category_id" id="category_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+
+                <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 15px; ">
+                    <thead class="table-head">
+                        <tr>
+                            <th colspan="2">
+                                Логотип и родительская категория
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style='width: 50%;'>
+
+                                <div class="control-group" style="margin-top: 10px;">
+                                    <div class="control-label">
+                                        <label for="position">Расположение:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input id="place" type="text" name="position" value="{{if our_data}}${our_data.position}{{/if}}" />
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="component">Родительская категория:</label>
+                                    </div>
+                                    <div class="controls">
+                                        <select name="parent_id">
+                                            {{each($i, $val) $data.parent_category}}
+                                                {{if our_data}}
+                                                    {{if our_data.id !== $val.id}}
+                                                        <option value="${$val.id}" {{if our_data.parent_id == $val.id}}selected{{/if}}>${$val.lang[pref].name}</option>
+                                                    {{/if}}
+                                                {{else}}
+                                                    <option value="${$val.id}">${$val.lang[pref].name}</option>
+                                                {{/if}}
+                                            {{/each}}
+                                        </select>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style='width: 50%;'>
+
+                                <div class="logo" style="{{if !our_data}}display: none;{{/if}}">
+                                    <h4>Логотип</h4>
+
+                                    <div class="clear"></div>
+
+                                    <input type="file" id="logo_upload" name="Filedata" />
+
+                                    <div class="clear"></div>
+
+                                    <div id="logo_list_wrap">
+
+                                        <div class="categoryImgWrap">
+                                            {{if our_data }}
+                                                {{if our_data.logo}}
+                                                    <img src="${site_url}uploads/images/${our_data.logo.name}">
+                                                    <div class="clear"></div>
+                                                    <i style="margin: 5px auto;" class="icon-trash menu_icon delete_img" data-category_img_id="${our_data.logo.id}"></i>
+                                                    <div class="clear"></div>
+                                                {{/if}}
+                                            {{/if}}
+                                        </div>
+
+                                        <div class="clear"></div>
+
+                                    </div>
+                                </div>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </form>
+
+            <div class="clear"></div>
+
+            <table class="table table-striped table-bordered table-hover table-condensed">
+                <thead class="table-head">
+                    <tr>
+                        <th colspan="2">
+                            Общая информация
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+
+                            <div class="btn-group">
+
+                                {{each($i, $val) lang}}
+                                    <a href="langContent${$val.id}" class="btn {{if $i == 0}}active{{/if}} categoryTab">${$val.name}</a>
+                                {{/each}}
+
+                            </div>
+
+
+                            <div class="categoryLangWrap">
+
+                                {{each($i, $val) lang}}
+
+                                    <div id="langContent${$val.id}" class="content_lang {{if $i == 0}}current{{/if}}">
+                                        <form class="categoryForm form-horizontal">
+                                            <input class="lang_id" type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].id}{{/if}}{{else}}0{{/if}}" name="category_lang_id"/>
+                                            <input type="hidden" value="${$val.id}" name="language_id"/>
+
+                                            <div class="control-group" style="margin-top: 15px;">
+                                                <div class="control-label">
+                                                    <label for="name">Название:</label>
+                                                </div>
+                                                <div class="controls">
+                                                    <input type="text" class="name" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].name}{{/if}}{{/if}}"/>
+                                                    <span class="help help-block"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control-group">
+                                                <div class="control-label">
+                                                    <label for="button_name">Описание:</label>
+                                                </div>
+                                                <div class="controls">
+                                                    <textarea name="description">{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].description}{{/if}}{{/if}}</textarea>
+                                                    <span class="help help-block"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-actions">
+                                                <div class="pull-right">
+                                                    <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                                                    <div class="btn cancel">Отмена</div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                {{/each}}
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="categoryWrap" id="attributes">
+
+            <div style="margin-top: 15px;" class="btn btn-primary" id="addAttr">Добавить атрибут</div>
+
+            <div id="attributesWrap">
+
+                {{if $data.our_data && $data.our_data.attr}}
+
+                    {{each($j, $value) $data.our_data.attr}}
+
+                        <table class="table table-striped table-bordered table-hover table-condensed" id="setAttr_${$value.id}" style="margin-top: 15px;">
+                            <thead class="table-head">
+                                <tr>
+                                    <th colspan="2">
+                                        Атрибут <i data-attr_id="${$value.id}" title="Удалить атрибут" class="icon-trash icon-white menu_icon deleteAttr"></i>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+
+                                        <form class="attributeDataForm form-horizontal">
+
+                                            <input type="hidden" value="${$value.id}" name="category_attribute_id" class="category_attribute_id">
+
+                                            <div class="control-group" style="margin-top: 15px;">
+                                                <div class="control-label">
+                                                    <label for="name">Тип атрибута:</label>
+                                                </div>
+                                                <div class="controls">
+                                                    <input type="radio" class="typeSwitch" {{if parseInt($value.type) == 1}}checked{{/if}} name="type" value="1"/><label for="name">числовой</label>
+                                                    <input type="radio" class="typeSwitch" {{if parseInt($value.type) == 2}}checked{{/if}} name="type" value="2"/><label for="name">качественный</label>
+                                                    <span class="help help-block"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control-group typeNumbWrap" style="margin-top: 15px; {{if parseInt($value.type) != 1}} display: none;{{/if}}">
+                                                <input type="hidden" value="{{if $value.range}}${$value.range.id}{{/if}}" name="category_attribute_range_id"/>
+                                                <div class="control-label">
+                                                    <label for="name">Мин-Макс промежуток:</label>
+                                                </div>
+                                                <div class="controls">
+                                                    <input type="text" class="input-small" placeholder="мин" name="min" value="{{if $value.range}}${$value.range.min}{{/if}}"/>
+                                                    <input type="text" class="input-small" placeholder="макс" name="max" value="{{if $value.range}}${$value.range.max}{{/if}}"/>
+                                                    <span class="help help-block"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="control-group typeQualityWrap" style="margin-top: 15px; {{if parseInt($value.type) != 2}}display: none;{{/if}}">
+                                                <div class="control-label">
+                                                    <label for="name">Атрибут:</label>
+                                                </div>
+                                                <div class="controls">
+                                                    <input type="radio" name="direct" {{if parseInt($value.direct) == 1}}checked{{/if}} value="1"/><label for="name">строгий</label>
+                                                    <input type="radio" name="direct" {{if parseInt($value.direct) == 2}}checked{{/if}} value="2"/><label for="name">не строгий</label>
+                                                    <span class="help help-block"></span>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <div class="form-horizontal">
+
+                                            <div class="control-group typeQualityWrap" style="margin-top: 15px; {{if parseInt($value.type) != 2}}display: none;{{/if}}">
+                                                <div class="control-label">
+                                                    <label for="name">Значение атрибута:</label>
+                                                </div>
+                                                <div class="controls">
+                                                    <div class="btn brn-primary addQualityVariant">Добавить значение</div>
+                                                    <div class="qualityVariantsWrap">
+
+                                                        {{if $value.quality_variant}}
+
+                                                            {{each($k, $variant) $value.quality_variant}}
+
+
+                                                                <div class="qualityVatiantContent">
+
+                                                                    <div class="form-inline qualityVatiantForm" id="setQualityVariant_${$variant.id}">
+
+                                                                        <div class="btn-group" style="float: left;">
+
+                                                                            {{each($i, $val) $data.lang}}
+                                                                                <a href="langQualVarContent${$val.id}" class="btn {{if $i == 0}}active{{/if}} qualityVariantTab">${$val.name}</a>
+                                                                            {{/each}}
+
+                                                                            <div class="qualityVariantLangWrap" style="float: left; margin-left: -3px;">
+                                                                                {{each($i, $val) $data.lang}}
+
+                                                                                    <div id="langQualVarContent${$val.id}" class="qualityVariant_content_lang {{if $i == 0}}currentElement{{/if}}">
+
+                                                                                        <form class="formQualityVatiant" style="float: left;">
+
+                                                                                            <input type="hidden" name="quality_variant_id" value="${$variant.id}" class="qualityVariantId">
+
+                                                                                            <input type="hidden" value="${$value.id}" name="category_attribute_id">
+
+                                                                                            <input class="lang_id" type="hidden" value="{{if $variant.lang && $variant.lang[$val.iso_code] }}${$variant.lang[$val.iso_code].id}{{/if}}" name="quality_variant_lang_id"/>
+                                                                                            <input type="hidden" value="${$val.id}" name="language_id"/>
+                                                                                            <input type="text" class="value" name="value" value="{{if $variant.lang && $variant.lang[$val.iso_code] }}${$variant.lang[$val.iso_code].value}{{/if}}" style="float: left;"/>
+                                                                                            <span class="help help-block" style="float: left;"></span>
+
+                                                                                            <div style="float: left; margin-left: 10px;">
+                                                                                                <div class="btn saveQualityVariant">
+                                                                                                    <i title="Сохранить атрибут" class="icon-ok"></i>
+                                                                                                </div>
+                                                                                                <div class="btn deleteQualityVariant">
+                                                                                                    <i title="Удалить атрибут" class="icon-trash"></i>
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </form>
+
+                                                                                    </div>
+
+
+                                                                                {{/each}}
+                                                                            </div>
+
+                                                                        </div>
+
+
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="clear"></div>
+
+                                                            {{/each}}
+
+                                                        {{/if}}
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="btn-group">
+
+                                            {{each($i, $val) $data.lang}}
+                                                <a href="langAttrContent${$val.id}" class="btn {{if $i == 0}}active{{/if}} attributeTab">${$val.name}</a>
+                                            {{/each}}
+
+                                        </div>
+
+
+                                        <div class="attributeLangWrap">
+
+                                            {{each($i, $val) $data.lang}}
+
+                                                <div id="langAttrContent${$val.id}" class="attribute_content_lang {{if $i == 0}}current{{/if}}">
+                                                    <form class="attributeForm form-horizontal">
+                                                        <input class="lang_id" type="hidden" value="{{if $value.lang && $value.lang[$val.iso_code] }}${$value.lang[$val.iso_code].id}{{/if}}" name="category_attribute_lang_id"/>
+                                                        <input type="hidden" value="${$val.id}" name="language_id"/>
+
+                                                        <div class="control-group" style="margin-top: 15px;">
+                                                            <div class="control-label">
+                                                                <label for="name">Название:</label>
+                                                            </div>
+                                                            <div class="controls">
+                                                                <input type="text" class="name" name="name" value="{{if $value.lang && $value.lang[$val.iso_code] }}${$value.lang[$val.iso_code].name}{{/if}}"/>
+                                                                <span class="help help-block"></span>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-actions">
+                                                            <div class="pull-right">
+                                                                <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                                                                <div class="btn cancel">Отмена</div>
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+                                                </div>
+
+                                            {{/each}}
+                                        </div>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+
+
+
+
+
+
+
+
+                    {{/each}}
+
+                {{/if}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

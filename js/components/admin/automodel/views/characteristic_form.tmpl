@@ -1,0 +1,172 @@
+<div id="characteristic_form">
+    <fieldset>
+
+        <div class="clear"></div>
+
+        <div id="general_info">
+
+            <div class="control-group form-inline">
+                <div class="control-label">
+                    <label for="type_id">
+                       Тип:
+                    </label>
+                </div>
+                <div class="controls">
+                    <input type="radio" name="type_id" class="type_id" value="1" {{if our_data}}{{if parseInt(our_data.type_id) == 1}}checked{{/if}}{{else}}checked{{/if}}/>
+                    <label for="type_id">
+                       характеристика
+                    </label>
+                   <div class="clear"></div>
+                    <input type="radio" name="type_id" class="type_id" value="2" {{if our_data}}{{if parseInt(our_data.type_id) == 2}}checked{{/if}}{{/if}}/>
+                    <label for="type_id">
+                       комплектация
+                    </label>
+                </div>
+            </div>
+
+            <ul class="nav nav-tabs">
+                <li class="active characteristic_lang">
+                    <a href="lang_ru">Русский</a>
+                </li>
+                <li class="characteristic_lang">
+                    <a href="lang_ua">Українська</a>
+                </li>
+                <li class="characteristic_lang">
+                    <a href="lang_en">English</a>
+                </li>
+            </ul>
+
+            <div id="characteristic_lang_wrap">
+
+                <div id="lang_ru" class="content_lang current">
+                    <form class="characteristic_form">
+
+                        <input type="hidden" name="characteristic_id" class="characteristic_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                        <input type="hidden" name="automodel_id" class="automodel_id" value="{{if automodel_id}}${automodel_id}{{/if}}{{if our_data}}${our_data.automodel_id}{{/if}}"/>
+
+                        <input class="characteristic_lang_id" type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.id}{{/if}}{{/if}}" name="id"/>
+                        <input type="hidden" value="2" name="language_id"/>
+
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="name">
+                                       Название
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <input id="name_ru" type="text" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.name}{{/if}}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="description">
+                                       Описание
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <textarea style="width:350px;height:250px" id="description_ru" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.description}{{/if}}{{/if}}</textarea>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="lang_ua" class="content_lang">
+                    <form class="characteristic_form">
+
+                        <input type="hidden" name="characteristic_id" class="characteristic_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                        <input type="hidden" name="automodel_id" value="{{if automodel_id}}${automodel_id}{{/if}}{{if our_data}}${our_data.automodel_id}{{/if}}"/>
+
+                        <input type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.id}{{/if}}{{/if}}" name="article_lang_id"/>
+                        <input type="hidden" value="3" name="language_id"/>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="name">
+                                       Назва
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <input id="name_ua" type="text" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.name}{{/if}}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="description">
+                                       Опис
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <textarea style="width:350px;height:250px" id="description_ua" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.description}{{/if}}{{/if}}</textarea>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Зберегти змiни</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="lang_en" class="content_lang">
+                    <form class="characteristic_form">
+
+                        <input type="hidden" name="characteristic_id" class="characteristic_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                        <input type="hidden" name="automodel_id" value="{{if automodel_id}}${automodel_id}{{/if}}{{if our_data}}${our_data.automodel_id}{{/if}}"/>
+
+                        <input type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.id}{{/if}}{{/if}}" name="article_lang_id"/>
+                        <input type="hidden" value="1" name="language_id"/>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="name">
+                                       Name
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <input id="name_en" type="text" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.name}{{/if}}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="description">
+                                       Опис
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <textarea style="width:350px;height:250px" id="description_en" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.description}{{/if}}{{/if}}</textarea>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="clear"></div>
+    </fieldset>
+</div>

@@ -1,0 +1,222 @@
+    <div id="component_content">
+
+        <div id="picture_wrap" class="picture_bg_wrap">
+
+            <h3>Фоновые картинки</h3>
+
+            <input type="file" id="picture_upload_${element_id}" name="Filedata"/>
+            <div id="saveOrder" class="btn btn-primary">Сохранить порядок картинок</div>
+            <div class="clear"></div>
+
+            <ul id="picture_drag_list_wrap">
+
+                {{if our_data.picture}}
+                    {{each($i, $val) our_data.picture}}
+                        <li class="picture_item" data-picture_id="${$val.id}" data-index="${$i}">
+                            <img src="${site_url}uploads/images/${$val.name}">
+                            <div class="clear"></div>
+                            <i style="margin: 5px auto;" class="icon-trash menu_icon delete_picture" data-picture_id="${$val.id}"></i>
+                            <div class="clear"></div>
+                        </li>
+                    {{/each}}
+                {{/if}}
+
+            </ul>
+
+            <input name="list1SortOrder" type="hidden" />
+
+            <div class="clear picture_end"></div>
+        </div>
+
+        <div class="clear"></div>
+
+        <input id="autoservice_id" type="hidden" name="autoservice_id" value="${our_data.id}">
+
+        <ul class="nav nav-tabs">
+            <li class="active lang_content">
+                <a href="lang_ru">Русский</a>
+            </li>
+            <li class="lang_content">
+                <a href="lang_ua">Українська</a>
+            </li>
+            <li class="lang_content">
+                <a href="lang_en">English</a>
+            </li>
+        </ul>
+
+        <div id="content_lang_wrap">
+
+            <div id="lang_ru" class="content_lang current">
+
+                <form class="autoservice_form">
+
+                    <input type="hidden" value="{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.id}{{/if}}" name="id"/>
+                    <input type="hidden" value="2" name="language_id"/>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="contacts">Контакты:</label>
+                        </div>
+                        <div class="controls">
+                            <textarea style="width:350px;height:250px" class="content_desc" name="contacts">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.contacts}{{/if}}{{/if}}</textarea>
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="description">Описание:</label>
+                        </div>
+                        <div class="controls">
+                            <textarea style="width:350px;height:250px" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.description}{{/if}}{{/if}}</textarea>
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="seo_content">
+
+                        <div class="seo_caption">SEO</div>
+
+                        <div class="key_title">
+                            <label for="seo_title">Заголовок</label>
+                            <input type="text" class="seo_title" name="seo_title" value="{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.seo_title}{{/if}}{{/if}}" />
+                            <span class="error"></span>
+
+                            <label for="key_words">Ключевые слова</label>
+                            <textarea class="keywords" name="key_words">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.key_words}{{/if}}{{/if}}</textarea>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="desc_wrap">
+                            <label for="seo_description">Описание</label>
+                            <textarea id="description" class="seo_content_desc" name="seo_description">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.seo_description}{{/if}}{{/if}}</textarea>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary save_chng">Сохранить изменения</button>
+                </form>
+
+            </div>
+
+            <div id="lang_ua" class="content_lang">
+
+                <form class="autoservice_form">
+
+                    <input type="hidden" value="{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.id}{{/if}}" name="id"/>
+                    <input type="hidden" value="3" name="language_id"/>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="contacts">Контакти:</label>
+                        </div>
+                        <div class="controls">
+                            <textarea style="width:350px;height:250px" class="content_desc" name="contacts">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.contacts}{{/if}}{{/if}}</textarea>
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="description">Опис:</label>
+                        </div>
+                        <div class="controls">
+                            <textarea style="width:350px;height:250px" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.description}{{/if}}{{/if}}</textarea>
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="seo_content">
+
+                        <div class="seo_caption">SEO</div>
+
+                        <div class="key_title">
+                            <label for="seo_title">Заголовок</label>
+                            <input type="text" class="seo_title" name="seo_title" value="{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.seo_title}{{/if}}{{/if}}" />
+                            <span class="error"></span>
+
+                            <label for="key_words">Ключовi слова</label>
+                            <textarea class="keywords" name="key_words">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.key_words}{{/if}}{{/if}}</textarea>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="desc_wrap">
+                            <label for="seo_description">Опис</label>
+                            <textarea id="description" class="seo_content_desc" name="seo_description">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.seo_description}{{/if}}{{/if}}</textarea>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary save_chng">Зберегти змiни</button>
+                </form>
+
+            </div>
+
+            <div id="lang_en" class="content_lang">
+
+                <form class="autoservice_form">
+
+                    <input type="hidden" value="{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.id}{{/if}}" name="id"/>
+                    <input type="hidden" value="1" name="language_id"/>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="contacts">Contacts:</label>
+                        </div>
+                        <div class="controls">
+                            <textarea style="width:350px;height:250px" class="content_desc" name="contacts">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.contacts}{{/if}}{{/if}}</textarea>
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="description">Description:</label>
+                        </div>
+                        <div class="controls">
+                            <textarea style="width:350px;height:250px" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.description}{{/if}}{{/if}}</textarea>
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                    <div class="seo_content">
+
+                        <div class="seo_caption">SEO</div>
+
+                        <div class="key_title">
+                            <label for="seo_title">Title</label>
+                            <input type="text" class="seo_title" name="seo_title" value="{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.seo_title}{{/if}}{{/if}}" />
+                            <span class="error"></span>
+
+                            <label for="key_words">Key words</label>
+                            <textarea class="keywords" name="key_words">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.key_words}{{/if}}{{/if}}</textarea>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="desc_wrap">
+                            <label for="seo_description">Description</label>
+                            <textarea id="description" class="seo_content_desc" name="seo_description">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.seo_description}{{/if}}{{/if}}</textarea>
+                            <span class="error"></span>
+                        </div>
+
+                        <div class="clear"></div>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-primary save_chng">Save changes</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="clear"></div>

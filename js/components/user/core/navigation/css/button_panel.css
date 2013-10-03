@@ -1,0 +1,83 @@
+/*RIGHT PANEL*/
+#button_panel {
+    background: none repeat scroll 0 0 transparent;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 77%;
+    z-index: 4;
+}
+
+div.in_panel {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;/*Firefox*/
+    -webkit-border-radius: 2px 2px 2px 2px;/*Safari, Chrome*/
+    cursor: pointer;
+    float: left;
+    font-family: FrMedium;
+    font-size: 110%;
+    height: 70%;
+    margin: 0.3% 0 0 1%;
+    opacity: 0.6;
+    overflow: hidden;
+    padding: 0 1% 0.2%;
+    position: relative;
+    z-index: 1;
+}
+
+.in_panel.active {
+    text-decoration: none;
+}
+
+.button_bg {
+    display: block;
+}
+
+.navigation_panel_button_start {
+    background-image: url("../../../../../../images/navigation_panel_bg_start.png");
+    height: 38px;
+    left: 0;
+    position: absolute;
+    width: 2px;
+    display: none;
+}
+
+.navigation_panel_button_caption {
+    color: #376490;
+    opacity: 1;
+    position: relative;
+    text-align: left;
+    text-decoration: underline;
+    top: 14%;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.in_panel.active .navigation_panel_button_caption {
+    text-decoration: none;
+}
+
+.in_panel.active {
+    opacity: 1;
+}
+
+div.navigation_panel_button_end{
+    background-image: url("../../../../../../images/navigation_panel_bg_end.png");
+    height: 38px;
+    position: absolute;
+    right: 0;
+    width: 3px;
+    display: none;
+}
+
+#navigation_position{
+    bottom: -2px;
+    left: 0;
+    position: absolute;
+    cursor: pointer;
+    z-index: 5;
+}

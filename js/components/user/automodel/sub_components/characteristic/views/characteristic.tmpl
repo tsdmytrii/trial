@@ -1,0 +1,70 @@
+<div class="charNavWrap" style="display: block;">
+    <div class="charGroupCaption">Характеристики</div>
+
+    {{each($i, $val) our_data.characteristic}}
+        {{if parseInt($val.type_id) == 1}}
+            <a href="#charCont_${$val.id}" class="charCaption {{if $i == 0}}active{{/if}}">${$val.lang[pref].name}</a>
+            <div class="clear"></div>
+        {{/if}}
+    {{/each}}
+
+    <div class="charGroupCaption">Комплектации</div>
+
+    {{each($i, $val) our_data.characteristic}}
+        {{if parseInt($val.type_id) == 2}}
+            <a href="#charCont_${$val.id}" class="charCaption">${$val.lang[pref].name}</a>
+            <div class="clear"></div>
+        {{/if}}
+    {{/each}}
+
+</div>
+<div class="charContainer">
+    <div class="complWrap">
+        <table>
+            <tr>
+                <td>Комплектация</td>
+                {{each($i, $val) our_data.complectation}}
+                    <td class="compl">${$val.lang[pref].name}</td>
+                {{/each}}
+                <td class="space"></td>
+            </tr>
+            <tr>
+                <td>Год выпуска</td>
+                {{each($i, $val) our_data.complectation}}
+                    <td class="compl">${$val.year} г.</td>
+                {{/each}}
+                <td class="space"></td>
+            </tr>
+            <tr>
+                <td>Цена</td>
+                {{each($i, $val) our_data.complectation}}
+                    <td class="compl">${$val.price} г.</td>
+                {{/each}}
+                <td class="space"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="charContWrap">
+        {{each($i, $val) our_data.characteristic}}
+            {{if parseInt($val.type_id) == 1}}
+                <div id="charCont_${$val.id}" class="charCont">
+                    <div class="charContCapt"><span>--${$val.lang[pref].name}</span></div>
+                    <div class="clear"></div>
+                    <div class="charContDesc">{{html $val.lang[pref].description}}</div>
+                </div>
+            {{/if}}
+        {{/each}}
+        {{each($i, $val) our_data.characteristic}}
+            {{if parseInt($val.type_id) == 2}}
+                <div id="charCont_${$val.id}" class="charCont">
+                    <div class="charContCapt"><span>--${$val.lang[pref].name}</span></div>
+                    <div class="clear"></div>
+                    <div class="charContDesc">{{html $val.lang[pref].description}}</div>
+                </div>
+            {{/if}}
+        {{/each}}
+        <div class="emptyBlock" style="width: 100%;">&nbsp;</div>
+        <div class="clear"></div>
+    </div>
+</div>

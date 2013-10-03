@@ -1,0 +1,206 @@
+<div id="complectation_form">
+    <i title="Закрыть форму" class="icon-remove close_complectation menu_icon cancel_complectation"></i>
+    <fieldset>
+        <div class="compl_info_wrap">
+            <form class="compl_info_form form-horizontal">
+                <div class="control-group">
+                    <div class="control-label">
+                        <label for="year">
+                               Год выпуска
+                        </label>
+                    </div>
+                    <div class="controls">
+                        <input class="year" type="text" name="year" value="{{if our_data}}${our_data.year}{{/if}}"/>
+                        <span class="help help-block"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label">
+                        <label for="price">
+                               Цена
+                        </label>
+                    </div>
+                    <div class="controls">
+                        <input class="price" type="text" name="price" value="{{if our_data}}${our_data.price}{{/if}}"/>
+                        <span class="help help-block"></span>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="control-label">
+                        <label for="position">
+                               Позиция
+                        </label>
+                    </div>
+                    <div class="controls">
+                        <input class="position" type="text" name="position" value="{{if our_data}}${our_data.position}{{/if}}"/>
+                        <span class="help help-block"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {{if our_data}}
+            <div id="complectation_logo_wrap">
+                <h3 id="complectation_logo_caption">Логотип комплектации:</h3>
+                <input type="file" id="upl_complectation_img" class="upl_img" name="Filedata"/>
+                <div id="complectation_img">
+                    {{if our_data.logo}}
+                        <img src="${site_url}/uploads/images/${our_data.logo.name}"/>
+                        <i class="icon-trash menu_icon delete_complectation_logo" data-complectation_logo_id="${our_data.logo.id}" title="Удалить логотип автомодели"></i>
+                    {{/if}}
+                </div>
+            </div>
+        {{/if}}
+
+        <div class="clear"></div>
+
+        <div id="general_info">
+
+            <ul class="nav nav-tabs">
+                <li class="active complectation_lang">
+                    <a href="lang_ru">Русский</a>
+                </li>
+                <li class="complectation_lang">
+                    <a href="lang_ua">Українська</a>
+                </li>
+                <li class="complectation_lang">
+                    <a href="lang_en">English</a>
+                </li>
+            </ul>
+
+            <div id="complectation_lang_wrap">
+
+                <div id="lang_ru" class="content_lang current">
+                    <form class="complectation_form">
+
+                        <input type="hidden" name="complectation_id" class="complectation_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                        <input type="hidden" name="automodel_id" class="automodel_id" value="{{if automodel_id}}${automodel_id}{{/if}}{{if our_data}}${our_data.automodel_id}{{/if}}"/>
+
+                        <input type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.id}{{/if}}{{/if}}" name="id"/>
+                        <input type="hidden" value="2" name="language_id"/>
+
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="name">
+                                       Название
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <input id="name_ru" type="text" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.name}{{/if}}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="description">
+                                       Описание
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <textarea style="width:350px;height:250px" id="description_ru" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.description}{{/if}}{{/if}}</textarea>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                            <div class="btn cancel_complectation">Отмена</div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="lang_ua" class="content_lang">
+                    <form class="complectation_form">
+
+                        <input type="hidden" name="complectation_id" class="complectation_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                        <input type="hidden" name="automodel_id" value="{{if automodel_id}}${automodel_id}{{/if}}{{if our_data}}${our_data.automodel_id}{{/if}}"/>
+
+                        <input type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.id}{{/if}}{{/if}}" name="article_lang_id"/>
+                        <input type="hidden" value="3" name="language_id"/>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="name">
+                                       Назва
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <input id="name_ua" type="text" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.name}{{/if}}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="description">
+                                       Опис
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <textarea style="width:350px;height:250px" id="description_ua" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.description}{{/if}}{{/if}}</textarea>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Зберегти змiни</button>
+                            <div class="btn cancel_complectation">Вiдмiнити</div>
+                        </div>
+                    </form>
+                </div>
+
+                <div id="lang_en" class="content_lang">
+                    <form class="complectation_form">
+
+                        <input type="hidden" name="complectation_id" class="complectation_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                        <input type="hidden" name="automodel_id" value="{{if automodel_id}}${automodel_id}{{/if}}{{if our_data}}${our_data.automodel_id}{{/if}}"/>
+
+                        <input type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.id}{{/if}}{{/if}}" name="article_lang_id"/>
+                        <input type="hidden" value="1" name="language_id"/>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="name">
+                                       Name
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <input id="name_en" type="text" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.name}{{/if}}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="description">
+                                       Опис
+                                </label>
+                            </div>
+                            <div class="controls">
+                                <textarea style="width:350px;height:250px" id="description_en" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.description}{{/if}}{{/if}}</textarea>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+
+                        <div class="clear"></div>
+
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="submit">Save changes</button>
+                            <div class="btn cancel_complectation">Cancel</div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="clear"></div>
+    </fieldset>
+</div>

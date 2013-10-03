@@ -1,0 +1,431 @@
+<div id="set_automodel_wrapper" style="padding: 20px;">
+
+    <ul class="nav nav-tabs">
+        <li class="automodel_tab active">
+            <a href="automodel_form">Общая информация</a>
+        </li>
+        <li class="automodel_tab" style="display:none">
+            <a href="photo_galery">Фотографии</a>
+        </li>
+        <li class="automodel_tab" style="display:none">
+            <a href="complectation">Комплектации</a>
+        </li>
+        <li class="automodel_tab" style="display:none">
+            <a href="characteristic">Характеристики</a>
+        </li>
+        <li class="automodel_tab" style="display:none">
+            <a href="groups">Группирование</a>
+        </li>
+    </ul>
+
+    <div id="automodel_tab_content">
+        <div id="automodel_form" class="automodel_tab_cont cur">
+
+            <fieldset>
+                {{if our_data}}
+                    <div id="automodel_logo_wrap">
+                        <h3 id="automodel_logo_caption">Логотип автомодели:</h3>
+                        <input type="file" id="upl_automodel_img" class="upl_img" name="Filedata"/>
+                        <div id="automodel_img">
+                            {{if our_data.logo}}
+                                <img src="${site_url}uploads/images/${our_data.logo.name}"/>
+                                <i class="icon-trash menu_icon delete_automodel_logo" data-automodel_logo_id="${our_data.logo.id}" title="Удалить логотип автомодели"></i>
+                            {{/if}}
+                        </div>
+                    </div>
+                {{/if}}
+                <form class="form-horizontal" id="miniAutomodelForm">
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="price">Минимальная цена:</label>
+                        </div>
+                        <div class="controls">
+                            <input id="price" type="text" name="price" value="{{if our_data}}${our_data.price}{{/if}}" />
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="main">Окно развернуто?</label>
+                        </div>
+                        <div class="controls">
+                            <input type="checkbox" name="main" value="1" {{if our_data && our_data.main == 1}}checked="checked"{{/if}} />
+                            <span class="help help-block"></span>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="clear"></div>
+
+                <div id="general_info">
+
+                    <ul class="nav nav-tabs">
+                        <li class="active automodel_lang">
+                            <a href="lang_ru">Русский</a>
+                        </li>
+                        <li class="automodel_lang">
+                            <a href="lang_ua">Українська</a>
+                        </li>
+                        <li class="automodel_lang">
+                            <a href="lang_en">English</a>
+                        </li>
+                    </ul>
+
+                    <div id="automodel_lang_wrap">
+
+                        <div id="lang_ru" class="content_lang current">
+                            <form class="automodel_form">
+
+                                <input type="hidden" name="automodel_id" class="automodel_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                                <input type="hidden" name="autobrend_id" class="autobrend_id" value="{{if autobrend_id}}${autobrend_id}{{/if}}{{if our_data}}${our_data.autobrend_id}{{/if}}"/>
+
+                                <input type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.id}{{/if}}{{/if}}" name="id"/>
+                                <input type="hidden" value="2" name="language_id"/>
+
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="name">
+                                               Название
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input id="name_ru" type="text" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang.ru }}${our_data.lang.ru.name}{{/if}}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="link">ЧПУ (человеко-понятный адрес)</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="hidden" name="link_id" value="{{if our_data}}{{if our_data.link && our_data.link.ru }}${our_data.link.ru.id}{{/if}}{{/if}}"/>
+                                        <input type="text" name="link" id="link_ru" value="{{if our_data}}{{if our_data.link && our_data.link.ru }}${our_data.link.ru.link}{{/if}}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="description">
+                                               Описание
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <textarea style="width:350px;height:250px" id="description_ru" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.description}{{/if}}{{/if}}</textarea>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="seo_content">
+
+                                    <div class="seo_caption">SEO</div>
+
+                                    <div class="key_title">
+
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <label for="seo_title">Заголовок:</label>
+                                            </div>
+                                            <div class="controls">
+                                                <input type="text" class="seo_title" name="seo_title" value="{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.seo_title}{{/if}}{{/if}}" />
+                                                <span class="help help-block"></span>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <label for="key_words">Ключевые слова:</label>
+                                            </div>
+                                            <div class="controls">
+                                                <textarea class="keywords" name="key_words">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.key_words}{{/if}}{{/if}}</textarea>
+                                                <span class="help help-block"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="control-group desc_wrap">
+                                        <div class="control-label">
+                                            <label for="seo_description">Описание:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <textarea id="description" class="seo_content_desc" name="seo_description">{{if our_data}}{{if  our_data.lang && our_data.lang.ru}}${our_data.lang.ru.seo_description}{{/if}}{{/if}}</textarea>
+                                            <span class="help help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                </div>
+
+                                <div class="form-actions">
+                                    <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                                    <div class="btn cancel">Отмена</div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="lang_ua" class="content_lang">
+                            <form class="automodel_form">
+
+                                <input type="hidden" name="automodel_id" class="automodel_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                                <input type="hidden" name="autobrend_id" value="{{if autobrend_id}}${autobrend_id}{{/if}}{{if our_data}}${our_data.autobrend_id}{{/if}}"/>
+
+                                <input type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.id}{{/if}}{{/if}}" name="article_lang_id"/>
+                                <input type="hidden" value="3" name="language_id"/>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="name">
+                                               Назва
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input id="name_ua" type="text" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang.ua }}${our_data.lang.ua.name}{{/if}}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="link">ЛЗУ (людино-зрозумiлий адрес)</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="hidden" name="link_id" value="{{if our_data}}{{if our_data.link && our_data.link.ua }}${our_data.link.ua.id}{{/if}}{{/if}}"/>
+                                        <input type="text" name="link" id="link_ua" value="{{if our_data}}{{if our_data.link && our_data.link.ua }}${our_data.link.ua.link}{{/if}}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="description">
+                                               Опис
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <textarea style="width:350px;height:250px" id="description_ua" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.description}{{/if}}{{/if}}</textarea>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="seo_content">
+
+                                    <div class="seo_caption">SEO</div>
+
+                                    <div class="key_title">
+
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <label for="seo_title">Заголовок:</label>
+                                            </div>
+                                            <div class="controls">
+                                                <input type="text" class="seo_title" name="seo_title" value="{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.seo_title}{{/if}}{{/if}}" />
+                                                <span class="help help-block"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <label for="key_words">Ключовi слова:</label>
+                                            </div>
+                                            <div class="controls">
+                                                <textarea class="keywords" name="key_words">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.key_words}{{/if}}{{/if}}</textarea>
+                                                <span class="help help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group desc_wrap">
+                                        <div class="control-label">
+                                            <label for="seo_description">Опис:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <textarea id="description" class="seo_content_desc" name="seo_description">{{if our_data}}{{if  our_data.lang && our_data.lang.ua}}${our_data.lang.ua.seo_description}{{/if}}{{/if}}</textarea>
+                                            <span class="help help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="form-actions">
+                                    <button class="btn btn-primary" type="submit">Зберегти змiни</button>
+                                    <div class="btn cancel">Вiдмiнити</div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="lang_en" class="content_lang">
+                            <form class="automodel_form">
+
+                                <input type="hidden" name="automodel_id" class="automodel_id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                                <input type="hidden" name="autobrend_id" value="{{if autobrend_id}}${autobrend_id}{{/if}}{{if our_data}}${our_data.autobrend_id}{{/if}}"/>
+
+                                <input type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.id}{{/if}}{{/if}}" name="article_lang_id"/>
+                                <input type="hidden" value="1" name="language_id"/>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="name">
+                                               Name
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <input id="name_en" type="text" name="name" value="{{if our_data}}{{if our_data.lang && our_data.lang.en }}${our_data.lang.en.name}{{/if}}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="link">HRU (human readable url)</label>
+                                    </div>
+                                    <div class="controls">
+                                        <input type="hidden" name="link_id" value="{{if our_data}}{{if our_data.link && our_data.link.en }}${our_data.link.en.id}{{/if}}{{/if}}"/>
+                                        <input type="text" name="link" id="link_en" value="{{if our_data}}{{if our_data.link && our_data.link.en }}${our_data.link.en.link}{{/if}}{{/if}}"/>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="control-label">
+                                        <label for="description">
+                                               Description
+                                        </label>
+                                    </div>
+                                    <div class="controls">
+                                        <textarea style="width:350px;height:250px" id="description_en" class="content_desc" name="description">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.description}{{/if}}{{/if}}</textarea>
+                                        <span class="help help-block"></span>
+                                    </div>
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="seo_content">
+
+                                    <div class="seo_caption">SEO</div>
+
+                                    <div class="key_title">
+
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <label for="seo_title">Title:</label>
+                                            </div>
+                                            <div class="controls">
+                                                <input type="text" class="seo_title" name="seo_title" value="{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.seo_title}{{/if}}{{/if}}" />
+                                                <span class="help help-block"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <label for="key_words">Key words:</label>
+                                            </div>
+                                            <div class="controls">
+                                                <textarea class="keywords" name="key_words">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.key_words}{{/if}}{{/if}}</textarea>
+                                                <span class="help help-block"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group desc_wrap">
+                                        <div class="control-label">
+                                            <label for="seo_description">Description:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <textarea id="description" class="seo_content_desc" name="seo_description">{{if our_data}}{{if  our_data.lang && our_data.lang.en}}${our_data.lang.en.seo_description}{{/if}}{{/if}}</textarea>
+                                            <span class="help help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="clear"></div>
+
+                                </div>
+
+                                <div class="clear"></div>
+
+                                <div class="form-actions">
+                                    <button class="btn btn-primary" type="submit">Save changes</button>
+                                    <div class="btn cancel">Cancel</div>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="clear"></div>
+            </fieldset>
+
+
+        </div>
+
+        <div id="photo_galery" class="automodel_tab_cont">
+
+            <div id="automodel_photo_wrap">
+                <input type="file" id="upl_automodel_photo" class="upl_img" name="Filedata"/>
+                <div class="clear"></div>
+                <div id="automodel_photoes">
+                    {{if our_data.photo}}
+                        {{each($i, $val) our_data.photo}}
+                            <div class="automodel_photo_item">
+                                <a rel="automodel_photo" class="fany_box_img" href="${site_url}uploads/images/${$val.name}">
+                                    <img src="${site_url}uploads/images/${$val.name}"/>
+                                </a>
+                                <div class="clear"></div>
+                                <i class="icon-trash menu_icon delete_automodel_photo" data-automodel_photo_id="${$val.id}" title="Удалить фотографию автомодели"></i>
+                                <div class="clear"></div>
+                            </div>
+                        {{/each}}
+                    {{/if}}
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+
+        <div id="complectation" class="automodel_tab_cont">
+
+            <button class="btn btn-primary add_complectation">Добавить комплектацию</button>
+
+            <div id="complectation_list">
+
+            </div>
+
+        </div>
+
+        <div id="characteristic" class="automodel_tab_cont">
+
+            <div id="characteristic_list_wrap">
+                <button class="btn btn-primary add_characteristic">Добавить характеристику</button>
+
+                <div id="characteristic_list">
+
+                </div>
+            </div>
+            <div id="characteristic_form_wrap">
+
+            </div>
+
+        </div>
+
+        <div id="groups" class="automodel_tab_cont">
+
+
+
+        </div>
+
+
+    </div>
+</div>

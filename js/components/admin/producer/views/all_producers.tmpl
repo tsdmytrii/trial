@@ -1,0 +1,32 @@
+
+<div class="btn btn-primary add_producer">Добавить производителя</div>
+
+<table id="datatable" class="table table-striped" style="margin-top: 15px;">
+	<thead>
+		<tr class="table-head">
+			<td style="width: 5%;" class="id">#</td>
+			<td style="width: 25%;" class="name">Название</td>
+			<td style="width: 10%;" class="action">Действия</td>
+		</tr>
+	</thead>
+        <tbody>
+
+                {{if our_data}}
+
+                    {{each($i, $val) our_data}}
+                        <tr id="producer_${$val.id}">
+                            <td>${$val.id}</td>
+                            <td>${$val.lang[pref].name}</td>
+                            <td>
+                                <div class="pull-right producer_icon_wrap" data-producer_id="${$val.id}">
+                                    <i class="icon-pencil menu_icon edit_producer" title="Изменить производиетля"></i>
+                                    <i class="icon-trash menu_icon delete_producer" title="Удалить производителя"></i>
+                                </div>
+                            </td>
+                        </tr>
+                    {{/each}}
+
+                {{/if}}
+
+	</tbody>
+</table>

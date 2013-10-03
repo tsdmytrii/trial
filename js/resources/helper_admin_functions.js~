@@ -1,0 +1,181 @@
+function show_success(message){
+    init_pnotify(4000, message, 'notice');
+}
+function show_error(message){
+    if(typeof(message) == 'undefined'){
+        message = 'Unknown error occured'
+    }
+    init_pnotify(6000, message, 'error')
+}
+function init_pnotify(delay, message, type){
+    $.pnotify({
+        pnotify_text: message,
+        pnotify_type: type,
+        pnotify_width: '200px',
+        pnotify_delay: delay,
+        pnotify_addclass:"stack-bottomleft",
+        pnotify_stack: {
+            dir1:'left',
+            'dir2':'up'
+        }
+    });
+}
+
+function loadWindow(id, windowOption, title, content){
+
+    $.newWindow({
+        id: id+'_window',
+        title: title,
+        content: content,
+        width: windowOption.width,
+        height: windowOption.height,
+        type: 'normal',
+        minimizeButton: windowOption.minimize,
+        maximizeButton: windowOption.maximise,
+        posx: windowOption.left,
+        posy: windowOption.top,
+        modal: windowOption.modal,
+        resizeable: windowOption.resize,
+        statusBar: windowOption.status_bar
+    });
+
+}
+
+function imperavi(selector){
+    selector.ckeditor({
+        //        filebrowserBrowseUrl :'js/ckeditor/filemanager/browser/default/browser.html?Connector='+base_url+'filemanager_in_ckeditor/js/ckeditor/filemanager/connectors/php/connector.php',
+        filebrowserImageBrowseUrl : 'js/ckeditor/filemanager/browser/default/browser.html?Type=Image&Connector='+base_url+'filemanager_in_ckeditor/js/ckeditor/filemanager/connectors/php/connector.php',
+        //        filebrowserFlashBrowseUrl :'js/ckeditor/filemanager/browser/default/browser.html?Type=Flash&Connector='+base_url+'filemanager_in_ckeditor/js/ckeditor/filemanager/connectors/php/connector.php',
+        //        filebrowserUploadUrl  :base_url+'filemanager_in_ckeditor/js/ckeditor/filemanager/connectors/php/upload.php?Type=File',
+        filebrowserImageUploadUrl: base_url+'js/resources/plugins/ckeditor/server/upload.php'
+    //        filebrowserFlashUploadUrl : base_url+'filemanager_in_ckeditor/js/ckeditor/filemanager/connectors/php/upload.php?Type=Flash'
+    });
+}
+
+function tab_navigation(el, btn_class, active_class, wrap, current, block, mega_wrapper, href){
+
+    if (href === undefined)
+        href = $(el).find('a').attr('href');
+
+    if (!$(el).hasClass(active_class)){
+
+        $(mega_wrapper+' .'+btn_class).removeClass(active_class);
+        $(el).addClass(active_class);
+
+        if ($(mega_wrapper+' '+wrap).find('.'+current).length) {
+            $(mega_wrapper+' '+wrap).find('.'+current).fadeOut(200, function(){
+                $(mega_wrapper+' .'+block).removeClass(current);
+
+                $(mega_wrapper+' #'+href).fadeIn(200, function(){
+
+                    $(mega_wrapper+' #'+href).addClass(current);
+                });
+            });
+        } else {
+            $(mega_wrapper+' #'+href).fadeIn(200, function(){
+                $(mega_wrapper+' #'+href).addClass(current);
+            });
+        }
+    }
+}
+
+function chose_lang(){
+    var language;
+
+    switch($.cookie('lang')){
+        case '1':
+            language = lang.en;
+            break;
+        case '2':
+            language = lang.ru;
+            break;
+        case '3':
+            language = lang.ua;
+            break;
+    }
+
+    return language;
+}
+
+function chose_lang_pref(){
+    var language;
+
+    switch($.cookie('lang')){
+        case '1':
+            language = 'en';
+            break;
+        case '2':
+            language = 'ru';
+            break;
+        case '3':
+            language = 'ua';
+            break;
+    }
+
+    return language;
+}
+
+function showPreload(){
+    if (!$('#preLoad').is(':visible'))
+        $('#preLoad').stop(true, true).fadeIn(200);
+}
+
+function hidePreload() {
+    if ($('#preLoad').is(':visible'))
+        $('#preLoad').stop(true, true).fadeOut(200);
+}
+
+function showCompPreload(){
+    if (!$('#preLoadComp').is(':visible'))
+        $('#preLoadComp').stop(true, true).fadeIn(200);
+}
+
+function hideCompPreload() {
+    if ($('#preLoadComp').is(':visible'))
+        $('#preLoadComp').stop(true, true).fadeOut(200);
+}
+
+function componentLoaded(element) {
+    if (element.data("display") == 'block') {
+        OpenAjax.hub.publish('page.loaded');
+        OpenAjax.hub.publish('component.loaded');
+    }
+}
+
+$.preLoadImages = function() {
+    var args_len = arguments.length;
+    for (var i = args_len; i--;) {
+        var cacheImage = document.createElement('img');
+        cacheImage.src = arguments[i];
+        cache.push(cacheImage);
+    }
+}
+
+jQuery.validator.addMethod('regexp',
+    function(value, element, regexp) {
+        var re = new RegExp(regexp);
+        return this.optional(element) || re.test(value);
+    },
+    "Please check your input.");
+
+jQuery.validator.addMethod('unique',
+    function(value, element) {
+        if (value.length !== 0){
+            var result = $.ajax({
+                async:false,
+                url: base_url+"admin/menu_controller/check_link",
+                data:'link='+ value+'&link_id='+$(element).prev().val()+'&language_id='+$(element).parents('form').find('.language_id').val(),
+                type: 'post',
+                dataType: "text"
+            });
+
+            if(parseInt(result.responseText) === 1){
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return true;
+        }
+
+    }, "This url has already been  registered");

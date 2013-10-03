@@ -1,0 +1,65 @@
+.articleWrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.articleContent {
+    width: 100%;
+    height: 100%;
+}
+
+.articleWrap .jspCapTop {
+    height: 0;
+}
+
+.articleImgWrap {
+    float: left;
+    width: 23%;
+}
+
+.articleImgWrap img {
+    width: 100%;
+}
+
+.articleTextWrap {
+    float: left;
+    margin-left: 2.3%;
+    margin-top: 1.5%;
+    width: 73%;
+}
+
+.articleItem.even {
+    background: #fff;
+}
+
+.articleItem {
+    background: #f2f2f2;
+}
+
+.articleDescTop {
+    padding: 0 0 15px 15px;
+}
+
+.articleDescBtm {
+    padding: 15px 0 0 15px;
+}
+
+.articleCaption {
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 120%;
+}
+
+.articleCaption:hover {
+    text-decoration: underline;
+}
+
+.articleDate {
+    color: #b2b2b2;
+}
+
+.articleDesc {
+    margin-top: 10px;
+}

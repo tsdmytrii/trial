@@ -1,0 +1,20 @@
+.partner_form {
+    color: #363636;
+    font: 75%/1.2 Verdana;
+    letter-spacing: 0;
+    margin-top: 20px;
+}
+
+.partner_form table td {
+    padding: 3px;
+    vertical-align: middle;
+}
+
+.partner_form input, .partner_form textarea{
+    width: 100%;
+}
+
+label.error {
+    color: red;
+    opacity: 0;
+}

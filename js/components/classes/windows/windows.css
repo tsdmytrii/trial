@@ -1,0 +1,242 @@
+/*******************************************************************************
+-------------------------------------WINDOW-------------------------------------
+*******************************************************************************/
+.window-container {
+    box-shadow: 0 2px 5px #000101;
+    font-size: 13px;
+    -moz-border-radius: 5px;/*Firefox*/
+    -webkit-border-radius: 5px;/*Safari, Chrome*/
+    border-radius: 5px;
+    overflow: visible;
+    background: #fff;
+}
+
+#pageWrap .window-container {
+    box-shadow: none;
+    -moz-border-radius: 0;/*Firefox*/
+    -webkit-border-radius: 0;/*Safari, Chrome*/
+    border-radius: 0;
+}
+
+.window-titleBar {
+    background: none repeat scroll 0 0 #FFFFFF;
+    -moz-border-radius: 5px 5px 0 0;/*Firefox*/
+    -webkit-border-radius: 5px 5px 0 0;/*Safari, Chrome*/
+    border-radius: 5px 5px 0 0;
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 10;
+}
+
+.window-titleBar-leftCorner, .window-titleBar-rightCorner {
+    display: none;
+}
+
+.window-titleBar-content {
+    font-family: FrMedium;
+    font-size: 100%;
+    text-transform: uppercase;
+    color: #376490;
+    padding: 0 0 0 15px;
+    text-align: left;
+    background: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    height: 30px;
+}
+
+#pageWrap .window-titleBar-content {
+    padding: 0;
+}
+
+.window-minimizeButton {
+    background: url("../../../../js/images/winMin.png") no-repeat scroll 0 0 transparent;
+    height: 30px;
+    left: auto;
+    right: 45px;
+    top: 0;
+    width: 13px;
+}
+
+.window-maximizeButton {
+    background: url("../../../../js/images/winMax.png") no-repeat scroll 0 0 transparent;
+    height: 30px;
+    left: auto;
+    right: 27px;
+    top: 0;
+    width: 14px;
+}
+
+.window-closeButton {
+    background: url("../../../../js/images/winClose.png") no-repeat scroll 0 0 transparent;
+    height: 30px;
+    left: auto;
+    right: 10px;
+    top: 0;
+    width: 13px;
+}
+
+.window-minimizeButton, .window-maximizeButton, .window-closeButton{
+    opacity: 0.5;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50); /* IE 5.5+*/
+    -moz-opacity: 0.5; /* Mozilla 1.6 и ниже */
+    -khtml-opacity: 0.5; /* Konqueror 3.1, Safari 1.1 */
+    zoom: 1;
+}
+
+#pageWrap .window-closeButton {
+    right: 0;
+}
+
+#pageWrap .window-maximizeButton {
+    right: 17px;
+    background: url("../../../../js/images/winMaxNorm.png") no-repeat scroll 0 0 transparent;
+}
+
+#pageWrap .window-minimizeButton {
+    right: 35px;
+}
+
+.window-minimizeButton:hover, .window-maximizeButton:hover, .window-closeButton:hover {
+    opacity: 1;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100); /* IE 5.5+*/
+    -moz-opacity: 1; /* Mozilla 1.6 и ниже */
+    -khtml-opacity: 1; /* Konqueror 3.1, Safari 1.1 */
+}
+
+.window-content {
+    border: none;
+    position: relative;
+    top: -30px;
+    -moz-border-radius: 5px;/*Firefox*/
+    -webkit-border-radius: 5px;/*Safari, Chrome*/
+    border-radius: 5px;
+    width: 100%;
+    font-size: inherit;
+    overflow: visible;
+}
+
+#pageWrap .window-content {
+    border-radius: 0;
+    -moz-border-radius: 0;/*Firefox*/
+    -webkit-border-radius: 0;/*Safari, Chrome*/
+}
+
+.bigContent .window-content {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.bigContent .winContWrap {
+    top: 0;
+}
+
+.window_preload {
+    background: #fff;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 15;
+}
+
+.window_preload a {
+    left: 49%;
+    position: absolute;
+    top: 46%;
+}
+
+.window-container .window-statusBar {
+    background: -moz-linear-gradient(bottom, rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0.5), rgba(255,255,255,0.1)); /* Firefox 3.6+ */
+    background: -moz-linear-gradient(bottom, rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0.5), rgba(255,255,255,0.1)); /* Firefox 3.6+ */
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0%,rgba(255,255,255,1)), color-stop(25%,rgba(255,255,255,1)), color-stop(0%,rgba(255,255,255,0.5)), color-stop(0%,rgba(255,255,255,0.1))); /* Chrome 1-9, Safari 4-5 */
+    background: -webkit-linear-gradient(bottom, rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0.5), rgba(255,255,255,0.1)); /* Chrome 10+, Safari 5.1+ */
+    background: -o-linear-gradient(bottom, rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0.5), rgba(255,255,255,0.1)); /* Opera 11.10+ */
+    background: -ms-linear-gradient(bottom, rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0.5), rgba(255,255,255,0.1)); /* IE10 */
+    background: linear-gradient(bottom, rgba(255,255,255,1), rgba(255,255,255,1), rgba(255,255,255,0.5), rgba(255,255,255,0.1)); /* CSS3 */
+    -moz-border-radius: 0 0 5px 5px;/*Firefox*/
+    -webkit-border-radius: 0 0 5px 5px;/*Safari, Chrome*/
+    border-radius: 0 0 5px 5px;
+    bottom: 0;
+    border: medium none;
+    bottom: 0;
+    height: 25px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    left: 0;
+}
+
+#pageWrap .window-statusBar {
+    -moz-border-radius: 0 0 0 0;/*Firefox*/
+    -webkit-border-radius: 0 0 0 0;/*Safari, Chrome*/
+    border-radius: 0 0 0 0;
+}
+
+.article_wrapper {
+    margin: 30px 15px 15px;
+}
+
+.winContWrap {
+    font-family: FrMedium;
+    font-size: 100%;
+    position: absolute;
+    top: 30px;
+    overflow: visible;
+}
+
+.window-container .jspVerticalBar {
+    background: #fff;
+    width: 2px;
+    right: 4px;
+}
+
+.window-container .jspHorizontalBar {
+    display: none;
+}
+
+.jspTrack {
+    background: #fff;
+}
+
+.jspCap.jspCapTop {
+    display: block;
+    height: 30px;
+}
+
+.descriptionAutoModel .jspCap.jspCapTop {
+    height: 10px;
+}
+
+.charContainer .jspCap.jspCapTop {
+    height: 0;
+}
+
+.jspCap.jspCapBottom {
+    display: block;
+    height: 10px;
+}
+
+.jspDrag {
+    background: #9c9c9c;
+}
+
+.jspDragTop, .jspDragBottom {
+    height: 1px;
+    display: block;
+    background: #b9b9b9;
+    width: 100%;
+}
+
+.jspDragBottom {
+    background: #b9b9b9;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

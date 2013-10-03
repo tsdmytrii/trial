@@ -1,0 +1,94 @@
+<div class="seo_title" style="display: none;">{{if seo}}${seo[pref].seo_title}{{/if}}</div>
+<div id="autoModelItemWrap_${automodel_id}" class="autoModelItemWrap">
+
+    <div id="description_${automodel_id}" class="amTabCont current">
+
+        <div class="galeryWrap">
+            <div class="mainPhoto">
+                {{if our_data.photo !== false}}
+                    <a rel="autoModelPhoto_${automodel_id}" class="galeryPhoto" href="${site_url}uploads/images/${our_data.photo[0].name}">
+                        <img src="${site_url}uploads/images/${our_data.photo[0].name}"/>
+                    </a>
+                {{/if}}
+            </div>
+            <div class="sidePhoto">
+                {{if our_data.photo !== false}}
+                    {{each($i, $val) our_data.photo}}
+                        {{if $i !== 0}}
+                            <a rel="autoModelPhoto_${automodel_id}" class="galeryPhoto" href="${site_url}uploads/images/${$val.name}">
+                                <img src="${site_url}uploads/images/${$val.name_mini}"/>
+                            </a>
+                        {{/if}}
+                    {{/each}}
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="descriptionAutoModelWrap">
+            <div class="descriptionAutoModel">
+                {{html our_data.lang[pref].description}}
+                <div class="capScroll">&nbsp;</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="characteristics_${automodel_id}" class="amTabCont charContainer">
+
+        <div class="complWrap">
+            <table>
+                <tr>
+                    <td>Комплектация</td>
+                    {{each($i, $val) our_data.complectation}}
+                        <td class="compl">${$val.lang[pref].name}</td>
+                    {{/each}}
+                    <td class="space"></td>
+                </tr>
+                <tr>
+                    <td>Год выпуска</td>
+                    {{each($i, $val) our_data.complectation}}
+                        <td class="compl">${$val.year} г.</td>
+                    {{/each}}
+                    <td class="space"></td>
+                </tr>
+                <tr>
+                    <td>Цена</td>
+                    {{each($i, $val) our_data.complectation}}
+                        <td class="compl">${$val.price} г.</td>
+                    {{/each}}
+                    <td class="space"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="charContWrap">
+            {{each($i, $val) our_data.characteristic}}
+                {{if parseInt($val.type_id) == 1}}
+                    <div id="charCont_${$val.id}" class="charCont">
+                        <div class="charContCapt"><span>--${$val.lang[pref].name}</span></div>
+                        <div class="clear"></div>
+                        <div class="charContDesc">{{html $val.lang[pref].description}}</div>
+                    </div>
+                {{/if}}
+            {{/each}}
+            {{each($i, $val) our_data.characteristic}}
+                {{if parseInt($val.type_id) == 2}}
+                    <div id="charCont_${$val.id}" class="charCont">
+                        <div class="charContCapt"><span>--${$val.lang[pref].name}</span></div>
+                        <div class="clear"></div>
+                        <div class="charContDesc">{{html $val.lang[pref].description}}</div>
+                    </div>
+                {{/if}}
+            {{/each}}
+            <div class="emptyBlock" style="width: 100%;"></div>
+        </div>
+
+    </div>
+
+    <div id="colors_${automodel_id}" class="amTabCont"></div>
+
+    <div id="rewiew_${automodel_id}" class="amTabCont"></div>
+
+    <div id="kredit_${automodel_id}" class="amTabCont"></div>
+
+</div>

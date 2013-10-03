@@ -1,0 +1,7 @@
+.placeHolderContent {
+    display: none;
+}
+
+.placeHolderContent.current {
+    display: block;
+}

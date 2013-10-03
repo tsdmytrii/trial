@@ -1,0 +1,14 @@
+[
+{
+	"componentId": "public/projectajax/index/",
+	"clientApp": "project", 
+	"paramQuant": "1", 
+	"title": "Project"
+},
+{
+	"componentId": "public/services/index/",
+	"clientApp": "services", 
+	"paramQuant": "1", 
+	"title": "Services"
+}
+]

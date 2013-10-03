@@ -1,0 +1,65 @@
+<div id="set_language_wrapper" style="padding: 20px;">
+
+    <div id="language_form" class="language_tab_cont cur">
+
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead class="table-head">
+                <tr>
+                    <th>
+                        Информация о языке
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <form class="form-horizontal languageForm">
+
+                            <input type="hidden" class="language_id" name="id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+
+                            <div class="control-group" style="margin-top: 15px;">
+                                <div class="control-label">
+                                    <label for="position">Позиция:</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" name="position" value="{{if our_data}}${our_data.position}{{/if}}"/>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-group" style="margin-top: 15px;">
+                                <div class="control-label">
+                                    <label for="iso_code">ISO код языка:</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" name="iso_code" value="{{if our_data}}${our_data.iso_code}{{/if}}"/>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-group" style="margin-top: 15px;">
+                                <div class="control-label">
+                                    <label for="name">Название языка:</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" name="name" value="{{if our_data}}${our_data.name}{{/if}}"/>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <div class="pull-right">
+                                    <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                                    <div class="btn cancel">Отмена</div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

@@ -1,0 +1,8 @@
+{{if categories}}
+    {{each($i, $val) categories}}
+        <div data-category_id='${$val.id}' data-item="${$val.productCount}" class="categoryItem{{if active}}{{if active == $val.id}} active{{/if}}{{else}}{{if $i == 0}} active{{/if}}{{/if}}" style='margin-left: ${$val.lvl*10}px'>${$val.lang[pref].name}</div>
+        <div class='clear'></div>
+    {{/each}}
+{{/if}}
+<div id="allProducts" data-category_id='0' data-item="${allProductsCount}" class="categoryItem{{if active}}{{if active == 0}} active{{/if}}{{/if}}">Все продукты</div>
+<div class='clear'></div>

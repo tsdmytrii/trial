@@ -1,0 +1,47 @@
+<div class="aSBaner">
+    <div class="aSBanerBg">
+        <div class="aSOverlay"></div>
+        {{each($i, $val) our_data.bg}}
+            <img class="aSBanerImg{{if $i == 0}} active{{/if}}" src="${base_url}uploads/images/${$val.name}" />
+        {{/each}}
+    </div>
+    <div class="aSMenuWrap">
+        {{each($i, $value) our_data.menu}}
+            {{if parseInt($value.parent_id) == 0}}
+                <div class="aSMenuSection{{if $value.position == 0}} active{{/if}}">
+                    <div class="bg"></div>
+                    <div data-index="${$value.position}" class="aSGroupMenuItem">
+                        <div class="aSGroupMenuItemCapt">${$value.lang[pref].value}</div>
+                    </div>
+                    <div class="aSMenuItemsWrap">
+                        {{each($j, $val) our_data.menu}}
+                            {{if $value.id == parseInt($val.parent_id)}}
+                                <a {{if parseInt($val.child_inner_navigation) == 1}}data-inner='true'{{/if}} href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $val.link && $val.link[pref]}}${$val.link[pref].link}{{else}}${$val.href}/${$val.id}/${$val.main}/${lang_id}{{/if}}/" title="${$val.lang[pref].value}" class="aSMenuItem new_component">${$val.lang[pref].value}</a>
+                            {{/if}}
+                        {{/each}}
+                        <div class="aSMenuItem orderService">
+                            <div class="bg"></div>
+                            <span>заказать обслуживание</span>
+                        </div>
+                    </div>
+                </div>
+            {{/if}}
+        {{/each}}
+    </div>
+</div>
+<div class="aSTextWrap">
+    <div class="aSDescriptionWrap">
+        <div class="aSDescriptionContent">
+            {{html our_data.lang[pref].description}}
+        </div>
+    </div>
+    <div class="aSContactsWrap">
+        <img class="bg" src="${site_url}js/images/map_bg.png" />
+        <div class="aSContactsConteiner">
+            <div class="bg"></div>
+            <div class="aSContactsContent">
+                {{html our_data.lang[pref].contacts}}
+            </div>
+        </div>
+    </div>
+</div>

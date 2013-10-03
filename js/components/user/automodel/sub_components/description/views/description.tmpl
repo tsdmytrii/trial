@@ -1,0 +1,29 @@
+<div class="galeryWrap">
+    <div class="mainPhoto">
+        {{if our_data.photo}}
+            <a rel="autoModelPhoto_${automodel_id}" class="galeryPhoto" href="${site_url}uploads/images/${our_data.photo[0].name}">
+                <img src="${site_url}uploads/images/${our_data.photo[0].name}"/>
+            </a>
+        {{/if}}
+    </div>
+    <div class="sidePhoto">
+        {{if our_data.photo}}
+            {{each($i, $val) our_data.photo}}
+                {{if $i !== 0}}
+                    <a rel="autoModelPhoto_${automodel_id}" class="galeryPhoto" href="${site_url}uploads/images/${$val.name}">
+                        <img src="${site_url}uploads/images/${$val.name_mini}"/>
+                    </a>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    </div>
+</div>
+
+<div class="descriptionAutoModelWrap">
+    <div class="descriptionAutoModel">
+        <div class="descriptionAutoModelPadding">
+                {{html our_data.description}}
+        </div>
+        <div class="capScroll">&nbsp;</div>
+    </div>
+</div>

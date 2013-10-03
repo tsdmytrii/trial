@@ -1,0 +1,27 @@
+<table id="datatable" class="table table-bordered table-striped">
+	<thead>
+		<tr>
+			<th style="width: 5%;" class="id">#</th>
+			<th style="width: 25%;" class="name">Название</th>
+			<th style="width: 60%;" class="description">Описание</th>
+			<th style="width: 10%;" class="action">Действия</th>
+		</tr>
+	</thead>
+        <tbody>
+
+                {{each($i, $val) our_data}}
+                    <tr class="{{if $i%2 == 0}}even{{else}}odd{{/if}}" id="automodel_${$val.id}">
+                        <td>${$val.id}</td>
+                        <td>${$val.lang.name}</td>
+                        <td>{{html $val.lang.description.slice(0, 200)}}</td>
+                        <td>
+                            <div class="autmodel_icon_wrap" data-automodel_id="${$val.id}">
+                                <i class="icon-pencil menu_icon edit_automodel" title="Изменить автомодель"></i>
+                                <i class="icon-trash menu_icon delete_automodel" title="Удалить автомодель"></i>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+
+	</tbody>
+</table>

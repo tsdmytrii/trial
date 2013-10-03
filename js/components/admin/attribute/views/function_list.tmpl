@@ -1,0 +1,44 @@
+{{if our_data}}
+
+    {{each($i, $val) our_data}}
+
+        <form class='form-inline functionForm'>
+
+            <input type='hidden' value="${$val.id}" name='id'  class='formId' />
+            <input type='hidden' value="${component_type_id}" name='component_type_id'/>
+
+            <div class="control-group">
+                <div class="control-label">
+                    <label for="name">Функция:</label>
+                </div>
+                <div class="controls">
+                    <input type="text" name="name" value="${$val.name}" class='span2' />
+                    <span class="help help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="control-label">
+                    <label for="clear_name">Понятное название:</label>
+                </div>
+                <div class="controls">
+                    <input type="text" name="clear_name" value="${$val.clear_name}" class='span2'/>
+                    <span class="help help-block"></span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="btn saveFunction">
+                    <i title="Сохранить функцию" class="icon-ok"></i>
+                </div>
+                <div class="btn deleteFunction">
+                    <i title="Удалить функцию" class="icon-trash"></i>
+                </div>
+            </div>
+
+        </form>
+
+    {{/each}}
+
+
+{{/if}}

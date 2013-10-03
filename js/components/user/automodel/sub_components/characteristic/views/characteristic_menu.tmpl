@@ -1,0 +1,20 @@
+<div class="charNavWrap" style="display: block;">
+    <div class="charGroupCaption">Характеристики</div>
+
+    {{each($i, $val) our_data.characteristic}}
+        {{if parseInt($val.type_id) == 1}}
+            <a href="#charCont_${$val.id}" class="charCaption {{if $i == 0}}active{{/if}}">${$val.lang[pref].name}</a>
+            <div class="clear"></div>
+        {{/if}}
+    {{/each}}
+
+    <div class="charGroupCaption">Комплектации</div>
+
+    {{each($i, $val) our_data.characteristic}}
+        {{if parseInt($val.type_id) == 2}}
+            <a href="#charCont_${$val.id}" class="charCaption">${$val.lang[pref].name}</a>
+            <div class="clear"></div>
+        {{/if}}
+    {{/each}}
+
+</div>

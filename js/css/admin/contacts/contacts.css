@@ -1,0 +1,73 @@
+.content_lang {
+    display: none;
+}
+
+.content_lang.current {
+    display: block;
+}
+
+.save_chng {
+    margin: 20px 0 0 0;
+}
+
+ul.files_list {
+    margin: 9px 0 0 0;
+    list-style: none;
+}
+
+#file_upload_wrap {
+    position: absolute;
+    right: 120px;
+}
+
+#content_wrapper {
+    position: relative;
+}
+
+#file_list_wrap {
+    height: 200px;
+    overflow: auto;
+    width: 400px;
+}
+
+.menu_item_icon {
+    margin: 2px 10px 0 0;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.menu_item_icon:hover {
+    opacity: 1;
+}
+
+.menu_item_icon:active {
+    margin-top: 3px;
+}
+
+.seo_content {
+    width: 100%;
+}
+
+.key_title, .desc_wrap {
+    width: 50%;
+    float: left;
+}
+
+.key_title input, .key_title textarea, .desc_wrap textarea {
+    width: 90%;
+}
+
+.desc_wrap textarea {
+    height: 150px;
+}
+
+.key_title textarea {
+    height: 90px;
+}
+
+.seo_caption {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}

@@ -1,0 +1,75 @@
+<form class="form-horizontal" id="markingForm">
+
+    <table class="table table-striped table-bordered table-hover table-condensed" style="margin-top: 15px; ">
+        <thead class="table-head">
+            <tr>
+                <th>
+                    Параметры разметки страницы
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+
+                    <input type="hidden" name="id" value="{{if $data.marking && $data.marking.id}}${$data.marking.id}{{/if}}"/>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="min_width">Минимальная ширина:</label>
+                        </div>
+                        <div class="controls">
+                            <input name="min_width" value="{{if $data.marking && $data.marking.min_width}}${$data.marking.min_width}{{/if}}"/>
+                            <span class="help"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="max_width">Максимальная ширина:</label>
+                        </div>
+                        <div class="controls">
+                            <input name="max_width" value="{{if $data.marking && $data.marking.max_width}}${$data.marking.max_width}{{/if}}"/>
+                            <span class="help"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="width">Ширина эскиза:</label>
+                        </div>
+                        <div class="controls">
+                            <input name="width" value="{{if $data.marking && $data.marking.width}}${$data.marking.width}{{/if}}"/>
+                            <span class="help"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="height">Высота эскиза:</label>
+                        </div>
+                        <div class="controls">
+                            <input name="height" value="{{if $data.marking && $data.marking.height}}${$data.marking.height}{{/if}}"/>
+                            <span class="help"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="control-label">
+                            <label for="min_font_size">Минимальный размер шрифта:</label>
+                        </div>
+                        <div class="controls">
+                            <input name="min_font_size" value="{{if $data.marking && $data.marking.min_font_size}}${$data.marking.min_font_size}{{/if}}"/>
+                            <span class="help"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn btn-primary pull-right" type="submit">Сохранить изменения</button>
+                    </div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>

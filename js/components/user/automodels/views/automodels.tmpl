@@ -1,0 +1,62 @@
+<div class="autoModelsLogoWrap">
+    {{each($i, $val) our_data}}
+        <a href="#autoBrend_${$val.id}" class="autoBrendLogoItem {{if $i == 0}}active{{/if}}">
+            <img class="autoBrendLogoAct" src="${site_url}uploads/images/${$val.autologo.name}">
+            <img class="autoBrendLogo" src="${site_url}js/images/auto_logo${$val.id}.png">
+            <div class="btmBord"></div>
+        </a>
+    {{/each}}
+</div>
+<div class="autoModelsTblWrap" style="width: 85%; left: 15%;">
+    <div class="autoModelsTblCont">
+        {{each($i, $value) our_data}}
+            <div class="autoBrendCont{{if $i == 0}} active{{/if}}" id="autoBrend_${$value.id}">
+                <h1 class="autoBrendCapt">${$value.lang[pref].name}</h1>
+                <table>
+                    <tbody>
+                        {{each($j, $val) $value.automodel_s}}
+                            <tr>
+                                {{each($k, $v) $val}}
+                                    <td>
+                                        <div {{if !$v.empty}}data-href="${site_url}${$v.link.link}/" title="${$value.lang[pref].name} - ${$v.lang.name}"{{/if}} class="{{if $v.empty}}empty{{else}}new_component{{/if}} autoModelInTbl{{if $v.quant && $v.quant !== 0}} groupAM{{/if}}{{if $i == 0 && $j == 0}} btm{{/if}}" data-timer="null">
+
+                                            {{if !$v.empty}}
+
+                                                {{if $v.quant && $v.quant !== 0 && $v.quant !== 1}}
+                                                    <div class="autoModelQuant autoModels">${$v.quant}</div>
+
+                                                    <div style="width: ${$v.quant*100}%; ${$v.left}" class="relatedAutoModelToolTip{{if $k === 0}} first{{/if}}{{if $k === 4}} last{{/if}}">
+                                                        {{each($z, $rel) $v.related}}
+                                                            {{each($m, $relAM) $value.automodel}}
+                                                                {{if $relAM.id == $rel.id}}
+                                                                    <div data-href="${site_url}${$relAM.link.link}/" title="${$value.lang[pref].name} - ${$relAM.lang.name}" style="width: ${parseInt(100/parseInt($v.quant))}%;" class="autoModelRelItem new_component" >
+                                                                        <img style="width:110px; height: 64px;" src="${site_url}js/images/lazy.png" data-original="${site_url}uploads/images/${$relAM.logo.name}" class="lazy autoModelRelPict" />
+                                                                        <div class="autoModelRelCapt">${$relAM.lang.name}</div>
+                                                                        <div class="autoModelPrice">от ${$relAM.price} &#8372;</div>
+                                                                    </div>
+                                                                {{/if}}
+                                                            {{/each}}
+                                                        {{/each}}
+                                                        </div>
+
+                                                    <img src="${site_url}{{if $i == 0 && $j == 0}}js/images/popUpTriangle3.png{{else}}js/images/popUpTriangle.png{{/if}}" class="triangle{{if $i == 0 && $j == 0}} btm{{/if}}" />
+                                                {{/if}}
+
+                                                <img src="${site_url}uploads/images/${$v.logo.name}"/>
+                                                <div class="autoModelCapt">${$v.lang.name}</div>
+                                                <div class="autoModelPrice">от ${$v.price} &#8372;</div>
+                                            {{/if}}
+
+                                        </div>
+
+                                    </td>
+                                {{/each}}
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        {{/each}}
+        <div class="emptyBlock"></div>
+    </div>
+</div>

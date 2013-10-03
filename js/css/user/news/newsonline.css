@@ -1,0 +1,15 @@
+.news_content, .news {
+    padding: 20px;
+}
+
+.news_wrap td {
+    padding: 5px 10px;
+}
+
+.phantom {
+    width: 100%;
+    height: 1px;
+    background: none;
+    position: relative;
+    display: block;
+}

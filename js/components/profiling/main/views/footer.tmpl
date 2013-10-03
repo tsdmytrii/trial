@@ -1,0 +1,9 @@
+{{if our_data}}
+    {{each($i, $value) our_data}}
+        {{if $value.lang && $value.lang[pref]}}
+            <li>
+                <a class="footer_btn new_component" title="${$value.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $value.link && $value.link[pref]}}${$value.link[pref].link}{{else}}{{if $value.href}}${$value.href}/${$value.id}/${$value.main}/${lang_id}{{else}}#{{/if}}{{/if}}/">${$value.lang[pref].value}</a> {{if $i+1 != our_data.length}}&nbsp;|&nbsp;{{/if}}
+            </li>
+        {{/if}}
+    {{/each}}
+{{/if}}

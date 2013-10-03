@@ -1,0 +1,43 @@
+<div class="navbar container-fluid navbar-inner navBarMenuItem">
+
+    <ul class="nav">
+        {{if our_data}}
+            {{each($i, $value) our_data}}
+                {{if $value.parent_id == 0}}
+                    <li class="header_menu_item" data-menu_item_id="${$value.id}" data-lvl="0">
+                        <a class="new_component" title="{{if $value.lang && $value.lang[pref]}}${$value.lang[pref].value}{{/if}}" href="${site_url}admin/{{if $value.component_type}}${$value.component_type.id}/${$value.component_type.name}/${component.content_id}{{else}}0{{/if}}">
+                            {{if $value.lang && $value.lang[pref]}}${$value.lang[pref].value}{{/if}}
+                        </a>
+                    </li>
+                {{/if}}
+            {{/each}}
+        {{/if}}
+    </ul>
+
+</div>
+
+<div data-menu_block_id="${menu_block_id}" style="margin: 0 0 10px 20px;" class="btn btn-primary add_menu_item button">Добавить пункт меню</div>
+
+{{if our_data}}
+    {{each($i, $value) our_data}}
+        <div class="menu_item_wrap" data-menu_item_id="${$value.id}" {{if $value.lvl != 0}}style="margin-left: ${$value.lvl*20}px"{{/if}}>
+            <div class="menu_item_caption header_menu_item" data-lvl="${$value.lvl}" data-menu_item_id="${$value.id}">
+                <a  class="new_component" title="{{if $value.lang && $value.lang[pref]}}${$value.lang[pref].value}{{/if}}" href="${site_url}admin/{{if $value.component_type}}${$value.component_type.id}/${$value.component_type.name}/${component.content_id}{{else}}0{{/if}}">
+                    {{if $value.lang && $value.lang[pref]}}
+                        ${$value.lang[pref].value}
+                    {{/if}}
+                </a>
+            </div>
+            <div class="menu_item_icon_wrap">
+                {{if $value.related}}
+                    <i title="Отвязать пункт меню" class="icon-minus menu_icon minus_menu_item"></i>
+                {{else}}
+                    <i title="Редактировать пункт меню" class="icon-pencil menu_icon edit_menu_item"></i>
+                    <i title="Удалить пункт меню" class="icon-trash menu_icon delete_menu_item"></i>
+                {{/if}}
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    {{/each}}
+{{/if}}

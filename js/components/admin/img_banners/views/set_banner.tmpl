@@ -1,0 +1,150 @@
+<div style="padding: 15px;">
+    <table class="table table-striped table-bordered table-hover table-condensed">
+        <thead class="table-head">
+            <tr>
+                <th colspan="2">
+                    Параметры
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="width: 65%;">
+                    <form id="bannerDataForm" class="form-horizontal">
+                        <input type="hidden" name="id" value="{{if our_data}}${our_data.id}{{/if}}"/>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="position">Позиция:</label>
+                            </div>
+                            <div class="controls">
+                                <input type="text" name="position" value="{{if our_data}}${our_data.position}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="display">Показывать банер?</label>
+                            </div>
+                            <div class="controls">
+                                <input type="checkbox" name="display" value="1" {{if our_data}}{{if parseInt(our_data.display) == 1}}checked{{/if}}{{/if}}/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="top">Отступ текста сверху:</label>
+                            </div>
+                            <div class="controls">
+                                <input type="text" name="top" value="{{if our_data}}${our_data.top}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="left">Отступ текста слева:</label>
+                            </div>
+                            <div class="controls">
+                                <input type="text" name="left" value="{{if our_data}}${our_data.left}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="width">Ширина блока с текстом:</label>
+                            </div>
+                            <div class="controls">
+                                <input type="text" name="width" value="{{if our_data}}${our_data.width}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="control-label">
+                                <label for="height">Высота блока с текстом:</label>
+                            </div>
+                            <div class="controls">
+                                <input type="text" name="height" value="{{if our_data}}${our_data.height}{{/if}}"/>
+                                <span class="help help-block"></span>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+                <td style="width: 35%;">
+                    <div id="upload_wrapper" {{if !our_data}}style="display: none;"{{/if}}>
+                        <input type="file" id="upload_img" class="upl_img" value=""/>
+                        <div id="banner_img">
+                            {{if our_data && our_data.img}}
+                                <img src="${base_url}${directory}/${our_data.img.name}"/>
+                                <div class="clear"></div>
+                                <i class="icon-trash menu_icon" id="delete_banner_img" data-img_id="${our_data.img.id}"/>
+                            {{/if}}
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="btn-group" style='margin-top: 15px'>
+
+        {{each($i, $val) lang}}
+            <a href="#langBannerContent${$val.id}" class="btn {{if $i == 0}}active{{/if}} tab">${$val.name}</a>
+        {{/each}}
+
+    </div>
+
+    <table class="table table-striped table-bordered table-hover table-condensed" style="margin: 15px 0 0 0;">
+        <thead class="table-head">
+            <tr>
+                <th>
+                    Основная информация
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+
+                    {{each($i, $val) lang}}
+
+                        <form id="langBannerContent${$val.id}" class="bannerForm form-horizontal" {{if $i != 0}}style="display: none;"{{/if}}>
+
+                            <input class="lang_id" type="hidden" value="{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].id}{{/if}}{{else}}0{{/if}}" name="banner_lang_id"/>
+                            <input type="hidden" value="${$val.id}" name="language_id"/>
+
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label for="title" class="control-label">Название:</label>
+                                </div>
+                                <div class="controls">
+                                    <input type="text" name="title" value="{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].title}{{/if}}{{/if}}"/>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <div class="control-label">
+                                    <label for="description">Описание:</label>
+                                </div>
+                                <div class="controls">
+                                    <textarea style="width:350px;height:250px" class="description content_desc" name="description">{{if our_data}}{{if our_data.lang && our_data.lang[$val.iso_code] }}${our_data.lang[$val.iso_code].description}{{/if}}{{/if}}</textarea>
+                                    <span class="help help-block"></span>
+                                </div>
+                            </div>
+
+
+                            <div class="form-actions">
+                                <div class="pull-right">
+                                    <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                                    <div class="btn cancel">Отмена</div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    {{/each}}
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

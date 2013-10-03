@@ -1,0 +1,46 @@
+<form class="well form-horizontal" id="emailForm">
+    <fieldset>
+
+        <legend>Електронный адресс</legend>
+
+        <input type="hidden" name="id" id="email_id" value="{{if $data.email && $data.email.id}}${$data.email.id}{{/if}}"/>
+
+        <div class="control-group">
+            <div class="control-label">
+                <label for="email">Електронный адрес:</label>
+            </div>
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-envelope"></i></span>
+                    <input name="email" style="margin-left: -5px;" class="span2" value="{{if $data.email && $data.email.email}}${$data.email.email}{{/if}}"/>
+                </div>
+                <span class="help"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <label for="department">Отдел:</label>
+            </div>
+            <div class="controls">
+                <input name="department" value="{{if $data.email && $data.email.department}}${$data.email.department}{{/if}}"/>
+                <span class="help"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="control-label">
+                <label for="description">Описание:</label>
+            </div>
+            <div class="controls">
+                <textarea name="description">{{if $data.email && $data.email.description}}${$data.email.description}{{/if}}</textarea>
+                <span class="help"></span>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button class="btn btn-primary pull-right" type="submit">Сохранить изменения</button>
+        </div>
+
+    </fieldset>
+</form>

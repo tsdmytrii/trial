@@ -1,0 +1,12 @@
+.emailContent, .questionVariantCont {
+    float: left;
+    width: 49%;
+    margin: 0 1% 20px 0;
+}
+
+.email_item_wrap, .question_item_wrap {
+    background: none repeat scroll 0 0 #F5F5F5;
+    border: 1px solid #BBBBBB;
+    margin: 5px 10px 5px 0;
+    padding: 2px 5px;
+}

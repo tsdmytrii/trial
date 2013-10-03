@@ -1,0 +1,50 @@
+<table id="productTable" style="margin-top: 15px;" class="table tableBordered table-hover">
+    <thead class="table-head">
+        <tr>
+            <td style="width: 20%;">
+                Категории
+            </td>
+            <td style="width: 80%;">
+                <div class="btn" id="addProduct">Добавить товар</div>
+
+                <div id="productManipulation">
+
+                    <div class="productQuantity">
+                        Количество товаров на странице
+                    </div>
+                    <div class='btn-group'>
+                        <div data-limit="20" class="btn quantity active">20</div>
+                        <div data-limit="40" class="btn quantity">40</div>
+                        <div data-limit="60" class="btn quantity">60</div>
+                        <div data-limit="80" class="btn quantity">80</div>
+                        <div data-limit="100" class="btn quantity">100</div>
+                    </div>
+
+                    <div id="paginator"></div>
+
+                    <div id="sortingWrap">
+                        <label for="sorting">Сортировка по:</label>
+                        <select name="sorting" id="sorting">
+                            <option class="sortingVal" value="0" selected>не сортировать</option>
+                            <option class="sortingVal" value="1">цене убыв.</option>
+                            <option class="sortingVal" value="2">цене возр.</option>
+                            <option class="sortingVal" value="3">названию</option>
+                            <option class="sortingVal" value="4">производителю</option>
+                        </select>
+                    </div>
+
+                </div>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+            <tr>
+                <td id="categoryWrapper">
+
+                </td>
+                <td id="productWrapper">
+
+                </td>
+            </tr>
+    </tbody>
+</table>

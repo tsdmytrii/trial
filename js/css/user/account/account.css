@@ -1,0 +1,30 @@
+#set_account {
+    padding-top: 20px;    
+}
+
+.form_item {
+    margin-top: 3px;
+}
+
+#set_account .left {
+    float: left;
+    margin-top: 4px;
+    width: 30%;
+    text-align: right;        
+}
+
+#set_account .right {
+    float: right;
+    width: 70%;
+    text-align: left;
+}
+
+#set_account input.error {
+    border: 1px solid red;
+}
+
+#set_account label.error {
+    color: red;
+}
+
+

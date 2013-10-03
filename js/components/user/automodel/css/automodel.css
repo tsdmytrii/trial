@@ -1,0 +1,298 @@
+.autoModelItemWrap {
+    margin: 0;
+    height: 100%;
+}
+
+.amMI {
+    float: left;
+    text-decoration: underline;
+    cursor: pointer;
+    color: #000;
+    font-family: FrMedium;
+    height: 100%;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+#pageWrap .amMI{
+    text-transform: none;
+}
+
+.amMI.active {
+    color: #386292;
+    text-decoration: none;
+}
+
+.AMSep {
+    height: 100%;
+    margin: 0 10px;
+    float: left;
+}
+
+.AMSep.first {
+    width: 25%;
+    margin: 0 0 0 -10px;
+}
+
+#pageWrap .AMSep.first {
+    width: 0;
+}
+
+.galeryWrap {
+    height: 67%;
+    margin: 0 0.2%;
+    overflow: hidden;
+    padding: 0 0.3%;
+    position: relative;
+    width: 99%;
+}
+
+.mainPhoto {
+    height: 100%;
+    left: 0;
+    padding: 0 0.4% 0 0.5%;
+    position: absolute;
+    top: 0;
+    width: 76%;
+}
+
+.mainPhoto img {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.sidePhoto {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 23%;
+    height: 100%;
+}
+
+.sidePhoto img {
+    width: 100%;
+    height: 25%;
+}
+
+.descriptionAutoModelWrap {
+    color: #000000;
+    font-family: FrMedium;
+    font-size: 100%;
+    height: 30%;
+    line-height: 120%;
+    margin: 0.5% 0 0 1%;
+    overflow: hidden;
+    width: 99%;
+}
+
+.descriptionAutoModel {
+    width: 100%;
+    height: 100%;
+}
+
+.descriptionAutoModelPadding {
+    width: 99%;
+    padding: 0 1% 0 0;
+}
+
+.amTabCont.current {
+    visibility: inherit;
+}
+
+.amTabCont {
+    visibility: hidden;
+    display: block;
+    height: 100%;
+    width: 75%;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#pageWrap .amTabCont {
+    width: 100%;
+}
+
+/*---------------Char content---------------------*/
+
+.charContainer {
+    padding: 0 20px;
+    height: 100%;
+}
+
+.charContWrap {
+    height: 84%;
+    width: 100%;
+}
+
+.charNavWrap {
+    background: none repeat scroll 0 0 #FFFFFF;
+    left: -105px;
+    position: absolute;
+    top: 120px;
+    z-index: 21;
+    font-family: FrMedium;
+    -moz-border-radius: 5px;/*Firefox*/
+    -webkit-border-radius: 5px;/*Safari, Chrome*/
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #000101;
+}
+
+.charGroupCaption {
+    padding: 2px 10px 3px 10px;
+    font-size: 110%;
+    background: #36638d;
+    color: #fff;
+    -moz-border-radius: 5px;/*Firefox*/
+    -webkit-border-radius: 5px;/*Safari, Chrome*/
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin: 1px 0 5px 0;
+    cursor: default;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+.charCaption {
+    padding: 2px 20px;
+    font-size: 100%;
+    color: #000;
+    -moz-border-radius: 5px;/*Firefox*/
+    -webkit-border-radius: 5px;/*Safari, Chrome*/
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 4px 0;
+    display: block;
+}
+
+.charCaption:hover {
+    background: #B7CDE4;
+}
+
+.charCaption.active {
+    background: #9bb1c8;
+}
+
+.charContCapt {
+    background: none repeat scroll 0 0 #DDDDDD;
+    padding: 5px 0;
+    width: 100%;
+    margin: 1px 0;
+}
+
+.charContCapt span {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.charContDesc {
+    padding: 0 2%;
+    width: 96%;
+}
+
+.charContDesc table{
+    width: 100%;
+}
+
+.charContDesc td {
+    width: auto;
+    padding: 4px 10px;
+    border: 1px solid #fff;
+}
+
+.charContDesc tr {
+    background: #efefef;
+}
+
+.charContDesc tr.even {
+    background: #fff;
+}
+
+.complWrap {
+    height: 15%;
+    margin: 0;
+    width: 99%;
+}
+
+.complWrap table {
+    background: none repeat scroll 0 0 #D1D1D1;
+    width: 100%;
+}
+
+.complWrap td {
+    padding: 2px 10px;
+    border-right: 1px solid #D1D1D1;
+}
+
+.complWrap .space {
+    padding: 0;
+    width: 7px;
+}
+
+.space {
+    width: 1%;
+}
+
+.complWrap .compl {
+    background: #9bb1c8;
+}
+
+/*--------------------------------------*/
+
+.autoModelListWrap {
+    display: block;
+    font-family: FrMedium;
+    font-size: 100%;
+    left: 1%;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    width: 22%;
+    z-index: 20;
+}
+
+#pageWrap .autoModelListWrap {
+    width: 25%;
+    left: -31.5%;
+}
+
+.autoModelName {
+    height: 30px;
+    line-height: 30px;
+    color: #386292;
+}
+
+.automodelList a{
+    color: #000;
+    margin: 7px 0;
+    display: block;
+}
+
+.automodelListImg, .automodelListImg img{
+    width: 100%;
+    display: block;
+}
+
+
+
+/*
+*------------------ Side bar visible!!!!!!!
+*/
+
+.sideBar #pageWrap .galeryWrap {
+    height: 60%
+}
+
+.sideBar #pageWrap .descriptionAutoModelWrap {
+    height: 39%
+}
+
+.sideBar #pageWrap .charNavWrap {
+    left: -24%;
+    top: 28%;
+    z-index: 25;
+}

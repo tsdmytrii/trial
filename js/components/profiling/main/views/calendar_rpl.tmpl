@@ -1,0 +1,14 @@
+<tr class="new_calendar_event">
+    <td class="calendar_time">${our_data.time.slice(0, 5)}</td>
+    <td class="calendar_country">
+        {{if our_data.language_id == 1}}
+            <i class="b-fg b-fg_${our_data.iso_country}"><img src="${site_url}images/fg.png"/></i>
+        {{else}}
+            ${our_data.iso_country}
+        {{/if}}
+    </td>
+    <td class="calendar_title">${our_data.title}</td>
+    <td class="calendar_cons">${our_data.cons}</td>
+    <td class="calendar_actual">${our_data.actual}</td>
+    <td class="calendar_previous">${our_data.previous}</td>
+</tr>

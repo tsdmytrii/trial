@@ -1,0 +1,43 @@
+{{if our_data}}
+
+    {{if our_data != 403}}
+
+        {{each($i, $val) our_data}}
+            {{if $val.lang}}
+            <div class="productCard" data-rel_categories="{{if $val.relCategories}}{{each($k, $v) $val.relCategories}}${$v.id}{{if ($k+1) != $val.relCategories.length}}|{{/if}}{{/each}}{{/if}}">
+                <div class="productCardBg"></div>
+                <div class="productCardContent">
+                    <div class="productName">${$val.lang[pref].name}, в наличии ${$val.quantity}</div>
+                    <div class="productLogo">
+                        {{if $val.logo}}
+                            <img src="${site_url}uploads/images/${$val.logo.name}"/>
+                        {{else}}
+                            <img src="${site_url}js/images/no_photo.png"/>
+                        {{/if}}
+                    </div>
+                    <div class="productPrice">
+                        <span class="productPriceCapt">Цена: ${$val.price} у.е.</span>
+                        <div data-product_id="${$val.id}" class="control-group pull-right productManipulate">
+                            <div class="btn editProduct">
+                                <i title="Изменить товар" class="icon-pencil"></i>
+                            </div>
+                            <div class="btn deleteProduct">
+                                <i title="Удалить товар" class="icon-trash"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+
+        {{/each}}
+
+    {{else}}
+
+        <h3>Код ошибки: ${our_data}</h3>
+
+    {{/if}}
+
+{{else}}
+    <h4>В данной категории нет товаров!</h4>
+{{/if}}

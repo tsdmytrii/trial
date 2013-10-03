@@ -1,0 +1,23 @@
+<div class="autoModelListWrap">
+    <div class="autoModelName">${automodels.lang[pref].name} -
+        {{each($i, $val) automodels.automodel}}
+            {{if automodel_id == $val.id}}
+                ${$val.lang.name}
+            {{/if}}
+        {{/each}}
+    </div>
+    <div class="automodelListImg">
+        {{each($i, $val) automodels.automodel}}
+            {{if automodel_id == $val.id}}
+                {{if $val.photo}}
+                    <img src="${site_url}uploads/images/${$val.photo.name_mini}"/>
+                {{/if}}
+            {{/if}}
+        {{/each}}
+    </div>
+    <div class="automodelList">
+        {{each($i, $val) automodels.automodel}}
+            <a title="${$val.lang.name}" href="${site_url}automodel/${$val.id}/${automodels.id}/0/${lang_id}" class="autoModelWindItem">${$val.lang.name}</a>
+        {{/each}}
+    </div>
+</div>

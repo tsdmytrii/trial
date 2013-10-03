@@ -1,0 +1,18 @@
+#top_menu{
+    background-color: #fff;
+}
+#top_menu .top_menu_item{
+    border:1px solid #ccc;
+    height:20px;
+    text-align: center;
+    line-height: 20px;
+    float:left;
+
+}
+#top_menu .top_menu_item:hover, #top_menu .top_menu_item a.current{
+    background-color:#ccc;
+}
+#top_menu .top_menu_item a{
+    font-size:14px;
+    padding: 0 25px;
+}

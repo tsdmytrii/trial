@@ -1,0 +1,52 @@
+{{if windTabWrap || openInTab === false}}
+    <div data-class="${className}" class="${className} current" id="${id}">
+    <div class="seo_title" style="display: none;">{{if seo}}${seo[pref].seo_title}{{/if}}</div>
+{{/if}}
+
+<div class="articleWrap">
+
+    <div class="articleContent">
+        {{if seo}}
+            {{if seo[pref].description.length > 3}}
+                <div class="articleDescTop">{{html seo[pref].description}}</div>
+            {{/if}}
+        {{/if}}
+        <div class="clear"></div>
+
+            {{each($j, $val) our_data}}
+                {{if $val.lang && $val.lang[pref] && $val.img}}
+                    <div class="articleItem {{if $j%2 == 0}}even{{/if}}">
+                        <div class="articleImgWrap">
+                            <img src="${site_url}uploads/images/${$val.img.name}">
+                        </div>
+                        <div class="articleTextWrap">
+                            <a class="articleCaption new_component" title="${$val.lang[pref].title}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if $val.link && $val.link[pref]}}${$val.link[pref].link}{{else}}${$val.href}${$val.id}/${menu_item.id}/${$val.main}/${lang_id}{{/if}}/">
+                                ${$val.lang[pref].title}
+                                <span class="articleDate">${$val.date.split('-')[2]}.${$val.date.split('-')[1]}.${$val.date.split('-')[0]}</span>
+                            </a>
+                            <div class="articleDesc">
+                                ${$val.lang[pref].description}...
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    <div class="clear"></div>
+                {{/if}}
+            {{/each}}
+
+
+        {{if seo}}
+            {{if seo[pref].description_btm.length > 3}}
+                <div class="articleDescBtm">{{html seo[pref].description_btm}}</div>
+            {{/if}}
+        {{/if}}
+        <div class="clear"></div>
+
+        <div class="capScroll">&nbsp;</div>
+
+    </div>
+
+</div>
+{{if windTabWrap || openInTab === false}}
+    </div>
+{{/if}}

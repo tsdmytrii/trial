@@ -1,0 +1,53 @@
+.compTypeTabCont {
+    display: none;
+}
+
+.compTypeTabCont.current {
+    display: block;
+}
+
+#subscriptionManipulation .paginate a, #subscriptionManipulation .paginate span {
+    color: #000;
+}
+
+#subscriptionManipulation .btn-group {
+    float: left;
+}
+
+#subscriberManipulation .btn-group {
+    float: left;
+}
+
+#paginator {
+    float: left;
+    margin: 5px 0 0 20px;
+}
+
+#addSubscription {
+    float: left;
+}
+
+#addSubscriber {
+    float: left;
+}
+
+.subscriptionQuantity {
+    float: left;
+    margin: 5px 10px 0 20px;
+}
+
+.functionForm .control-label, .functionForm .help {
+    display: inline;
+}
+
+.input {
+    height: 10%;
+}
+
+.hidden {
+    display: none;
+}
+
+#tabWrap {
+    margin-bottom: 5px;
+}

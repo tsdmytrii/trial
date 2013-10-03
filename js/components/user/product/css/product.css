@@ -1,0 +1,26 @@
+.staticCompWrap {
+    padding: 0 15px;
+    height: 100%;
+    position: relative;
+}
+
+.staticCompContent {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+#pageWrap .staticCompWrap {
+    padding: 0;
+}
+
+.staticCaption {
+  float: left;
+  font-size: 150%;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.staticCaption .staticDate {
+    color: #B2B2B2;
+}

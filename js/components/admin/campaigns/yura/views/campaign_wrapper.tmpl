@@ -1,0 +1,24 @@
+<ul class="nav nav-tabs" id="campaignsTab">
+    <li class="active"><a href="#instantaneous">Мгновенные</a></li>
+    <li><a href="#planned">Запланированные</a></li>
+    <li><a href="#regular">Регулярные</a></li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane active" id="instantaneous">
+
+    </div>
+    <div class="tab-pane" id="planned">
+
+    </div>
+    <div class="tab-pane" id="regular">
+
+    </div>
+</div>
+
+<script>
+    $('#campaignsTab a').click(function (e) {
+        e.preventDefault();
+        $(this).tab('show');
+    })
+</script>

@@ -1,0 +1,46 @@
+#contract_wrap {
+    font: 75% Verdana;
+    width: 100%;
+}
+
+#contr_table {
+    margin: 15px 0;
+    width: 100%;
+}
+
+#contr_table thead td {
+    background: url("../../../../images/menu_btn.png") repeat scroll 0 0 transparent;
+    height: 28px;
+    position: relative;
+    vertical-align: middle;
+    color: #fff;
+}
+
+#contr_table td{
+    border: 1px solid #cbcbcb;
+    padding: 5px;
+    height: 100%;
+    position: relative;
+    vertical-align: middle;
+}
+
+#contr_table tr:hover {
+    background-color: #f6f5c9;
+    cursor: pointer;
+}
+
+.contr_symb {
+    width: 35%;
+}
+.contr_balans {
+    width: 18%;
+}
+.contr_spred {
+    width: 10%;
+}
+.contr_long {
+    width: 19%;
+}
+.contr_short {
+    width: 18%;
+}

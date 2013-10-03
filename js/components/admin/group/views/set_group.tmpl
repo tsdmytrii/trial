@@ -1,0 +1,100 @@
+<div style="padding: 20px;">
+
+    <div class="btn-group">
+
+        <a href="groupCommon" class="btn active groupTab">Общая информация</a>
+
+        <a href="permissions" class="btn groupTab{{if !our_data}} disabled{{/if}}">Права доступа группы</a>
+
+    </div>
+
+
+    <div id="groupContent" style="padding-top: 15px;">
+
+        <div id="groupCommon" class="groupTabContent current">
+
+            <div id="group_form" class="group_tab_cont cur">
+
+                <table class="table table-striped table-bordered table-hover table-condensed">
+                    <thead class="table-head">
+                        <tr>
+                            <th colspan="2">
+                                Информация о группе пользователей
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+
+
+                                <form class="groupForm form-horizontal">
+                                    <input type="hidden" class="group_id" name="group_id" value="{{if our_data}}${our_data.id}{{/if}}">
+
+                                    <div class="control-group">
+                                        <div class="control-label">
+                                            <label for="clear_name">Название:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <input type="text" class="name" name="clear_name" value="{{if our_data}}${our_data.clear_name}{{/if}}"/>
+                                            <span class="help help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <div class="control-label">
+                                            <label for="name">Системное название:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <input type="text" class="name" name="name" value="{{if our_data}}${our_data.name}{{/if}}"/>
+                                            <span class="help help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <div class="control-label">
+                                            <label for="button_name">Описание:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <textarea name="description">{{if our_data}}${our_data.description}{{/if}}</textarea>
+                                            <span class="help help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <div class="control-label">
+                                            <label for="button_name">Доступ в админку:</label>
+                                        </div>
+                                        <div class="controls">
+                                            <input type="checkbox" value="1" name="admin_access" {{if our_data}}{{if parseInt(our_data.admin_access) == 1}}checked{{/if}}{{/if}} />
+                                            <span class="help help-block"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <div class="pull-right">
+                                            <button class="btn btn-primary" type="submit">Сохранить изменения</button>
+                                            <div class="btn cancel">Отмена</div>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+        <div id="permissions" class="groupTabContent">
+
+            <div id='permissionWrap'></div>
+
+        </div>
+
+    </div>
+
+</div>

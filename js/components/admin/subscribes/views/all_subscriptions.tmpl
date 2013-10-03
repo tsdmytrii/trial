@@ -1,0 +1,35 @@
+<table style="margin-top: 15px;" class="table tableBordered table-hover">
+
+    <thead class="table-head">
+        <tr>
+            <td>ID</td>
+            <td>Название подписки</td>
+            <td>Описание</td>
+            <td>Действия</td>
+        </tr>
+    </thead>
+
+    <tbody class="subscriptionsListTbody">
+
+        {{if our_data}}
+            {{each($i, $val) our_data}}
+                <tr>
+                    <td>${$val.id}</td>
+                    <td>${$val.name}</td>
+                    <td>${$val.description}</td>
+                    
+                    <td>
+                        <div data-subscription_id="${$val.id}" class="subscription_icon_wrap pull-right">
+                            <i class="icon-pencil menu_icon editSubscription" title="Редактировать тип подписки"></i>
+                            <i class="icon-trash menu_icon deleteSubscription" title="Удалить тип подписки"></i>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+        {{/if}}
+
+    </tbody>
+
+</table>
+
+

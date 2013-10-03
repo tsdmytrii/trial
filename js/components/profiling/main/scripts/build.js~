@@ -1,0 +1,23 @@
+//steal/js cookbook/scripts/compress.js
+
+load("steal/rhino/rhino.js");
+steal('steal/build',
+	  'steal/build/scripts',
+	  'steal/build/styles', 
+	  'steal/build/apps').then(
+            
+	function(){
+		
+//                steal.build('components/core/scripts/build.html', {to: 'components/core/production'});	
+		steal.build('components/user/main/scripts/build.html', {to: 'components/user/main/production'});	
+//		steal.build('components/user/funds_article/scripts/build.html', {to: 'components/user/funds_article/production'});
+//		steal.build('components/user/comodities_article/scripts/build.html', {to: 'components/user/comodities_article/production'});
+//		steal.build('components/user/currencies_article/scripts/build.html', {to: 'components/user/currencies_article/production'});
+//		steal.build('components/user/ufm_article/scripts/build.html', {to: 'components/user/ufm_article/production'});	
+//		steal.build('components/user/menu/scripts/build.html', {to: 'components/user/menu/production'});	
+//		steal.build('components/user/kalendar_archive/scripts/build.html', {to: 'components/user/kalendar_archive/production'});
+//		steal.build('components/user/news_archive/scripts/build.html', {to: 'components/user/news_archive/production'});
+//		steal.build('components/user/analytic_archive/scripts/build.html', {to: 'components/user/analytic_archive/production'});
+		
+		
+});

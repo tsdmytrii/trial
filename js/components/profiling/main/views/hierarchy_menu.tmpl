@@ -1,0 +1,21 @@
+{{if our_data}}
+    {{if our_data.lang && our_data.lang[pref]}}
+        <ul {{if first == true}}id='left_menu_wrap'{{/if}}>
+            <li id="menu_${our_data.id}" class="left_menu_item {{if first == true}}top_element{{/if}} {{if related == true}}related_menu_item{{/if}}">
+                <div class="{{if first == true}}group_element{{else}}menu_element{{/if}} {{if current == true}}current{{/if}}">
+                    {{if first == true}}
+                        <img class="bg" src="${site_url}images/max_menu_bg.png">
+                    {{else}}
+                        <img src="{{if current == true}}${site_url}images/max_hr_active.png{{else}}${site_url}images/max_hr.png{{/if}}" class="max_line"/>
+                    {{/if}}
+                    <a class="new_component {{if current == true}}current{{/if}}" {{if our_data.lvl}}style="margin-left: ${4*our_data.lvl}%"{{/if}} title="${our_data.lang[pref].value}" href="${site_url}{{if pref !== 'ru'}}${pref}/{{/if}}{{if our_data.link && our_data.link[pref]}}${our_data.link[pref].link}{{else}}{{if our_data.href}}${our_data.href}/${our_data.id}/${our_data.main}/${lang_id}{{else}}#{{/if}}{{/if}}/">
+                    {{if related == true}}
+                            <img class="rel_menu_i" src="${site_url}images/link.png">
+                    {{/if}}
+                    ${our_data.lang[pref].value}
+                    </a>
+                </div>
+            </li>
+        </ul>
+    {{/if}}
+{{/if}}

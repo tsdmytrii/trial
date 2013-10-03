@@ -1,0 +1,16 @@
+.review_content, .review {
+    padding: 20px;
+}
+
+.review_wrap td {
+    padding: 5px 10px;
+}
+
+.review_caption, .review_back {
+    cursor: pointer;
+}
+
+.review_title a {
+    color: #000;
+    text-decoration: none;
+}

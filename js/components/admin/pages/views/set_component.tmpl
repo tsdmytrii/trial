@@ -1,0 +1,41 @@
+<div class="modal set_component">
+    <form class="set_comp_form form-horizontal">
+        <div class="modal-header">
+            <i class="icon-remove menu_icon close_window"></i>
+            <h3>${event}</h3>
+        </div>
+        <div class="modal-body">
+            <input type="hidden" name="id" value="{{if our_data}}${our_data.id}{{/if}}" />
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Название страницы</label>
+                <div class="controls">
+                    <input type="text" name="name" placeholder="Название страницы" value="{{if our_data}}${our_data.name}{{/if}}">
+                    <span class="error"></span>
+                </div>
+            </div>
+
+            {{if our_data == false}}
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Тип страницы</label>
+                    <div class="controls">
+                        <select name="component_type_id">
+                            {{if types}}
+                                {{each($i, $value) $data.types}}
+                                    <option value="${$value.id}">${$value.psevdo_name}</option>
+                                {{/each}}
+                            {{/if}}
+                        </select>
+                        <span class="error"></span>
+                    </div>
+                </div>
+            {{else}}
+                <input type="hidden" name="component_type_id" value="${our_data.component_type_id}" />
+            {{/if}}
+
+        </div>
+        <div class="modal-footer">
+            <input type="submit" class="btn btn-primary" value="Сохранить" />
+            <input type="button" class="btn cancel" value="Отмена" />
+        </div>
+    </form>
+</div>

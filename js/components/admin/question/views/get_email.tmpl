@@ -1,0 +1,13 @@
+{{if our_data}}
+    {{each($i, $val) our_data}}
+        <div class="email_item_wrap">
+            <div class="menu_item_caption header_menu_item">${$val.department} | ${$val.email}</div>
+            <div class="menu_item_icon_wrap" data-email_id="${$val.id}">
+                <i class="icon-pencil menu_icon editEmail" title="Редактировать e-mail"></i>
+                <i class="icon-trash menu_icon deleteEmail" title="Удалить пункт меню"></i>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    {{/each}}
+{{/if}}
